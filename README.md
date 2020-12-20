@@ -2,7 +2,7 @@
 
 ## Members
 - Alexandros Kyriakakis
-- Ioannis Alexopoulos
+- Giannis Alexopoulos
 - Nikos Kostas 
 - Konstantinos Kopsinis
 - Georgios Paraskeyopoulos
