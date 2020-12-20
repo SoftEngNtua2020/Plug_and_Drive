@@ -1,0 +1,9 @@
+Τα links για τα 2 διαγράμματα που δημιουργήθηκαν στο VP Online (αντί του Community Edition).
+
+Use Case - Payment - Sequence Diagram
+https://tinyurl.com/ybpazg53
+
+Use Case - Payment - Activity Diagram
+https://tinyurl.com/y9uz7cwc
+
+
