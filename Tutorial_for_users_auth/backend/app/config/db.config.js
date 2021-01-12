@@ -1,8 +1,8 @@
 module.exports = {
-   HOST: "localhost",
-   USER: "root",
-   PASSWORD: "",
-   DB: "TL2020",
+   HOST: "snf-17690.ok-kno.grnetcloud.net",
+   USER: "PnG",
+   PASSWORD: "alexander",
+   DB: "PnG_Auth",
    dialect: "mysql",
    pool: {
      max: 5,
