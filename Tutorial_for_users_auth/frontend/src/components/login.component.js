@@ -96,7 +96,7 @@ export default class Login extends Component {
             }}
           >
             <div className="form-group">
-              <label htmlFor="username">Username 123</label>
+              <label htmlFor="username">Username</label>
               <Input
                 type="text"
                 className="form-control"
