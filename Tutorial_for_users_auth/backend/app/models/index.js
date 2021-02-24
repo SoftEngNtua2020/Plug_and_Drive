@@ -24,8 +24,15 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.user = require("./user.model.js")(sequelize, Sequelize);
+db.admin = require("./admin.model.js")(sequelize, Sequelize);
+db.designer = require("./vehicle_designer.model.js")(sequelize, Sequelize);
+db.program = require("./charging_program.model.js")(sequelize, Sequelize);
 db.role = require("./role.model.js")(sequelize, Sequelize);
+db.session = require("./session.model.js")(sequelize, Sequelize);
+db.station = require("./station.model.js")(sequelize, Sequelize);
+db.user = require("./user.model.js")(sequelize, Sequelize);
+db.owner = require("./vehicle_owner.model.js")(sequelize, Sequelize);
+db.vehicle = require("./vehicle.model.js")(sequelize, Sequelize);
 
 db.role.belongsToMany(db.user, {
   through: "user_roles",
@@ -37,6 +44,24 @@ db.user.belongsToMany(db.role, {
   foreignKey: "userId",
   otherKey: "roleId"
 });
+
+db.admin.belongsToMany(db.station, {
+  through: "Admin_Station",
+  foreignKey: "admin_id",
+  otherKey: "station_id"
+});
+db.station.belongsToMany(db.admin, {
+  through: "Admin_Station",
+  foreignKey: "station_id",
+  otherKey: "admin_id"
+});
+
+db.designer.hasMany(db.vehicle);
+db.owner.hasMany(db.vehicle);
+db.designer.hasMany(db.vehicle);
+db.vehicle.hasMany(db.session);
+db.station.hasMany(db.session);
+db.station.hasMany(db.program);
 
 db.ROLES = ["user", "admin", "moderator"];
 
