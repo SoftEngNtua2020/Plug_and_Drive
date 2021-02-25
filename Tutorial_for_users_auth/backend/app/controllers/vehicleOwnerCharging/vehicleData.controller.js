@@ -8,7 +8,7 @@ const User = db.user;
 exports.vehicleData = (req, res) => {
    User.findOne({
       where: {
-      username: req.body.username
+      id: req.userId
     }
    })
       .then(user => {
