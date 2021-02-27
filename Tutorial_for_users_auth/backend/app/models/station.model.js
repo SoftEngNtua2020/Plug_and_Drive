@@ -2,19 +2,25 @@ module.exports = (sequelize, Sequelize) => {
    const Station = sequelize.define("stations", {
      station_id: {
        type: Sequelize.INTEGER,
-       primaryKey: true
+       primaryKey: true,
+       autoIncrement: true,
+       allowNull: false
      },
      location: {
-       type: Sequelize.STRING
+       type: Sequelize.STRING,
+       allowNull: false
      },
      company_name: {
-       type: Sequelize.STRING
+       type: Sequelize.STRING,
+       allowNull: false
      },
      phone_number: {
-       type: Sequelize.INTEGER
+       type: Sequelize.STRING,
+       allowNull: false
      },
      number_of_spaces: {
-       type: Sequelize.INTEGER
+       type: Sequelize.INTEGER,
+       allowNull: false
      }
    },
       {

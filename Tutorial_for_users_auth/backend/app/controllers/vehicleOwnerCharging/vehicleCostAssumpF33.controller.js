@@ -5,7 +5,7 @@ const Vehicle = db.vehicle;
 //const User = db.user;
 
 
-exports.vehicleData = (req, res) => {
+exports.vehicleCostAssump = (req, res) => {
    Vehicle.findOne({
       where: {
         owner_id: req.userId

@@ -14,7 +14,7 @@ module.exports = (sequelize, Sequelize) => {
         allowNull: false
       },
       phone_Number: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
       },
       email: {
@@ -22,7 +22,7 @@ module.exports = (sequelize, Sequelize) => {
         allowNull: false
       },
       birth_date: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false, 
       },
       bonus_points: {
