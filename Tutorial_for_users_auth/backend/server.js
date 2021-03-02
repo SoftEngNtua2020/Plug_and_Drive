@@ -28,6 +28,7 @@ require('./app/routes/user.routes')(app);
 require('./app/routes/vehicleOwnerCharging/vehicleDataF01.routes')(app);
 require('./app/routes/vehicleOwnerCharging/vehicleCostAssumpF33.routes')(app);
 require('./app/routes/vehicleOwnerCharging/vehicleEventDataF29.routes')(app);
+require('./app/routes/vehicleOwnerCharging/F19.routes')(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
