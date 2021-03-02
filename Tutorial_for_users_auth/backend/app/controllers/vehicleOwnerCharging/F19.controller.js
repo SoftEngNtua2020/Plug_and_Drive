@@ -41,7 +41,7 @@ exports.AddSession = (req, res) => {
                   bonus_points_energy: Rounding_to_two( kwh_need * program.bonus_per_kwh ),
                   total_cost: Rounding_to_two( kwh_need * program.kwh_price ),
                   vehicle_id: vehicle_.id,
-                  station_id: program.station_id
+                  station_id: req.body.station_id
                })
                .then(() => {
                   Vehicle.update(
