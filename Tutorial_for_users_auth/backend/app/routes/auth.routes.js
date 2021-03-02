@@ -19,5 +19,12 @@ module.exports = function(app) {
     controller.signup
   );
 
-  app.post("/api/auth/signin", controller.signin);
+  app.get("/api/auth/signin/:username/:password", controller.signin);
 };
+
+
+/*
+post -> plhroforia sto req.body
+get -> plhroforia sto url ara to pairnv apo req.params (to get den exei body)
+oti yparxei  sto url meta to ? brisketai sto req.query
+*/
