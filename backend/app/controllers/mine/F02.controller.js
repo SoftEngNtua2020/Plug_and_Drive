@@ -2,15 +2,25 @@ const db = require("../../models");
 const { Op } = require("sequelize");
 
 exports.F02 = (req, res) => {
+
+   // check that req.userId is a proper station admin -- TO BE ADDED
+
+   //const start_date = int_to_date(req.params.yyyymmdd_from); //?????
+   //const end_date = int_to_date(req.params.yyyymmdd_to); //?????
+   const start_date = req.params.yyyymmdd_from;
+   const end_date = req.params.yyyymmdd_to;
+   //console.log(int_to_date(start_date));
+   //console.log(int_to_date(end_date));
+
    db.vehicle.findAll({
       attributes: [], // to reduce table size
       where: {
-        designer_id: req.userId // :42
+        designer_id: req.params.designerID
       },
       include: {
         model: db.session,
         where: {
-          started_on: { [Op.between]: [req.body.start_date, req.body.end_date] }
+          started_on: { [Op.between]: [start_date, end_date] }
         }
       }
    })
@@ -23,7 +33,7 @@ exports.F02 = (req, res) => {
                session_id: results[i].Charging_Sessions[j].session_id,
                started_on: results[i].Charging_Sessions[j].started_on,
                finished_on: results[i].Charging_Sessions[j].finished_on,
-               energy_deliverd: results[i].energy_deliverd,
+               energy_delivered: results[i].energy_deliverd,
                point_id: results[i].Charging_Sessions[j].point_id,
                protocol: results[i].Charging_Sessions[j].protocol,
                payment_method: results[i].Charging_Sessions[j].payment_method,

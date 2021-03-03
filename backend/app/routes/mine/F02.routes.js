@@ -10,7 +10,7 @@ module.exports = function(app) {
     next();
   });
 
- app.post("/api/get_charging_events_by_designer",
+ app.get("/api/SessionsDesigner/:designerID/:yyyymmdd_from/:yyyymmdd_to",
       [authJwt.verifyToken],
       controller.F02);
 };

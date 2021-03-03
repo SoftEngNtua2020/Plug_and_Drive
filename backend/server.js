@@ -6,7 +6,7 @@ const init = require ("./app/models/database_init.js");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "http://localhost:8080"
 };
 
 app.use(cors(corsOptions));
@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Welcome!" });
 });
 
 // routes
@@ -32,6 +32,8 @@ require('./app/routes/mine/F02.routes')(app);
 require('./app/routes/mine/F05.routes')(app);
 require('./app/routes/mine/F35.routes')(app);
 //require('./app/routes/mine/F07.routes')(app);
+require('./app/routes/mine/SessionsPerStation.routes')(app);
+
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
