@@ -4,16 +4,23 @@ const charging_programModel = require("../../models/charging_program.model");
 
 const ROLES = db.ROLES;
 const Vehicle = db.vehicle;
+const vehicle_owner = db.owner;
 const Event = db.session;
 const Program = db.program;
 Rounding_to_two = (num) => { return  Math.round((num + Number.EPSILON) * 100) / 100; }
 var vehicle_;
 exports.vehicleCostAssump = (req, res) => {
-   Vehicle.findOne({
+   vehicle_owner.findOne({
       where: {
-        owner_id: req.userId
-    }
-   })
+        user_id: req.userId
+      }
+    })
+      .then( ownerdata => {
+         Vehicle.findOne({
+            where: {
+              owner_id: ownerdata.owner_id
+          }
+        })
       .then(vehicle => {
             vehicle_ = vehicle;
             Program.findAll({
@@ -29,7 +36,7 @@ exports.vehicleCostAssump = (req, res) => {
                }
                res.status(200).send(programJson);
             })
-
+         })
          })
          .catch(err => {
          res.status(500).send({ message: err.message });

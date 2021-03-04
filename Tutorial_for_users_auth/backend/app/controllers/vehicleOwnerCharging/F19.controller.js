@@ -5,7 +5,7 @@ const ROLES = db.ROLES;
 const Vehicle = db.vehicle;
 const Event = db.session;
 const Program = db.program;
-
+const vehicle_owner = db.owner;
 var vehicle_;
 DateFormat = (x) => {
    return x.toISOString().
@@ -14,11 +14,17 @@ DateFormat = (x) => {
    }
 Rounding_to_two = (num) => { return  Math.round((num + Number.EPSILON) * 100) / 100; }
 exports.AddSession = (req, res) => {
-   Vehicle.findOne({
+   vehicle_owner.findOne({
       where: {
-        owner_id: req.userId
-    }
-   })
+        user_id: req.userId
+      }
+    })
+      .then( ownerdata => {
+         Vehicle.findOne({
+            where: {
+              owner_id: ownerdata.owner_id
+          }
+        })
       .then(vehicle => {
             vehicle_ = vehicle;
             Program.findOne({
@@ -47,7 +53,7 @@ exports.AddSession = (req, res) => {
                   Vehicle.update(
                      {current_battery_charge: (vehicle_.usable_battery_size - 0.01)},{
                         where: {
-                           id: vehicle_.id
+                           vehicle_id: vehicle_.vehicle_id
                         }
                   })
                      .then(() => {
@@ -59,7 +65,7 @@ exports.AddSession = (req, res) => {
                   });
                });
             })
-
+         })
          })
          .catch(err => {
          res.status(500).send({ message: err.message });
