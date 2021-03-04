@@ -11,7 +11,7 @@ module.exports = function(app) {
   });
 
   app.post(
-    "/api/auth/signup",
+    "/evcharge/api/auth/signup",
     [
       verifySignUp.checkDuplicateUsernameOrEmail,
       verifySignUp.checkRolesExisted
@@ -19,7 +19,7 @@ module.exports = function(app) {
     controller.signup
   );
 
-  app.get("/api/auth/signin/:username/:password", controller.signin);
+  app.get("/evcharge/api/auth/login/:username/:password", controller.signin);
 };
 
 

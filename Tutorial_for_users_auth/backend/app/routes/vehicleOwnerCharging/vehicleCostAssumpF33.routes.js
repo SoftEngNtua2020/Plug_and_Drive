@@ -11,7 +11,7 @@ module.exports = function(app) {
     next();
   });
 
- app.get("/api/getvehiclecostassump",
+ app.get("/evcharge/api/getvehiclecostassump",
       [authJwt.verifyToken],     
  //[authJwt.verifyToken],
       controller.vehicleCostAssump);

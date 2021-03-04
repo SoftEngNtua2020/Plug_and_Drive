@@ -84,6 +84,6 @@ db.station.hasMany(db.program, {foreignKey: "station_id"});
 
 
 
-db.ROLES = ["owner", "admin", "designer"];
+db.ROLES = ["admin", "vehicle_designer", "vehicle_owner", "station_admin"];
 
 module.exports = db;
