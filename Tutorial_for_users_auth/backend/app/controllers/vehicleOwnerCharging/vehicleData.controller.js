@@ -20,7 +20,7 @@ exports.vehicleData = (req, res) => {
         .then(vehicledata => {
           var decrease_every_time_u_query = vehicledata.current_battery_charge - 2;
           if ( decrease_every_time_u_query < 0){
-              decrease_every_time_u_query = vehicledata.current_battery_charge + 2;
+              decrease_every_time_u_query = decrease_every_time_u_query + 2;
             }
           vehicle.update({current_battery_charge: decrease_every_time_u_query },{
             where: {vehicle_id: vehicledata.vehicle_id}

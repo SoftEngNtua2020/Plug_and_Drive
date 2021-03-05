@@ -1,6 +1,6 @@
 //const { verifySignUp } = require("../middleware");
 const { authJwt } = require("../../middleware");
-const controller = require("../../controllers/vehicleOwnerCharging/vehicleEventData.controller");
+const controller = require("../../controllers/vehicleOwnerPayments/F26.controller");
 
 module.exports = function(app) {
   app.use(function(req, res, next) {
@@ -11,8 +11,8 @@ module.exports = function(app) {
     next();
   });
 
- app.post("/evcharge/api/getvehicleeventdata",
+ app.get("/evcharge/api/getTimesPaidCard",
       [authJwt.verifyToken],     
  //[authJwt.verifyToken],
-      controller.vehicleEventData);
+      controller.Card);
 };
