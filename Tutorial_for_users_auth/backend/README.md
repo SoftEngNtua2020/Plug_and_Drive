@@ -4,7 +4,7 @@
 ## Okeanos URL: http://pluganddrive.ddns.net:8765/evcharge/api
 1. Ιδιοκτήτες ηλεκτρικών οχημάτων - Φόρτιση
    - F01
-   ```json
+      ```json
       Type: GET,
       URl: http://localhost:8765/evcharge/api/getvehicledata,
       Headers: {
@@ -142,7 +142,7 @@
       ]
       ```
    - F14
-   ```json
+      ```json
       Type: POST,
       URl: http://localhost:8765/evcharge/api/getCummulativeCostPerPeriod,
       Headers: {
@@ -159,9 +159,9 @@
          "total_cost": 276.47
       }
    
-   ```   
+      ```   
    - F31
-   ```json
+      ```json
       Type: GET,
       URl: http://localhost:8765/evcharge/api/getTotalBonus,
       Headers: {
@@ -171,9 +171,9 @@
       {
          "bonus_points": 138
       }
-   ```
+      ```
    - F26
-   ```json
+      ```json
       Type: GET,
       URl: http://localhost:8765/evcharge/api/getTimesPaidCard,
       Headers: {
@@ -184,4 +184,4 @@
             "cash": 9
       }
       
-   ```
+      ```
