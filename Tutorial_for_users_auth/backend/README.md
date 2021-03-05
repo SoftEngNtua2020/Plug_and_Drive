@@ -1,7 +1,7 @@
 # Rest Api Documentation
 
 ## Base URL: https://localhost:8765/evcharge/api
-
+## Okeanos URL: http://pluganddrive.ddns.net:8765/evcharge/api
 1. Ιδιοκτήτες ηλεκτρικών οχημάτων - Φόρτιση
    - F01
    ```json
