@@ -13,6 +13,7 @@ DateFormat = (x) => {
       replace(/\..+/, '');
    }
 Rounding_to_two = (num) => { return  Math.round((num + Number.EPSILON) * 100) / 100; }
+
 exports.AddSession = (req, res) => {
    vehicle_owner.findOne({
       where: {
@@ -46,24 +47,36 @@ exports.AddSession = (req, res) => {
                   payment_method: req.body.payment_method,
                   bonus_points_energy: Rounding_to_two( kwh_need * program.bonus_per_kwh ),
                   total_cost: Rounding_to_two( kwh_need * program.kwh_price ),
-                  vehicle_id: vehicle_.id,
-                  station_id: req.body.station_id
+                  vehicle_id: vehicle_.vehicle_id,
+                  station_id: req.body.station_id,
+                  program_id: req.body.program_id
                })
                .then(() => {
                   Vehicle.update(
-                     {current_battery_charge: (vehicle_.usable_battery_size - 0.01)},{
+                     {
+                        current_battery_charge: (vehicle_.usable_battery_size - 0.01),
+                     },{
                         where: {
                            vehicle_id: vehicle_.vehicle_id
                         }
                   })
                      .then(() => {
-
+                        vehicle_owner.update(
+                           {
+                              bonus_points: ownerdata.bonus_points + Rounding_to_two( kwh_need * program.bonus_per_kwh ),
+                           },
+                           {
+                              where: {
+                                 user_id: req.userId
+                              }
+                        }).then(() =>{
                   res.status(200).send({
                      total_cost: Rounding_to_two( kwh_need * program.kwh_price ),
                      message: "Session was registered successfully!" 
                      });
                   });
                });
+            })
             })
          })
          })

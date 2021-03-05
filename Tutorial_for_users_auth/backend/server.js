@@ -30,6 +30,10 @@ require('./app/routes/vehicleOwnerCharging/vehicleCostAssumpF33.routes')(app);
 require('./app/routes/vehicleOwnerCharging/vehicleEventDataF29.routes')(app);
 require('./app/routes/vehicleOwnerCharging/F19.routes')(app);
 require('./app/routes/vehicleOwnerCharging/sessionsupd.routes')(app);
+require('./app/routes/vehicleOwnerPayments/F07.routes')(app);
+require('./app/routes/vehicleOwnerPayments/F14.routes')(app);
+require('./app/routes/vehicleOwnerPayments/F31.routes')(app);
+require('./app/routes/vehicleOwnerPayments/F26.routes')(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8765;
@@ -42,10 +46,10 @@ app.listen(PORT, () => {
 const db = require("./app/models");
 const Role = db.role;
 const AdminController = require("./app/controllers/admin.controller.js");
-
-
-
 /*
+
+
+
 db.sequelize.sync({ force: true }).then(() => {
   console.log("Drop and re-sync db.");
   initial();
