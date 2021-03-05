@@ -72,6 +72,6 @@ db.moderator.hasMany(db.station, {foreignKey: "st_moderator_id"});
 db.provider.hasMany(db.station, {foreignKey: "provider_id"});
 
 
-//db.ROLES = ["owner", "admin", "designer"];
-
+db.ROLES = ["admin", "vehicle_designer", "vehicle_owner","station_admin"];
+db.BANNED = [];
 module.exports = db;
