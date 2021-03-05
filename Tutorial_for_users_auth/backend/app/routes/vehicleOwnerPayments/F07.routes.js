@@ -11,7 +11,7 @@ module.exports = function(app) {
     next();
   });
 
- app.post("/evcharge/api/getCummulativeCostPerCharge",
+ app.get("/evcharge/api/getCummulativeCostPerCharge",
       [authJwt.verifyToken],     
  //[authJwt.verifyToken],
       controller.CummulativeCostPerCharge);

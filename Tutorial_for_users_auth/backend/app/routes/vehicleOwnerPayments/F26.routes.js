@@ -11,7 +11,7 @@ module.exports = function(app) {
     next();
   });
 
- app.post("/evcharge/api/getTimePaidCard",
+ app.get("/evcharge/api/getTimesPaidCard",
       [authJwt.verifyToken],     
  //[authJwt.verifyToken],
       controller.Card);

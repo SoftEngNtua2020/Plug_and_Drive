@@ -25,9 +25,9 @@ app.get("/", (req, res) => {
 // routes
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
-require('./app/routes/vehicleOwnerCharging/vehicleDataF01.routes')(app);
-require('./app/routes/vehicleOwnerCharging/vehicleCostAssumpF33.routes')(app);
-require('./app/routes/vehicleOwnerCharging/vehicleEventDataF29.routes')(app);
+require('./app/routes/vehicleOwnerCharging/F01.routes')(app);
+require('./app/routes/vehicleOwnerCharging/F33.routes')(app);
+require('./app/routes/vehicleOwnerCharging/F29.routes')(app);
 require('./app/routes/vehicleOwnerCharging/F19.routes')(app);
 require('./app/routes/vehicleOwnerCharging/sessionsupd.routes')(app);
 require('./app/routes/vehicleOwnerPayments/F07.routes')(app);

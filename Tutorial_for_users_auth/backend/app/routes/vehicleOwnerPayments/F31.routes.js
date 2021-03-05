@@ -11,7 +11,7 @@ module.exports = function(app) {
     next();
   });
 
- app.post("/evcharge/api/getTotalBonus",
+ app.get("/evcharge/api/getTotalBonus",
       [authJwt.verifyToken],     
  //[authJwt.verifyToken],
       controller.Bonus);
