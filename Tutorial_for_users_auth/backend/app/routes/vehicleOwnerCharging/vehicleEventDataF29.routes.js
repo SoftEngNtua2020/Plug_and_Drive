@@ -11,7 +11,7 @@ module.exports = function(app) {
     next();
   });
 
- app.post("/api/getvehicleeventdata",
+ app.post("/evcharge/api/getvehicleeventdata",
       [authJwt.verifyToken],     
  //[authJwt.verifyToken],
       controller.vehicleEventData);

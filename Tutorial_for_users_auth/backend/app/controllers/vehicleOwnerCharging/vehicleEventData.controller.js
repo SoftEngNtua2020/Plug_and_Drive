@@ -4,18 +4,25 @@ const db = require("../../models");
 const ROLES = db.ROLES;
 const Vehicle = db.vehicle;
 const Event = db.session;
+const vehicle_owner = db.owner;
 
 
 exports.vehicleEventData = (req, res) => {
-   Vehicle.findOne({
+   vehicle_owner.findOne({
       where: {
-        owner_id: req.userId
-    }
-   })
-      .then(vehicle => {
+        user_id: req.userId
+      }
+    })
+      .then( ownerdata => {
+         Vehicle.findOne({
+            where: {
+              owner_id: ownerdata.owner_id
+          }
+        })
+      .then(vehicledata => {
          Event.findAll({
             where: {
-               vehicle_id: vehicle.id
+               vehicle_id: vehicledata.vehicle_id
             }
          })
             .then(sessions => {
@@ -36,7 +43,7 @@ exports.vehicleEventData = (req, res) => {
                   });
                 }
                res.status(200).send(sessionJson);
-               
+               }) 
             })
          })
          .catch(err => {

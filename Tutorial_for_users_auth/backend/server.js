@@ -49,9 +49,10 @@ require('./app/routes/vehicleOwnerCharging/vehicleDataF01.routes')(app);
 require('./app/routes/vehicleOwnerCharging/vehicleCostAssumpF33.routes')(app);
 require('./app/routes/vehicleOwnerCharging/vehicleEventDataF29.routes')(app);
 require('./app/routes/vehicleOwnerCharging/F19.routes')(app);
+require('./app/routes/vehicleOwnerCharging/sessionsupd.routes')(app);
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8765;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });

@@ -11,7 +11,7 @@ module.exports = function(app) {
     next();
   });
 
- app.post("/api/start_charging",
+ app.post("/evcharge/api/start_charging",
       [authJwt.verifyToken],     
  //[authJwt.verifyToken],
       controller.AddSession);

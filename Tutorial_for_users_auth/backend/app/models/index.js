@@ -1,6 +1,4 @@
 const config = require("../config/db.config.js");
-const bcrypt = require("bcryptjs");
-const init = require("./database_init.js");
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(
   config.DB,
@@ -27,31 +25,21 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-
-
-
 //db.sequelize.sync({ force: true });
-
-
-
 db.admin = require("./admin.model.js")(sequelize, Sequelize);
 db.designer = require("./vehicle_designer.model.js")(sequelize, Sequelize);
+db.point = require("./point.model.js")(sequelize, Sequelize);
 db.program = require("./charging_program.model.js")(sequelize, Sequelize);
+db.provider = require("./energy_provider.model.js")(sequelize, Sequelize);
 db.role = require("./role.model.js")(sequelize, Sequelize);
 db.session = require("./session.model.js")(sequelize, Sequelize);
 db.station = require("./station.model.js")(sequelize, Sequelize);
+db.moderator = require("./st_moderator.model.js")(sequelize, Sequelize);
 db.user = require("./user.model.js")(sequelize, Sequelize);
 db.owner = require("./vehicle_owner.model.js")(sequelize, Sequelize);
 db.vehicle = require("./vehicle.model.js")(sequelize, Sequelize);
 
-/*
-db.admin.sync({ force: false }).then(() => {
-    console.log("admin model created successfully")})
-    .then(()=>   { 
-        db.admin.bulkCreate(init.admins)
-    })
 
-*/
 db.role.belongsToMany(db.user, {
   through: "user_roles",
   foreignKey: "roleId",
@@ -63,27 +51,27 @@ db.user.belongsToMany(db.role, {
   otherKey: "roleId"
 });
 
-db.admin.belongsToMany(db.station, {
-  through: "Admin_Station",
-  foreignKey: "admin_id",
-  otherKey: "station_id"
-});
-db.station.belongsToMany(db.admin, {
-  through: "Admin_Station",
-  foreignKey: "station_id",
-  otherKey: "admin_id"
-});
-
-db.owner.hasMany(db.vehicle,{foreignKey:"owner_id"});
 db.designer.hasMany(db.vehicle, {foreignKey: "designer_id"});
-db.vehicle.hasMany(db.session, {foreignKey: "vehicle_id"});
-db.station.hasMany(db.session, {foreignKey: "station_id"});
-db.station.hasMany(db.program, {foreignKey: "station_id"});
+
+db.vehicle.belongsTo(db.owner,{foreignKey:"owner_id"});
+db.program.belongsTo(db.station, {foreignKey: "station_id"});
+
+db.session.belongsTo(db.vehicle, {foreignKey: "vehicle_id"});
+db.session.belongsTo(db.station, {foreignKey: "station_id"});
+db.session.belongsTo(db.point, {foreignKey: "point_id"});
+db.session.belongsTo(db.program, {foreignKey: "program_id"});
+
+db.point.belongsTo(db.station, {foreignKey: "station_id"});
+
+db.admin.belongsTo(db.user, {foreignKey: "user_id"});
+db.designer.belongsTo(db.user, {foreignKey: "user_id"});
+db.owner.belongsTo(db.user, {foreignKey: "user_id"});
+db.moderator.belongsTo(db.user, {foreignKey: "user_id"});
+
+db.moderator.hasMany(db.station, {foreignKey: "st_moderator_id"});
+db.provider.hasMany(db.station, {foreignKey: "provider_id"});
 
 
-
-
-
-db.ROLES = ["owner", "admin", "designer"];
+//db.ROLES = ["owner", "admin", "designer"];
 
 module.exports = db;
