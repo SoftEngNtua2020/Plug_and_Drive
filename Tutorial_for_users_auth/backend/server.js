@@ -54,7 +54,8 @@ require('./app/routes/vehicleOwnerPayments/F07.routes')(app);
 require('./app/routes/vehicleOwnerPayments/F14.routes')(app);
 require('./app/routes/vehicleOwnerPayments/F31.routes')(app);
 require('./app/routes/vehicleOwnerPayments/F26.routes')(app);
-
+require('./app/routes/admin/manageUser.routes')(app);
+require('./app/routes/admin/trackUser.routes')(app);
 // set port, listen for requests
 const PORT = process.env.PORT || 8765;
 app.listen(PORT, () => {
