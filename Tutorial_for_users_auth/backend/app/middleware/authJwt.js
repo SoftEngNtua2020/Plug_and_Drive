@@ -11,7 +11,11 @@ verifyToken = (req, res, next) => {
       message: "No token provided!"
     });
   }
-
+  if (db.BANNED.includes( token )) {
+    return res.status(401).send({
+      message: "Unauthorized!"
+    });
+  }
   jwt.verify(token, config.secret, (err, decoded) => {
     if (err) {
       return res.status(401).send({

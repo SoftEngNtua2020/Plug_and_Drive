@@ -2,13 +2,74 @@
 
 ## Base URL: https://localhost:8765/evcharge/api
 ## Okeanos URL: http://pluganddrive.ddns.net:8765/evcharge/api
+
+### Login & Logout
+   - Login
+      ```json
+      Type: POST,
+      URl: http://localhost:8765/evcharge/api/login,
+      Headers: {
+         "Content-Type": "application/json",
+                  },
+      Body: {
+         "username":"alex13",
+         "password":"password13"
+         }
+      
+      Reply: {
+         "id": 13,
+         "username": "alex13",
+         "email": "myemail13@mydb.com",
+         "roles": [
+            "ROLE_VEHICLE_OWNER"
+         ],
+         "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDk2NTc1NSwiZXhwIjoxNjE1MDUyMTU1fQ.tLyuwEf6ZuXugH0nikqoSqK7z_RcjydoGkYGbnKX5Dw"
+         }
+      ```
+   - Logout
+      ```json
+         Type: POST,
+         URl: http://localhost:8765/evcharge/api/logout,
+         Headers: {
+           "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+                     },
+         Reply: 200
+         ```
+   - Sign Up
+      ```json
+      Type: POST,
+         URl: http://localhost:8765/evcharge/api/signup,
+         Headers: {
+           "Content-Type": "application/json",
+                     },
+         Body:{
+            "username":"abcc",
+            "email":"abc@abc.com",
+            "password":"123456",
+            "roles":["vehicle_owner"]
+            }
+      Reply: {
+            "message": "User was registered successfully!"
+            }
+      ```
+### Admin Endpoints
+   1. 
+      ```json
+         Type: POST,
+         URl: http://localhost:8765/evcharge/api/admin/usermod/:username/:password,
+         Headers: {
+           "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+                     },
+         
+         ```
+
 1. Ιδιοκτήτες ηλεκτρικών οχημάτων - Φόρτιση
    - F01
       ```json
       Type: GET,
       URl: http://localhost:8765/evcharge/api/getvehicledata,
       Headers: {
-         x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w,
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                   },
       Reply: {
          "brand": "BMW",
@@ -26,7 +87,7 @@
       Type: GET,
       URl: http://localhost:8765/evcharge/api/getvehiclecostassump,
       Headers: {
-         x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w,
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                   },
       Reply: [
          {
@@ -51,8 +112,8 @@
       Type: POST,
       URl: http://localhost:8765/evcharge/api/start_charging,
       Headers: {
-         Content-Type: application/json,
-         x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w,
+         "Content-Type": "application/json",
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
       },
       Body: {
          "program_id":1,
@@ -71,7 +132,7 @@
       Type: GET,
       URl: http://localhost:8765/evcharge/api/getvehicleeventdata,
       Headers: {
-         x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w,
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                   },
       Reply:[
          {
@@ -121,7 +182,7 @@
       Type: GET,
       URl: http://localhost:8765/evcharge/api/getCummulativeCostPerCharge,
       Headers: {
-         x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w,
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                   },
       Reply:[
          {
@@ -146,8 +207,8 @@
       Type: POST,
       URl: http://localhost:8765/evcharge/api/getCummulativeCostPerPeriod,
       Headers: {
-         Content-Type: application/json,
-         x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w,
+         "Content-Type": "application/json",
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                   },
       Body: 
       {
@@ -165,7 +226,7 @@
       Type: GET,
       URl: http://localhost:8765/evcharge/api/getTotalBonus,
       Headers: {
-         x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w,
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                   },
       Reply:
       {
@@ -177,7 +238,7 @@
       Type: GET,
       URl: http://localhost:8765/evcharge/api/getTimesPaidCard,
       Headers: {
-         x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w,
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                   },
       Reply:{
             "card": 1,
