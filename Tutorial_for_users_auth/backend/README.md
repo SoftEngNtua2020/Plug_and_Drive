@@ -56,12 +56,28 @@
    1. 
       ```json
          Type: POST,
-         URl: http://localhost:8765/evcharge/api/admin/usermod/:username/:password,
+         URL: http://localhost:8765/evcharge/api/admin/usermod/:username/:password,
          Headers: {
            "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                      },
-         
+         Reply: {
+            "message": "Created User Successfully"
+            }
          ```
+   2. 
+      ```json
+      Type: GET,
+      URL: http://localhost:8765/evcharge/api/admin/users/:username
+      Headers: {
+           "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+                     },
+      Reply: {
+         "st_moderator_id": 2,
+         "first_name": "C",
+         "last_name": "D",
+         "user_id": 18
+         }
+      ```
 
 1. Ιδιοκτήτες ηλεκτρικών οχημάτων - Φόρτιση
    - F01

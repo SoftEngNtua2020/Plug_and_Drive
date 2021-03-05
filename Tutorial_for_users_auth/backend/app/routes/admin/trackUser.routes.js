@@ -1,6 +1,6 @@
 //const { verifySignUp } = require("../middleware");
 const { authJwt } = require("../../middleware");
-const controller = require("../../controllers/admin/manageUser.controller");
+const controller = require("../../controllers/admin/trackUser.controller");
 
 module.exports = function(app) {
   app.use(function(req, res, next) {
@@ -11,8 +11,8 @@ module.exports = function(app) {
     next();
   });
 
- app.post("/evcharge/api/admin/usermod/:username/:password",
+ app.get("/evcharge/api/admin/users/:username",
       [authJwt.verifyToken],     
  //[authJwt.verifyToken],
-      controller.manageUser);
+      controller.trackUser);
 };
