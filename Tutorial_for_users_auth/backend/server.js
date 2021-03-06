@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const init = require ("./app/models/database_init.js");
-
+global.__basedir = __dirname;
 const app = express();
 
 var corsOptions = {
@@ -29,7 +29,7 @@ require('./app/routes/vehicleOwnerCharging/F01.routes')(app);
 require('./app/routes/vehicleOwnerCharging/F33.routes')(app);
 require('./app/routes/vehicleOwnerCharging/F29.routes')(app);
 require('./app/routes/vehicleOwnerCharging/F19.routes')(app);
-require('./app/routes/vehicleOwnerCharging/sessionsupd.routes')(app);
+require('./app/routes/admin/sessionsupd.routes')(app);
 require('./app/routes/vehicleOwnerPayments/F07.routes')(app);
 require('./app/routes/vehicleOwnerPayments/F14.routes')(app);
 require('./app/routes/vehicleOwnerPayments/F31.routes')(app);
