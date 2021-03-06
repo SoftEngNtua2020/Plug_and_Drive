@@ -40,10 +40,26 @@ exports.signup = (req, res) => {
     });
 };
 
+exports.logout = (req, res) =>{
+  if(!req.headers["x-access-token"]){
+    return res.status(404).send({ message: "User Not found." });
+  }
+  db.BANNED.push(req.headers["x-access-token"]);
+  res.status(200).send();
+};
+var counter = 0;
+
 exports.signin = (req, res) => {
+  counter += 1;
+  if(counter>10){
+    counter = 0;
+    db.BANNED = [];
+    console.log("I Just Discarded Banned Tokens");
+  }
+
   User.findOne({
     where: {
-      username: req.params.username
+      username: req.body.username
     }
   })
     .then(user => {
@@ -52,7 +68,7 @@ exports.signin = (req, res) => {
       }
 
       var passwordIsValid = bcrypt.compareSync(
-        req.params.password,
+        req.body.password,
         user.password
       );
 

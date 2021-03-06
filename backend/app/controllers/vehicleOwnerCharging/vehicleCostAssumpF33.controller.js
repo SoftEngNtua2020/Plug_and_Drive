@@ -4,16 +4,23 @@ const charging_programModel = require("../../models/charging_program.model");
 
 const ROLES = db.ROLES;
 const Vehicle = db.vehicle;
+const vehicle_owner = db.owner;
 const Event = db.session;
 const Program = db.program;
-
+Rounding_to_two = (num) => { return  Math.round((num + Number.EPSILON) * 100) / 100; }
 var vehicle_;
 exports.vehicleCostAssump = (req, res) => {
-   Vehicle.findOne({
+   vehicle_owner.findOne({
       where: {
-        owner_id: req.userId
-    }
-   })
+        user_id: req.userId
+      }
+    })
+      .then( ownerdata => {
+         Vehicle.findOne({
+            where: {
+              owner_id: ownerdata.owner_id
+          }
+        })
       .then(vehicle => {
             vehicle_ = vehicle;
             Program.findAll({
@@ -23,15 +30,17 @@ exports.vehicleCostAssump = (req, res) => {
                for (var i in programs){
                   programJson.push({
                      station_id: programs[i].station_id,
-                     total_cost: (vehicle_.usable_battery_size - vehicle_.current_battery_charge) * programs[i].kwh_price,
-                     total_bonus: (vehicle_.usable_battery_size - vehicle_.current_battery_charge) * programs[i].bonus_per_kwh,
+                     total_cost: Rounding_to_two( (vehicle_.usable_battery_size - vehicle_.current_battery_charge) * programs[i].kwh_price),
+                     total_bonus: Rounding_to_two( (vehicle_.usable_battery_size - vehicle_.current_battery_charge) * programs[i].bonus_per_kwh),
                   });
                }
                res.status(200).send(programJson);
             })
-
+         })
          })
          .catch(err => {
          res.status(500).send({ message: err.message });
        });
 };
+
+

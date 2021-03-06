@@ -4,8 +4,51 @@ const ROLES = db.ROLES;
 const vehicle = db.vehicle;
 const User = db.user;
 const vehicle_owner = db.owner;
+var bcrypt = require("bcryptjs");
+exports.manageUser = (req, res) => {
+   if(req.params.password.length < 6){
+      return res.status(500).send({ message: "Password Must be > 6 ASCII" });
+   }
+   User.findOne({
+      where: {
+        username: req.params.username
+      }
+    }).then(user => {
+       if (user) {
+          // I shoud update password
+          User.update({
+             password: bcrypt.hashSync(req.params.password, 8)
+            },
+            {
+               where:{username: user.username}
+            }
+            ).then(() =>{ 
+               res.status(200).send({
+                  message: "Updated Password Successfully"
+               });
+            })
+            return;
+         }
+         else{
+            console.log("\n",req.params.username, req.params.password,"\n");
 
-exports.vehicleData = (req, res) => {
+            User.create({
+               username: req.params.username,
+               password: bcrypt.hashSync(req.params.password, 8)
+            }).then(()=>{
+               res.status(200).send({
+                  message: "Created User Successfully"
+               });
+               return;
+          })
+      }
+   })
+   .catch(err => {
+         res.status(500).send({ message: err.message });
+      });
+
+/*
+
   vehicle_owner.findOne({
     where: {
       user_id: req.userId
@@ -43,6 +86,7 @@ exports.vehicleData = (req, res) => {
         .catch(err => {
           res.status(500).send({ message: err.message });
         });
+        */
     };
 
 

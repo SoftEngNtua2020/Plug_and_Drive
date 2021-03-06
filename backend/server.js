@@ -6,11 +6,31 @@ const init = require ("./app/models/database_init.js");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8080"
+  origin: "*"
 };
 
 app.use(cors(corsOptions));
+/*
+// Add headers
+app.use(function (req, res, next) {
 
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8081');
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    // Pass to next layer of middleware
+    next();
+});
+*/
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 
@@ -19,34 +39,41 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome!" });
+  res.json({ message: "Welcome to bezkoder application." });
 });
 
 // routes
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
-require('./app/routes/vehicleOwnerCharging/vehicleDataF01.routes')(app);
-require('./app/routes/vehicleOwnerCharging/vehicleCostAssumpF33.routes')(app);
-require('./app/routes/vehicleOwnerCharging/vehicleEventDataF29.routes')(app);
-require('./app/routes/mine/F02.routes')(app);
-require('./app/routes/mine/F05.routes')(app);
-require('./app/routes/mine/F35.routes')(app);
-//require('./app/routes/mine/F07.routes')(app);
-require('./app/routes/mine/SessionsPerStation.routes')(app);
+require('./app/routes/vehicleOwnerCharging/F01.routes')(app);
+require('./app/routes/vehicleOwnerCharging/F33.routes')(app);
+require('./app/routes/vehicleOwnerCharging/F29.routes')(app);
+require('./app/routes/vehicleOwnerCharging/F19.routes')(app);
+require('./app/routes/vehicleOwnerCharging/sessionsupd.routes')(app);
+require('./app/routes/vehicleOwnerPayments/F07.routes')(app);
+require('./app/routes/vehicleOwnerPayments/F14.routes')(app);
+require('./app/routes/vehicleOwnerPayments/F31.routes')(app);
+require('./app/routes/vehicleOwnerPayments/F26.routes')(app);
+require('./app/routes/admin/manageUser.routes')(app);
+require('./app/routes/admin/trackUser.routes')(app);
 
+require('./app/routes/SessionsPer/SessionsPerStation.routes')(app);
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8765;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
+
 
 // Sync to DB
 const db = require("./app/models");
 const Role = db.role;
 const AdminController = require("./app/controllers/admin.controller.js");
-
 /*
+
+
+
 db.sequelize.sync({ force: true }).then(() => {
   console.log("Drop and re-sync db.");
   initial();
