@@ -96,9 +96,10 @@ exports.SessionsPerStation = (req, res) => {
                  'TotalEnergyDelivered',
                  'NumberOfChargingSessions',
                  'NumberOfActivePoints',
-                 'PointID',
-                 'PointSessions',
-                 'EnergyDelivered'
+                 //SessionsSummaryList:
+                   'PointID',
+                   'PointSessions',
+                   'EnergyDelivered'
                ];
                var dataCSV = [];
                for (var i in results) {
@@ -112,9 +113,10 @@ exports.SessionsPerStation = (req, res) => {
                    total_energy_delivered,
                    number_of_charging_sessions,
                    results.length,
-                   String(results[i].PointID),
-                   results[i].PointSessions,
-                   results[i].EnergyDelivered
+                   //SessionsSummaryList:
+                     results[i].PointID,
+                     results[i].PointSessions,
+                     results[i].EnergyDelivered
                  ])
                }
                const finalCSV = convertArrayToCSV(dataCSV, {
