@@ -56,6 +56,9 @@ require('./app/routes/vehicleOwnerPayments/F31.routes')(app);
 require('./app/routes/vehicleOwnerPayments/F26.routes')(app);
 require('./app/routes/admin/manageUser.routes')(app);
 require('./app/routes/admin/trackUser.routes')(app);
+
+require('./app/routes/SessionsPer/SessionsPerStation.routes')(app);
+
 // set port, listen for requests
 const PORT = process.env.PORT || 8765;
 app.listen(PORT, () => {
@@ -80,39 +83,39 @@ async function initial() {
 
 await db.admin.sync({ force: false }).then(() => {
     console.log("admin model created successfully")})
-    .then(()=>   { 
+    .then(()=>   {
         db.admin.bulkCreate(init.admins)
     })
 
 await db.station.sync({ force: false }).then(() => {
     console.log("station model created successfully")})
-    .then(()=>   { 
+    .then(()=>   {
         db.station.bulkCreate(init.station)
     })
 
 
 await db.designer.sync({ force: false }).then(() => {
     console.log("designer model created successfully")})
-    .then(()=>   { 
+    .then(()=>   {
         db.designer.bulkCreate(init.designers)
     })
 
 await db.owner.sync({ force: false }).then(() => {
     console.log("owner model created successfully")})
-    .then(()=>   { 
+    .then(()=>   {
         db.owner.bulkCreate(init.owners)
     })
 
 await db.vehicle.sync({ force: false }).then(() => {
     console.log("vehicle model created successfully")})
-    .then(()=>   { 
+    .then(()=>   {
         db.vehicle.bulkCreate(init.vehicles)
     })
 
 
 await db.session.sync({ force: false }).then(() => {
   console.log("session model created successfully")})
-  .then(()=>   { 
+  .then(()=>   {
       db.session.bulkCreate(init.session)
   })
 
@@ -134,12 +137,12 @@ await db.session.sync({ force: false }).then(() => {
      id: 1,
      name: "user"
    });
-  
+
    Role.create({
      id: 2,
      name: "moderator"
    });
-  
+
    Role.create({
      id: 3,
      name: "admin"
