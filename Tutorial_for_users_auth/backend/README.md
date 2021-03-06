@@ -1,6 +1,6 @@
 # Rest Api Documentation
 
-## Base URL: https://localhost:8765/evcharge/api
+## Base URL: http://localhost:8765/evcharge/api
 ## Okeanos URL: http://pluganddrive.ddns.net:8765/evcharge/api
 
 ### Login & Logout
