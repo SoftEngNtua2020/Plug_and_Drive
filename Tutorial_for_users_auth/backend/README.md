@@ -96,6 +96,22 @@
             "message": "Uploaded the file successfully: importcsv.csv"
          }
       ```
+   4. Πρόσθετα (βοηθητικά) Endpoints
+      1. healthcheck
+         ```json
+         Type: GET,
+         URl: http://localhost:8765/evcharge/api/admin/healthcheck,
+         Headers: {
+            "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+                  },
+         Reply: {
+            "status": "200 OK"
+         }
+         ```
+
+      2. resetsessions
+         ```json
+         ```
 1. Ιδιοκτήτες ηλεκτρικών οχημάτων - Φόρτιση
    - F01
       ```json
