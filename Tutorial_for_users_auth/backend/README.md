@@ -67,7 +67,7 @@
    2. 
       ```json
       Type: GET,
-      URL: http://localhost:8765/evcharge/api/admin/users/:username
+      URL: http://localhost:8765/evcharge/api/admin/users/:username,
       Headers: {
            "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                      },
@@ -78,7 +78,24 @@
          "user_id": 18
          }
       ```
-
+   3. 
+      ```json
+      Type: POST,
+      URL: http://localhost:8765/evcharge/api/admin/system/sessionsupd,
+      Headers: {
+           "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+                     },
+      Encoding: multipart/form-data,
+      file: path_to_file/import.csv,
+      {"file":
+         "started_on;finished_on;energy_deliverd;protocol;payment_method;bonus_points_energy;total_cost;vehicle_id;station_id;point_id;program_id
+         2021-03-06 17:30:40;2021-03-06 17:40:40;30;AC;CASH;100;60;1;1;1;1
+         2021-03-06 18:30:40;2021-03-06 18:40:40;30;AC;CASH;100;60;1;1;1;1"
+         }
+      Reply: {
+            "message": "Uploaded the file successfully: importcsv.csv"
+         }
+      ```
 1. Ιδιοκτήτες ηλεκτρικών οχημάτων - Φόρτιση
    - F01
       ```json

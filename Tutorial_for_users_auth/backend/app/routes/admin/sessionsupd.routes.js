@@ -1,8 +1,8 @@
 //const { verifySignUp } = require("../middleware");
 const { authJwt } = require("../../middleware");
-const controller = require("../../controllers/vehicleOwnerCharging/sessionsupd.controller");
+const controller = require("../../controllers/admin/sessionsupd.controller");
 const multer = require('multer');
-const upload = multer();
+var upload = multer({ inMemory: true}).single('file');
 
 module.exports = function(app) {
   app.use(function(req, res, next) {
@@ -13,8 +13,8 @@ module.exports = function(app) {
     next();
   });
 
- app.post("/evcharge/api/sessionsupd",
+ app.post("/evcharge/api/admin/system/sessionsupd",
       authJwt.verifyToken,     
-      upload.single(),
+      upload,
       controller.SessionsUpd);
 };
