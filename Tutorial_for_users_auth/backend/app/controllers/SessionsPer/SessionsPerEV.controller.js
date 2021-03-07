@@ -49,7 +49,8 @@ exports.SessionsPerEV = (req, res) => {
         attributes: ['vehicle_id'], // to reduce table size
         where: {
           vehicle_id: req.params.vehicleID
-        }
+        },
+        required: true
       }
     })
       .then(something => {
@@ -73,6 +74,7 @@ exports.SessionsPerEV = (req, res) => {
               {
                 model: db.station,
                 attributes: [], // to reduce table size
+                required: true,
                 include: {
                   model: db.provider,
                   attributes: [], // to reduce table size
@@ -80,7 +82,8 @@ exports.SessionsPerEV = (req, res) => {
               },
               {
                 model: db.program,
-                attributes: [] // to reduce table size
+                attributes: [], // to reduce table size
+                required: true
               }
             ]
           })

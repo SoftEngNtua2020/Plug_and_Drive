@@ -60,6 +60,7 @@ require('./app/routes/admin/trackUser.routes')(app);
 require('./app/routes/SessionsPer/SessionsPerPoint.routes')(app);
 require('./app/routes/SessionsPer/SessionsPerStation.routes')(app);
 require('./app/routes/SessionsPer/SessionsPerEV.routes')(app);
+require('./app/routes/SessionsPer/SessionsPerProvider.routes')(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8765;

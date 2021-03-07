@@ -49,7 +49,8 @@ exports.SessionsPerStation = (req, res) => {
         attributes: ['station_id'], // to reduce table size
         where: {
           station_id: req.params.stationID
-        }
+        },
+        required: true
       }
     })
     .then(something => {

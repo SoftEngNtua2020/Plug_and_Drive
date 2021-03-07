@@ -51,7 +51,8 @@ exports.SessionsPerPoint = (req, res) => {
           attributes: ['station_id'], // to reduce table size
           where: {
             station_id: ppoo.station_id
-          }
+          },
+          required: true
         }
       })
       .then(something => {
@@ -74,7 +75,8 @@ exports.SessionsPerPoint = (req, res) => {
              raw: true,
              include: {
                model: db.vehicle,
-               attributes: [] // to reduce table size
+               attributes: [], // to reduce table size
+               required: true
              }
           })
            .then(results => {
