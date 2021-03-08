@@ -13,10 +13,10 @@ exports.resetsessions = (req, res, next) => {
       req.body.password = "petrol4ever";
       req.body.roles = ["admin"];
       next();
-      res.status(200).send();
+      res.status(200).send({status:"OK"});
    })
      .catch(err => {
-      res.status(500).send({ message: err.message });
+      res.status(400).send({ status: "failed" });
    });
  
 };

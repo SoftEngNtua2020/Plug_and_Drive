@@ -8,10 +8,10 @@ const Program = db.program;
 
 exports.healthcheck = (req, res) => {
    db.sequelize.authenticate().then(()=>{
-      res.status(200).send();
+      res.status(200).send({status: "OK"});
    })
      .catch(err => {
-      res.status(500).send({ message: err.message });
+      res.status(400).send({ status: "failed" });
    });
  
 };
