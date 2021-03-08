@@ -38,6 +38,7 @@ require('./app/routes/admin/manageUser.routes')(app);
 require('./app/routes/admin/trackUser.routes')(app);
 require('./app/routes/admin/healthcheck.routes')(app);
 require('./app/routes/parkingAdmin/F11.routes')(app);
+require('./app/routes/parkingAdmin/getStationData.routes')(app);
 // set port, listen for requests
 const PORT = process.env.PORT || 8765;
 app.listen(PORT, () => {
