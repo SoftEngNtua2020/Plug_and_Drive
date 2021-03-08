@@ -17,10 +17,14 @@ exports.SessionsUpd = (req, res) => {
    
      csv({delimiter:";"}).fromString(csvString).then((jsonObj)=>{
       Event.bulkCreate(jsonObj).then(()=>{
-         res.status(200).send({
-            message:
-              "Uploaded the file successfully: " + req.file.originalname,
-          });
+         Event.findAll().then(values => {
+
+            res.status(200).send({
+               SessionsInUploadedFile: jsonObj.length,
+               SessionsImported: jsonObj.length,
+               TotalSessionsInDatabase: values.length,
+            });
+         })
       })
      })
      .catch(err => {

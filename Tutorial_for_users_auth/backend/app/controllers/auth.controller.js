@@ -41,9 +41,9 @@ exports.signup = (req, res) => {
 };
 
 exports.logout = (req, res) =>{
-  if(!req.headers["x-access-token"]){
+  /*if(!req.headers["x-access-token"]){
     return res.status(404).send({ message: "User Not found." });
-  }
+  }*/
   db.BANNED.push(req.headers["x-access-token"]);
   res.status(200).send();
 };
