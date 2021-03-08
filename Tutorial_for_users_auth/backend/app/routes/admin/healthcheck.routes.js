@@ -12,6 +12,7 @@ module.exports = function(app) {
   });
 
  app.get("/evcharge/api/admin/healthcheck",
-      authJwt.verifyToken,     
+      authJwt.verifyToken,
+      authJwt.isAdmin,     
       controller.healthcheck);
 };

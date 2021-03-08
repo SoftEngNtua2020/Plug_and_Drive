@@ -12,7 +12,7 @@ module.exports = function(app) {
   });
 
  app.get("/evcharge/api/getvehicleeventdata",
-      [authJwt.verifyToken],     
- //[authJwt.verifyToken],
+      authJwt.verifyToken,     
+      authJwt.isOwner,
       controller.vehicleEventData);
 };

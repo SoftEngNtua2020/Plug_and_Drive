@@ -12,7 +12,7 @@ module.exports = function(app) {
   });
 
  app.get("/evcharge/api/admin/users/:username",
-      [authJwt.verifyToken],     
- //[authJwt.verifyToken],
+      authJwt.verifyToken,     
+      authJwt.isAdmin,
       controller.trackUser);
 };
