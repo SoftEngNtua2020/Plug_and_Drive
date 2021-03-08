@@ -1,0 +1,155 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+.card-container.card {
+  max-width: 350px !important;
+  padding: 40px 40px;
+}
+
+#container{
+  color: white;
+}
+
+#databutton{
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  background-color: #f7f7f7;
+  padding: 20px 25px 30px;
+  margin: 0 auto 25px;
+  margin-top: 50px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.profile-img-card {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 10%;
+  -webkit-border-radius: 10%;
+  border-radius: 0%;
+}
+
+.profile-img-card-car {
+  width: 150px;
+  height: 90px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 10%;
+  -webkit-border-radius: 10%;
+  border-radius: 0%;
+}
+
+.welcome {
+  color: white;
+  text-align: center;
+}
+
+#dropdown-menu{
+  opacity: 0.9;
+}
+
+#navbardrop{
+  margin-right: 20px;
+}
+
+#username{
+  margin-right: 15px;
+}
+
+#footer{
+  clear : both;
+  color: #A4A4A4;
+  text-align: center;
+  background-color: #2E2E2E;
+}
+
+#datacar{
+  font-family: serif;
+  width: 900px;
+  height: 500px;        /*για εξωτερικό περιεχόμενο*/
+  color: black;
+  text-align: center;   /*για εσωτερικό περιεχόμενο*/
+  opacity: 0.7;
+  padding: 30px;    /*για εσωτερικό περιεχόμενο*/
+  margin: auto;    /*για εξωτερικο κουτι , αποστασεις απο ολοκληρη την σελλιδα*/
+}
+
+#datapayment{
+  font-family: serif;
+  width: 600px;
+  height: 150px;        /*για εξωτερικό περιεχόμενο*/
+  color: black;
+  text-align: center;   /*για εσωτερικό περιεχόμενο*/
+  opacity: 0.7;
+  padding: 30px;    /*για εσωτερικό περιεχόμενο*/
+  margin: auto;    /*για εξωτερικο κουτι , αποστασεις απο ολοκληρη την σελλιδα*/
+}
+
+#databonus{
+  font-family: serif;
+  width: 600px;
+  height: 100px;        /*για εξωτερικό περιεχόμενο*/
+  color: black;
+  text-align: center;   /*για εσωτερικό περιεχόμενο*/
+  opacity: 0.7;
+  padding: 30px;    /*για εσωτερικό περιεχόμενο*/
+  margin: auto;    /*για εξωτερικο κουτι , αποστασεις απο ολοκληρη την σελλιδα*/
+}
+
+body{
+  background-image: url('https://blog.psichogios.gr/wp-content/uploads/2016/01/on-your-road.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
