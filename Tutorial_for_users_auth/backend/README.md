@@ -332,26 +332,26 @@
       }
       ```
    - F31
-   ```json
-   Type: POST,
-      URl: http://localhost:8765/evcharge/api/manageChargingProgram,
-      Headers: {
-         "Content-Type": "application/json",
-         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
-      },
-      Body:{
-         "program":{
-            "program_id":8,
-            "program_name":"EXTREME - DISCOUNT",
-            "kwh_price":2.121,
-            "bonus_per_kwh":0.7,
-            "station_id":4
+      ```json
+      Type: POST,
+         URl: http://localhost:8765/evcharge/api/manageChargingProgram,
+         Headers: {
+            "Content-Type": "application/json",
+            "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+         },
+         Body:{
+            "program":{
+               "program_id":8,
+               "program_name":"EXTREME - DISCOUNT",
+               "kwh_price":2.121,
+               "bonus_per_kwh":0.7,
+               "station_id":4
+            }
          }
-      }
-      Reply: {
-         "message": "Updated Program with given ID"
-      }
-   ```
+         Reply: {
+            "message": "Updated Program with given ID"
+         }
+      ```
 5. Ιδιοκτήτες Ηλεκτρικών Οχημάτων - Πληρωμή και ανάλυση εξόδων 
    - F07
       ```json
