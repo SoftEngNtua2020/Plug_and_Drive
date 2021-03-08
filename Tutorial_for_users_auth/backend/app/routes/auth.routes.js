@@ -1,4 +1,5 @@
 const { verifySignUp } = require("../middleware");
+const { authJwt } = require("../../middleware");
 const controller = require("../controllers/auth.controller");
 
 module.exports = function(app) {
@@ -20,7 +21,7 @@ module.exports = function(app) {
   );
 
   app.post("/evcharge/api/login", controller.signin);
-  app.post("/evcharge/api/logout", controller.logout);
+  app.post("/evcharge/api/logout", authJwt.verifyToken, controller.logout);
 };
 
 
