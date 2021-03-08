@@ -12,7 +12,8 @@ module.exports = function(app) {
   });
 
  app.get("/evcharge/api/admin/resetsessions",
-      authJwt.verifyToken,     
+      authJwt.verifyToken,
+      authJwt.isAdmin,     
       controller.resetsessions,
       signupController.manageUser);
 };

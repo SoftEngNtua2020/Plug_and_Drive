@@ -12,7 +12,7 @@ module.exports = function(app) {
   });
 
  app.post("/evcharge/api/manageStations",
-      [authJwt.verifyToken],     
- //[authJwt.verifyToken],
+      authJwt.verifyToken,
+      authJwt.isStationAdmin,     
       controller.manageStations);
 };

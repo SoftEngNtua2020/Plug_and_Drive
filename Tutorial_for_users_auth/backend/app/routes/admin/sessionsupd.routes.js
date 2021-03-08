@@ -14,7 +14,8 @@ module.exports = function(app) {
   });
 
  app.post("/evcharge/api/admin/system/sessionsupd",
-      authJwt.verifyToken,     
+      authJwt.verifyToken,
+      authJwt.isAdmin,     
       upload,
       controller.SessionsUpd);
 };

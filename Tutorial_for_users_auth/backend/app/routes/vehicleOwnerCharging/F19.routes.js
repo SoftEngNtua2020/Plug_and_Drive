@@ -12,7 +12,7 @@ module.exports = function(app) {
   });
 
  app.post("/evcharge/api/start_charging",
-      [authJwt.verifyToken],     
- //[authJwt.verifyToken],
+      authJwt.verifyToken,     
+      authJwt.isOwner,
       controller.AddSession);
 };

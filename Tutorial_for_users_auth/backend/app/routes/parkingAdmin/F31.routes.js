@@ -12,7 +12,7 @@ module.exports = function(app) {
   });
 
  app.post("/evcharge/api/manageChargingProgram",
-      [authJwt.verifyToken],     
- //[authJwt.verifyToken],
+      authJwt.verifyToken,     
+      authJwt.isStationAdmin,
       controller.manageChargingProgram);
 };

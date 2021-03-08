@@ -12,7 +12,7 @@ module.exports = function(app) {
   });
 
  app.get("/evcharge/api/getvehiclecostassump",
-      [authJwt.verifyToken],     
- //[authJwt.verifyToken],
+      authJwt.verifyToken,     
+      authJwt.isOwner,
       controller.vehicleCostAssump);
 };
