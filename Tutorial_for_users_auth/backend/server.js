@@ -46,20 +46,6 @@ app.get("/", (req, res) => {
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
 
-require('./app/routes/vehicleOwnerCharging/F01.routes')(app);
-require('./app/routes/vehicleOwnerCharging/F33.routes')(app);
-require('./app/routes/vehicleOwnerCharging/F29.routes')(app);
-require('./app/routes/vehicleOwnerCharging/F19.routes')(app);
-require('./app/routes/vehicleOwnerCharging/sessionsupd.routes')(app);
-
-require('./app/routes/vehicleOwnerPayments/F07.routes')(app);
-require('./app/routes/vehicleOwnerPayments/F14.routes')(app);
-require('./app/routes/vehicleOwnerPayments/F31.routes')(app);
-require('./app/routes/vehicleOwnerPayments/F26.routes')(app);
-
-require('./app/routes/admin/manageUser.routes')(app);
-require('./app/routes/admin/trackUser.routes')(app);
-
 require('./app/routes/SessionsPer/SessionsPerPoint.routes')(app);
 require('./app/routes/SessionsPer/SessionsPerStation.routes')(app);
 require('./app/routes/SessionsPer/SessionsPerEV.routes')(app);
