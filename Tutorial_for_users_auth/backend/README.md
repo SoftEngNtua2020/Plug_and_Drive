@@ -144,19 +144,20 @@
                   },
       Reply: [
          {
-            "station_id": 5,
-            "total_cost": 15.88,
-            "total_bonus": 6.61
+            "station_id": 1,
+            "program_id": 1,
+            "kwh_price": 1.78,
+            "bonus_per_kwh": 2.39,
+            "total_cost": 3.58,
+            "total_bonus": 4.8
          },
          {
-            "station_id": 6,
-            "total_cost": 15.28,
-            "total_bonus": 4.21
-         },
-         {
-            "station_id": 6,
-            "total_cost": 12.75,
-            "total_bonus": 4.21
+            "station_id": 1,
+            "program_id": 2,
+            "kwh_price": 2.16,
+            "bonus_per_kwh": 1.25,
+            "total_cost": 4.34,
+            "total_bonus": 2.51
          }
       ]
       ```

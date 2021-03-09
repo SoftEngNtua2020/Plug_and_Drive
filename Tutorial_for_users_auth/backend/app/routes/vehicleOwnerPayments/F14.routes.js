@@ -12,7 +12,8 @@ module.exports = function(app) {
   });
 
  app.post("/evcharge/api/getCummulativeCostPerPeriod",
-      [authJwt.verifyToken],     
- //[authJwt.verifyToken],
+      authJwt.verifyToken,    
+      authJwt.isOwner, 
+      authJwt.noDataProvided,
       controller.CummulativeCostPerPeriod);
 };
