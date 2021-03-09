@@ -99,7 +99,6 @@ isStationAdmin = (req, res, next) => {
   });
 };
 
-
 isModerator = (req, res, next) => {
   User.findByPk(req.userId).then(user => {
     user.getRoles().then(roles => {
@@ -148,6 +147,50 @@ noDataProvided = (req, res, next) => {
   return;
 };
 
+isOwnerOrAdmin = (req, res, next) => {
+  User.findByPk(req.userId).then(user => {
+    user.getRoles().then(roles => {
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "vehicle_owner") {
+          next();
+          return;
+        }
+
+        if (roles[i].name === "admin") {
+          next();
+          return;
+        }
+      }
+
+      res.status(403).send({
+        message: "Require Owner or Admin Role!"
+      });
+    });
+  });
+};
+
+isStationAdminOrAdmin = (req, res, next) => {
+  User.findByPk(req.userId).then(user => {
+    user.getRoles().then(roles => {
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "station_admin") {
+          next();
+          return;
+        }
+
+        if (roles[i].name === "admin") {
+          next();
+          return;
+        }
+      }
+
+      res.status(403).send({
+        message: "Require Owner or Admin Role!"
+      });
+    });
+  });
+};
+
 const authJwt = {
   verifyToken: verifyToken,
   isAdmin: isAdmin,
@@ -156,6 +199,8 @@ const authJwt = {
   isStationAdmin: isStationAdmin,
   isModerator: isModerator,
   isModeratorOrAdmin: isModeratorOrAdmin,
-  noDataProvided: noDataProvided
+  noDataProvided: noDataProvided,
+  isOwnerOrAdmin: isOwnerOrAdmin,
+  isStationAdminOrAdmin: isStationAdminOrAdmin
 };
 module.exports = authJwt;

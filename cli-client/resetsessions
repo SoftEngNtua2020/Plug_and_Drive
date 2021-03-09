@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+import argparse
+import requests
+import json
+
+def resetsessions(ar):
+        res = requests.get('http://pluganddrive.ddns.net:8765/evcharge/api/admin/resetsessions')
+        print(res.status_code)
+        print(res.json())
+        return True
+
+
+parser = argparse.ArgumentParser()
+args = parser.parse_args()
+
+resetsessions(args)

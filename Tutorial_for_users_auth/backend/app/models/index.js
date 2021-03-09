@@ -53,7 +53,7 @@ db.user.belongsToMany(db.role, {
 
 db.designer.hasMany(db.vehicle, {foreignKey: "designer_id"});
 
-db.vehicle.belongsTo(db.owner,{foreignKey:"owner_id"});
+db.vehicle.belongsTo(db.owner, {foreignKey:"owner_id"});
 db.program.belongsTo(db.station, {foreignKey: "station_id"});
 
 db.session.belongsTo(db.vehicle, {foreignKey: "vehicle_id"});
@@ -71,6 +71,9 @@ db.moderator.belongsTo(db.user, {foreignKey: "user_id"});
 db.moderator.hasMany(db.station, {foreignKey: "st_moderator_id"});
 db.provider.hasMany(db.station, {foreignKey: "provider_id"});
 
+/* +++ */
+db.station.belongsTo(db.provider, {foreignKey: "provider_id"});
+db.owner.hasMany(db.vehicle, {foreignKey: "designer_id"});
 
 db.ROLES = ["admin", "vehicle_designer", "vehicle_owner","station_admin"];
 db.BANNED = [];
