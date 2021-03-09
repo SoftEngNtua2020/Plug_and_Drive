@@ -118,8 +118,8 @@ exports.SessionsPerEV = (req, res) => {
                      number_of_vehicle_charging_sessions += 1;
                      results[i].SessionIndex = index++;
                      results[i].SessionID = String(results[i].SessionID);
-                     results[i].StartedOn = date_string_from_datetime(results[i].StartedOn);
-                     results[i].FinishedOn = date_string_from_datetime(results[i].FinishedOn);
+                     results[i].StartedOn = readable_datetime_string(results[i].StartedOn);
+                     results[i].FinishedOn = readable_datetime_string(results[i].FinishedOn);
                      results[i] = JSON.parse(JSON.stringify(results[i], ['SessionIndex','SessionID','EnergyProvider','StartedOn','FinishedOn','EnergyDelivered','PricePolicyRef','CostPerKWh','SessionCost']));
                    }
                   if (req.query.format == 'csv') { // if the format required is csv
@@ -158,11 +158,12 @@ exports.SessionsPerEV = (req, res) => {
                         results[i].EnergyProvider,
                         results[i].StartedOn,
                         results[i].FinishedOn,
-                        results[i].ΕnergyDelivered,
+                        results[i].EnergyDelivered,
                         results[i].PricePolicyRef,
                         results[i].CostPerKWh,
                         results[i].SessionCost
                      ])
+                     console.log("Energy delivered = %d",results[i].EnergyDelivered);
                    }
                    const finalCSV = convertArrayToCSV(dataCSV, {
                      header: headerCSV,
