@@ -13,6 +13,7 @@ module.exports = function(app) {
 
  app.post("/evcharge/api/manageStations",
       authJwt.verifyToken,
-      authJwt.isStationAdmin,     
+      authJwt.isStationAdmin,
+      authJwt.noDataProvided,     
       controller.manageStations);
 };

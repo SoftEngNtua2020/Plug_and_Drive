@@ -138,6 +138,15 @@ isModeratorOrAdmin = (req, res, next) => {
     });
   });
 };
+noDataProvided = (req, res, next) => {
+  if (!Object.keys(req.body).length){
+    return res.status(402).send({
+      message: "No Data Provided!"
+    });
+  }
+  next();
+  return;
+};
 
 const authJwt = {
   verifyToken: verifyToken,
@@ -146,6 +155,7 @@ const authJwt = {
   isOwner: isOwner,
   isStationAdmin: isStationAdmin,
   isModerator: isModerator,
-  isModeratorOrAdmin: isModeratorOrAdmin
+  isModeratorOrAdmin: isModeratorOrAdmin,
+  noDataProvided: noDataProvided
 };
 module.exports = authJwt;
