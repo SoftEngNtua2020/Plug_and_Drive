@@ -11,6 +11,7 @@ module.exports = function(app) {
   });
 
  app.get("/evcharge/api/SessionsPerPoint/:pointID/:yyyymmdd_from/:yyyymmdd_to",
-      [authJwt.verifyToken],
+      authJwt.verifyToken,
+      //authJwt.isStationAdmin,
       controller.SessionsPerPoint);
 };

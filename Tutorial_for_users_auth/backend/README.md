@@ -1,6 +1,6 @@
 # Rest Api Documentation
 
-## Base URL: https://localhost:8765/evcharge/api
+## Base URL: http://localhost:8765/evcharge/api
 ## Okeanos URL: http://pluganddrive.ddns.net:8765/evcharge/api
 
 ### Login & Logout
@@ -67,7 +67,7 @@
    2. 
       ```json
       Type: GET,
-      URL: http://localhost:8765/evcharge/api/admin/users/:username
+      URL: http://localhost:8765/evcharge/api/admin/users/:username,
       Headers: {
            "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                      },
@@ -78,6 +78,43 @@
          "user_id": 18
          }
       ```
+   3. 
+      ```json
+      Type: POST,
+      URL: http://localhost:8765/evcharge/api/admin/system/sessionsupd,
+      Headers: {
+           "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+                     },
+      Encoding: multipart/form-data,
+      file: path_to_file/import.csv,
+      {"file":
+         "started_on;finished_on;energy_deliverd;protocol;payment_method;bonus_points_energy;total_cost;vehicle_id;station_id;point_id;program_id
+         2021-03-06 17:30:40;2021-03-06 17:40:40;30;AC;CASH;100;60;1;1;1;1
+         2021-03-06 18:30:40;2021-03-06 18:40:40;30;AC;CASH;100;60;1;1;1;1"
+         }
+      Reply: {
+            "message": "Uploaded the file successfully: importcsv.csv"
+         }
+      ```
+   4. Πρόσθετα (βοηθητικά) Endpoints
+      1. healthcheck
+         ```json
+         Type: GET,
+         URl: http://localhost:8765/evcharge/api/admin/healthcheck,
+         Headers: {
+            "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+                  },
+         Reply: {
+            "status": "200 OK"
+         }
+         ```
+
+      2. resetsessions
+         ```json
+         {}
+         ```
+
+# Υπόλοιπες Λειτουργίες
 
 1. Ιδιοκτήτες ηλεκτρικών οχημάτων - Φόρτιση
    - F01
@@ -191,6 +228,129 @@
             "station_id": 1
          }
       ]
+      ```
+3. Parking - Διαχείριση σημείων φόρτισης
+
+   - Get Station Data
+      ```json
+      Type: GET,
+      URl: http://localhost:8765/evcharge/api/getStationData,
+      Headers: {
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+                  },
+      Reply:{
+         "stations": [
+            {
+                  "station_id": 4,
+                  "location": "Thessaloniki",
+                  "company_name": "BP",
+                  "phone_number": "2109765527",
+                  "st_moderator_id": 4,
+                  "provider_id": 4
+            },
+            {
+                  "station_id": 7,
+                  "location": "Aboudabi",
+                  "company_name": "IKEA",
+                  "phone_number": "2100000000",
+                  "st_moderator_id": 4,
+                  "provider_id": 1
+            }
+         ],
+         "points": [
+            {
+                  "point_id": 7,
+                  "station_id": 4
+            },
+            {
+                  "point_id": 8,
+                  "station_id": 4
+            },
+            {
+                  "point_id": 13,
+                  "station_id": 7
+            },
+            {
+                  "point_id": 14,
+                  "station_id": 7
+            }
+         ],
+         "programs": [
+            {
+                  "program_id": 7,
+                  "program_name": "STANDARD",
+                  "kwh_price": 1.432,
+                  "bonus_per_kwh": 0.4,
+                  "station_id": 4
+            },
+            {
+                  "program_id": 8,
+                  "program_name": "DISCOUNT",
+                  "kwh_price": 1.332,
+                  "bonus_per_kwh": 0.3,
+                  "station_id": 4
+            }
+         ],
+         "providers": [
+            {
+                  "provider_id": 4,
+                  "provider_name": "Protergeia",
+                  "station_id": 4
+            },
+            {
+                  "provider_id": 1,
+                  "provider_name": "DEH",
+                  "station_id": 7
+            }
+         ]
+      }
+      ```
+   - F11
+      ```json
+      Type: POST,
+      URl: http://localhost:8765/evcharge/api/manageStations,
+      Headers: {
+         "Content-Type": "application/json",
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+      },
+      Body: {
+         "station":{
+            "station_id":7,
+            "location":"Aboudabi",
+            "company_name":"IKEA",
+            "phone_number":"2100000000",
+            "st_moderator_id":4,
+            "provider_id":1
+            },
+         "point":{
+            "point_id": 14,
+            "station_id":7
+            }
+         },
+      Reply: {
+         "message": "Updated Station and Point"
+      }
+      ```
+   - F31
+      ```json
+      Type: POST,
+         URl: http://localhost:8765/evcharge/api/manageChargingProgram,
+         Headers: {
+            "Content-Type": "application/json",
+            "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+         },
+         Body:{
+            "program":{
+               "program_id":8,
+               "program_name":"EXTREME - DISCOUNT",
+               "kwh_price":2.121,
+               "bonus_per_kwh":0.7,
+               "station_id":4
+            }
+         }
+         Reply: {
+            "message": "Updated Program with given ID"
+         }
       ```
 5. Ιδιοκτήτες Ηλεκτρικών Οχημάτων - Πληρωμή και ανάλυση εξόδων 
    - F07

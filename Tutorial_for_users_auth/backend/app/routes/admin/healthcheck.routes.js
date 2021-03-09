@@ -1,6 +1,6 @@
 //const { verifySignUp } = require("../middleware");
 const { authJwt } = require("../../middleware");
-const controller = require("../../controllers/vehicleOwnerCharging/F19.controller");
+const controller = require("../../controllers/admin/healthcheck.controller");
 
 module.exports = function(app) {
   app.use(function(req, res, next) {
@@ -11,8 +11,8 @@ module.exports = function(app) {
     next();
   });
 
- app.post("/evcharge/api/start_charging",
-      authJwt.verifyToken,     
-      authJwt.isOwner,
-      controller.AddSession);
+ app.get("/evcharge/api/admin/healthcheck",
+      authJwt.verifyToken,
+      authJwt.isAdmin,     
+      controller.healthcheck);
 };

@@ -11,6 +11,7 @@ module.exports = function(app) {
   });
 
  app.get("/evcharge/api/SessionsPerProvider/:providerID/:yyyymmdd_from/:yyyymmdd_to",
-      [authJwt.verifyToken],
+      authJwt.verifyToken,
+      //authJwt.isAdmin,
       controller.SessionsPerProvider);
 };

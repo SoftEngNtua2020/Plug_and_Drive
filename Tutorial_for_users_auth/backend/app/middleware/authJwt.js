@@ -45,6 +45,61 @@ isAdmin = (req, res, next) => {
   });
 };
 
+isDesigner = (req, res, next) => {
+  User.findByPk(req.userId).then(user => {
+    user.getRoles().then(roles => {
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "vehicle_designer") {
+          next();
+          return;
+        }
+      }
+
+      res.status(403).send({
+        message: "Require Vehicle Designer Role!"
+      });
+      return;
+    });
+  });
+};
+
+isOwner = (req, res, next) => {
+  User.findByPk(req.userId).then(user => {
+    user.getRoles().then(roles => {
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "vehicle_owner") {
+          next();
+          return;
+        }
+      }
+
+      res.status(403).send({
+        message: "Require Vehicle Owner Role!"
+      });
+      return;
+    });
+  });
+};
+
+isStationAdmin = (req, res, next) => {
+  User.findByPk(req.userId).then(user => {
+    user.getRoles().then(roles => {
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "station_admin") {
+          next();
+          return;
+        }
+      }
+
+      res.status(403).send({
+        message: "Require Station Admin Role!"
+      });
+      return;
+    });
+  });
+};
+
+
 isModerator = (req, res, next) => {
   User.findByPk(req.userId).then(user => {
     user.getRoles().then(roles => {
@@ -87,6 +142,9 @@ isModeratorOrAdmin = (req, res, next) => {
 const authJwt = {
   verifyToken: verifyToken,
   isAdmin: isAdmin,
+  isDesigner: isDesigner,
+  isOwner: isOwner,
+  isStationAdmin: isStationAdmin,
   isModerator: isModerator,
   isModeratorOrAdmin: isModeratorOrAdmin
 };

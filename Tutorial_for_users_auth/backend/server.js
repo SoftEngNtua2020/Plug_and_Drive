@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const init = require ("./app/models/database_init.js");
-
+global.__basedir = __dirname;
 const app = express();
 
 var corsOptions = {
@@ -56,6 +56,22 @@ require('./app/routes/vehicleDesignerInfo/F35.routes')(app);
 require('./app/routes/vehicleDesignerInfo/F02.routes')(app);
 
 require('./app/routes/stationModeratorInfo/F23.routes')(app);
+
+require('./app/routes/vehicleOwnerCharging/F01.routes')(app);
+require('./app/routes/vehicleOwnerCharging/F33.routes')(app);
+require('./app/routes/vehicleOwnerCharging/F29.routes')(app);
+require('./app/routes/vehicleOwnerCharging/F19.routes')(app);
+require('./app/routes/admin/sessionsupd.routes')(app);
+require('./app/routes/vehicleOwnerPayments/F07.routes')(app);
+require('./app/routes/vehicleOwnerPayments/F14.routes')(app);
+require('./app/routes/vehicleOwnerPayments/F31.routes')(app);
+require('./app/routes/vehicleOwnerPayments/F26.routes')(app);
+require('./app/routes/admin/manageUser.routes')(app);
+require('./app/routes/admin/trackUser.routes')(app);
+require('./app/routes/admin/healthcheck.routes')(app);
+require('./app/routes/parkingAdmin/F11.routes')(app);
+require('./app/routes/parkingAdmin/F31.routes')(app);
+require('./app/routes/parkingAdmin/getStationData.routes')(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8765;

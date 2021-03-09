@@ -1,6 +1,6 @@
 //const { verifySignUp } = require("../middleware");
 const { authJwt } = require("../../middleware");
-const controller = require("../../controllers/admin/trackUser.controller");
+const controller = require("../../controllers/parkingAdmin/F11.controller");
 
 module.exports = function(app) {
   app.use(function(req, res, next) {
@@ -11,8 +11,8 @@ module.exports = function(app) {
     next();
   });
 
- app.get("/evcharge/api/admin/users/:username",
-      authJwt.verifyToken,     
-      authJwt.isAdmin,
-      controller.trackUser);
+ app.post("/evcharge/api/manageStations",
+      authJwt.verifyToken,
+      authJwt.isStationAdmin,     
+      controller.manageStations);
 };
