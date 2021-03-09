@@ -30,6 +30,10 @@ exports.vehicleCostAssump = (req, res) => {
                for (var i in programs){
                   programJson.push({
                      station_id: programs[i].station_id,
+                     program_id: programs[i].program_id,
+                     program_name: programs[i].program_name,
+                     kwh_price: Rounding_to_two( programs[i].kwh_price),
+                     bonus_per_kwh: Rounding_to_two( programs[i].bonus_per_kwh),
                      total_cost: Rounding_to_two( (vehicle_.usable_battery_size - vehicle_.current_battery_charge) * programs[i].kwh_price),
                      total_bonus: Rounding_to_two( (vehicle_.usable_battery_size - vehicle_.current_battery_charge) * programs[i].bonus_per_kwh),
                   });
