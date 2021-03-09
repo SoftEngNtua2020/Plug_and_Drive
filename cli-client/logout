@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+import argparse
+import requests
+import json
+from pathlib import Path
+import os
+
+
+def logout(ar):
+    home = str(Path.home())
+    url = 'http://pluganddrive.ddns.net:8765/evcharge/api/logout'
+    headers = {'x-access-token' : ar.apikey}
+    res = requests.post(url, headers=headers)
+    print(res.status_code)
+    if (res.status_code == 200):
+        #print(f'Status code returned: {res.status_code}')
+        if os.path.exists(home + '/softeng20bAPI.token'):
+          os.remove(home + '/softeng20bAPI.token')
+    return True
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--apikey', help='Give API key', required='TRUE')
+args = parser.parse_args()
+
+logout(args)
+
+#print (args)

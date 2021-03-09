@@ -45,6 +45,18 @@ app.get("/", (req, res) => {
 // routes
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
+
+require('./app/routes/SessionsPer/SessionsPerPoint.routes')(app);
+require('./app/routes/SessionsPer/SessionsPerStation.routes')(app);
+require('./app/routes/SessionsPer/SessionsPerEV.routes')(app);
+require('./app/routes/SessionsPer/SessionsPerProvider.routes')(app);
+
+require('./app/routes/VehicleDesignerInfo/F05.routes')(app);
+require('./app/routes/VehicleDesignerInfo/F35.routes')(app);
+require('./app/routes/VehicleDesignerInfo/F02.routes')(app);
+
+require('./app/routes/stationModeratorInfo/F23.routes')(app);
+
 require('./app/routes/vehicleOwnerCharging/F01.routes')(app);
 require('./app/routes/vehicleOwnerCharging/F33.routes')(app);
 require('./app/routes/vehicleOwnerCharging/F29.routes')(app);
@@ -60,6 +72,7 @@ require('./app/routes/admin/healthcheck.routes')(app);
 require('./app/routes/parkingAdmin/F11.routes')(app);
 require('./app/routes/parkingAdmin/F31.routes')(app);
 require('./app/routes/parkingAdmin/getStationData.routes')(app);
+
 // set port, listen for requests
 const PORT = process.env.PORT || 8765;
 app.listen(PORT, () => {
@@ -71,10 +84,8 @@ app.listen(PORT, () => {
 const db = require("./app/models");
 const Role = db.role;
 const AdminController = require("./app/controllers/admin.controller.js");
+
 /*
-
-
-
 db.sequelize.sync({ force: true }).then(() => {
   console.log("Drop and re-sync db.");
   initial();
@@ -84,39 +95,39 @@ async function initial() {
 
 await db.admin.sync({ force: false }).then(() => {
     console.log("admin model created successfully")})
-    .then(()=>   { 
+    .then(()=>   {
         db.admin.bulkCreate(init.admins)
     })
 
 await db.station.sync({ force: false }).then(() => {
     console.log("station model created successfully")})
-    .then(()=>   { 
+    .then(()=>   {
         db.station.bulkCreate(init.station)
     })
 
 
 await db.designer.sync({ force: false }).then(() => {
     console.log("designer model created successfully")})
-    .then(()=>   { 
+    .then(()=>   {
         db.designer.bulkCreate(init.designers)
     })
 
 await db.owner.sync({ force: false }).then(() => {
     console.log("owner model created successfully")})
-    .then(()=>   { 
+    .then(()=>   {
         db.owner.bulkCreate(init.owners)
     })
 
 await db.vehicle.sync({ force: false }).then(() => {
     console.log("vehicle model created successfully")})
-    .then(()=>   { 
+    .then(()=>   {
         db.vehicle.bulkCreate(init.vehicles)
     })
 
 
 await db.session.sync({ force: false }).then(() => {
   console.log("session model created successfully")})
-  .then(()=>   { 
+  .then(()=>   {
       db.session.bulkCreate(init.session)
   })
 
@@ -138,12 +149,12 @@ await db.session.sync({ force: false }).then(() => {
      id: 1,
      name: "user"
    });
-  
+
    Role.create({
      id: 2,
      name: "moderator"
    });
-  
+
    Role.create({
      id: 3,
      name: "admin"
