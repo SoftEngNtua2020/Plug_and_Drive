@@ -51,9 +51,9 @@ require('./app/routes/SessionsPer/SessionsPerStation.routes')(app);
 require('./app/routes/SessionsPer/SessionsPerEV.routes')(app);
 require('./app/routes/SessionsPer/SessionsPerProvider.routes')(app);
 
-require('./app/routes/vehicleDesignerInfo/F05.routes')(app);
-require('./app/routes/vehicleDesignerInfo/F35.routes')(app);
-require('./app/routes/vehicleDesignerInfo/F02.routes')(app);
+require('./app/routes/VehicleDesignerInfo/F05.routes')(app);
+require('./app/routes/VehicleDesignerInfo/F35.routes')(app);
+require('./app/routes/VehicleDesignerInfo/F02.routes')(app);
 
 require('./app/routes/stationModeratorInfo/F23.routes')(app);
 
