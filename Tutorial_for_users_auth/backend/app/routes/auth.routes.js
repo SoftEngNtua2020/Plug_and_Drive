@@ -17,10 +17,11 @@ module.exports = function(app) {
       verifySignUp.checkDuplicateUsernameOrEmail,
       verifySignUp.checkRolesExisted
     ],
+    authJwt.noDataProvided,
     controller.signup
   );
 
-  app.post("/evcharge/api/login", controller.signin);
+  app.post("/evcharge/api/login", authJwt.noDataProvided,controller.signin);
   app.post("/evcharge/api/logout", authJwt.verifyToken, controller.logout);
 };
 

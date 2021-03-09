@@ -14,5 +14,6 @@ module.exports = function(app) {
  app.post("/evcharge/api/manageChargingProgram",
       authJwt.verifyToken,     
       authJwt.isStationAdmin,
+      authJwt.noDataProvided,
       controller.manageChargingProgram);
 };

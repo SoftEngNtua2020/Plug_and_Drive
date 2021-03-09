@@ -14,5 +14,6 @@ module.exports = function(app) {
  app.post("/evcharge/api/start_charging",
       authJwt.verifyToken,     
       authJwt.isOwner,
+      authJwt.noDataProvided,
       controller.AddSession);
 };

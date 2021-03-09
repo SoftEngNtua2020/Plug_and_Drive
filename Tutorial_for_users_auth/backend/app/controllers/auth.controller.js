@@ -36,7 +36,7 @@ exports.signup = (req, res) => {
       }
     })
     .catch(err => {
-      res.status(500).send({ message: err.message });
+      res.status(400).send({ message: err.message });
     });
 };
 
@@ -50,6 +50,13 @@ exports.logout = (req, res) =>{
 var counter = 0;
 
 exports.signin = (req, res) => {
+/*
+  if(!req.body.length){
+    return res.status(402).send({
+      message: "No Data Provided!"
+    });
+  }
+  */
   counter += 1;
   if(counter>10){
     counter = 0;
