@@ -25,21 +25,21 @@ function datetime_from_int(x, from_flag) {
   const day = temp[6] + temp[7];
   var date = year + '-' + month + '-' + day;
   if (from_flag) {
-    date += 'T01:00:42';
+    date += ' 00:00:01';
   }
   else {
-    date += 'T23:59:42';
+    date += ' 23:59:59';
   }
 
-  //console.log(date);
-  //console.log(new Date(date));
-  return(new Date(date));
+  var datetime = new Date(date);
+  datetime.setTime( datetime.getTime() - new Date().getTimezoneOffset()*60*1000 );
+  return(new Date(datetime));
 }
 
 exports.SessionsPerProvider = (req, res) => {
     // check that user: req.userId is an admin
     db.admin.findOne({
-      attributes: ['admin_id'], // to reduce table size
+      attributes: ['admin_id'],
       where: {
         user_id: req.userId
       }
@@ -49,9 +49,7 @@ exports.SessionsPerProvider = (req, res) => {
           return res.status(401).send({message: "Unauthorized!"});
         }
         else {
-          ///console.log(req.params.yyyymmdd_from);
           const start_date = datetime_from_int(req.params.yyyymmdd_from, true);
-          //console.log(req.params.yyyymmdd_to);
           const end_date = datetime_from_int(req.params.yyyymmdd_to, false);
 
           db.session.findAll({
@@ -63,11 +61,11 @@ exports.SessionsPerProvider = (req, res) => {
             include: [
               {
                 model: db.station,
-                attributes: [], // to reduce table size
+                attributes: [],
                 required: true,
                 include: {
                   model: db.provider,
-                  attributes: [], // to reduce table size
+                  attributes: [],
                   where: {
                     provider_id: req.params.providerID
                   },
@@ -82,7 +80,7 @@ exports.SessionsPerProvider = (req, res) => {
             ]
           })
            .then(results => {
-               if(!results) { // if the answer is empty
+               if(results.length == 0) { // if the answer is empty
                  res.status(402).send([]);
                }
                else {

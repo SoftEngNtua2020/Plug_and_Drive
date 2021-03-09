@@ -45,15 +45,18 @@ app.get("/", (req, res) => {
 // routes
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
+
 require('./app/routes/vehicleOwnerCharging/F01.routes')(app);
 require('./app/routes/vehicleOwnerCharging/F33.routes')(app);
 require('./app/routes/vehicleOwnerCharging/F29.routes')(app);
 require('./app/routes/vehicleOwnerCharging/F19.routes')(app);
 require('./app/routes/vehicleOwnerCharging/sessionsupd.routes')(app);
+
 require('./app/routes/vehicleOwnerPayments/F07.routes')(app);
 require('./app/routes/vehicleOwnerPayments/F14.routes')(app);
 require('./app/routes/vehicleOwnerPayments/F31.routes')(app);
 require('./app/routes/vehicleOwnerPayments/F26.routes')(app);
+
 require('./app/routes/admin/manageUser.routes')(app);
 require('./app/routes/admin/trackUser.routes')(app);
 
@@ -61,6 +64,12 @@ require('./app/routes/SessionsPer/SessionsPerPoint.routes')(app);
 require('./app/routes/SessionsPer/SessionsPerStation.routes')(app);
 require('./app/routes/SessionsPer/SessionsPerEV.routes')(app);
 require('./app/routes/SessionsPer/SessionsPerProvider.routes')(app);
+
+require('./app/routes/vehicleDesignerInfo/F05.routes')(app);
+require('./app/routes/vehicleDesignerInfo/F35.routes')(app);
+require('./app/routes/vehicleDesignerInfo/F02.routes')(app);
+
+require('./app/routes/stationModeratorInfo/F23.routes')(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8765;
@@ -73,10 +82,8 @@ app.listen(PORT, () => {
 const db = require("./app/models");
 const Role = db.role;
 const AdminController = require("./app/controllers/admin.controller.js");
+
 /*
-
-
-
 db.sequelize.sync({ force: true }).then(() => {
   console.log("Drop and re-sync db.");
   initial();

@@ -25,28 +25,28 @@ function datetime_from_int(x, from_flag) {
   const day = temp[6] + temp[7];
   var date = year + '-' + month + '-' + day;
   if (from_flag) {
-    date += 'T01:00:42';
+    date += ' 00:00:01';
   }
   else {
-    date += 'T23:59:42';
+    date += ' 23:59:59';
   }
 
-  //console.log(date);
-  //console.log(new Date(date));
-  return(new Date(date));
+  var datetime = new Date(date);
+  datetime.setTime( datetime.getTime() - new Date().getTimezoneOffset()*60*1000 );
+  return(new Date(datetime));
 }
 
 exports.SessionsPerStation = (req, res) => {
     // check that user: req.userId is a station moderator
     // and check that user: req.userId is a moderator for the station: req.params.stationID
     db.moderator.findOne({
-      attributes: ['first_name', 'last_name'], // to reduce table size
+      attributes: ['first_name', 'last_name'],
       where: {
         user_id: req.userId
       },
       include: {
         model: db.station,
-        attributes: ['station_id'], // to reduce table size
+        attributes: ['station_id'],
         where: {
           station_id: req.params.stationID
         },
@@ -58,9 +58,9 @@ exports.SessionsPerStation = (req, res) => {
         return res.status(401).send({message: "Unauthorized!"});
       }
       else {
-        //console.log(req.params.yyyymmdd_from);
+        var timestamp = new Date();
+        timestamp.setTime( timestamp.getTime() - new Date().getTimezoneOffset()*60*1000 );
         const start_date = datetime_from_int(req.params.yyyymmdd_from, true);
-        //console.log(req.params.yyyymmdd_to);
         const end_date = datetime_from_int(req.params.yyyymmdd_to, false);
         const st_moderator_name = something.first_name + " " + something.last_name;
 
@@ -75,7 +75,7 @@ exports.SessionsPerStation = (req, res) => {
            order: sequelize.literal('point_id ASC')
         })
          .then(results => {
-             if(!results) { // if the answer is empty
+             if(results.length == 0) { // if the answer is empty
                res.status(402).send([]);
              }
              else {
@@ -104,11 +104,10 @@ exports.SessionsPerStation = (req, res) => {
                ];
                var dataCSV = [];
                for (var i in results) {
-                 //console.log("\nI AM INSIDE\n");
                  dataCSV.push([
                    String(req.params.stationID),
                    String(st_moderator_name),
-                   readable_datetime_string(new Date()),
+                   readable_datetime_string(timestamp),
                    date_string_from_datetime(start_date),
                    date_string_from_datetime(end_date),
                    total_energy_delivered,
@@ -131,7 +130,7 @@ exports.SessionsPerStation = (req, res) => {
                 const finalJson = {
                   StationID: String(req.params.stationID),
                   Operator: String(st_moderator_name),
-                  RequestTimestamp: readable_datetime_string(new Date()),
+                  RequestTimestamp: readable_datetime_string(timestamp),
                   PeriodFrom: date_string_from_datetime(start_date),
                   PeriodTo: date_string_from_datetime(end_date),
                   TotalEnergyDelivered: total_energy_delivered,

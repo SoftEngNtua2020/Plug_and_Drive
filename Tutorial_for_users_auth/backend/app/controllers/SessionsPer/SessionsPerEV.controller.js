@@ -25,28 +25,28 @@ function datetime_from_int(x, from_flag) {
   const day = temp[6] + temp[7];
   var date = year + '-' + month + '-' + day;
   if (from_flag) {
-    date += 'T01:00:42';
+    date += ' 00:00:01';
   }
   else {
-    date += 'T23:59:42';
+    date += ' 23:59:59';
   }
 
-  //console.log(date);
-  //console.log(new Date(date));
-  return(new Date(date));
+  var datetime = new Date(date);
+  datetime.setTime( datetime.getTime() - new Date().getTimezoneOffset()*60*1000 );
+  return(new Date(datetime));
 }
 
 exports.SessionsPerEV = (req, res) => {
     // check that user: req.userId is a vehicle owner
     // and check that user: req.userId is an owner for the vehicle: req.params.vehicleID
     db.owner.findOne({
-      attributes: ['owner_id'], // to reduce table size
+      attributes: ['owner_id'],
       where: {
         user_id: req.userId
       },
       include: {
         model: db.vehicle,
-        attributes: ['vehicle_id'], // to reduce table size
+        attributes: ['vehicle_id'],
         where: {
           vehicle_id: req.params.vehicleID
         },
@@ -58,9 +58,9 @@ exports.SessionsPerEV = (req, res) => {
           return res.status(401).send({message: "Unauthorized!"});
         }
         else {
-          ///console.log(req.params.yyyymmdd_from);
+          var timestamp = new Date();
+          timestamp.setTime( timestamp.getTime() - new Date().getTimezoneOffset()*60*1000 );
           const start_date = datetime_from_int(req.params.yyyymmdd_from, true);
-          //console.log(req.params.yyyymmdd_to);
           const end_date = datetime_from_int(req.params.yyyymmdd_to, false);
 
           db.session.findAll({
@@ -73,22 +73,22 @@ exports.SessionsPerEV = (req, res) => {
             include: [
               {
                 model: db.station,
-                attributes: [], // to reduce table size
+                attributes: [],
                 required: true,
                 include: {
                   model: db.provider,
-                  attributes: [], // to reduce table size
+                  attributes: [],
                 }
               },
               {
                 model: db.program,
-                attributes: [], // to reduce table size
+                attributes: [],
                 required: true
               }
             ]
           })
            .then(results => {
-               if(!results) { // if the answer is empty
+               if(results.length == 0) { // if the answer is empty
                  res.status(402).send([]);
                }
                else {
@@ -107,8 +107,6 @@ exports.SessionsPerEV = (req, res) => {
                    results[i].FinishedOn = date_string_from_datetime(results[i].FinishedOn);
                    results[i] = JSON.parse(JSON.stringify(results[i], ['SessionIndex','SessionID','EnergyProvider','StartedOn','FinishedOn','EnergyDelivered','PricePolicyRef','CostPerKWh','SessionCost']));
                  }
-                 //console.log(visited_points);
-                 //console.log(Object.keys(visited_points).length);
                 if (req.query.format == 'csv') { // if the format required is csv
                  const headerCSV = [
                    'VehicleID',
@@ -131,10 +129,9 @@ exports.SessionsPerEV = (req, res) => {
                  ];
                  var dataCSV = [];
                  for (var i in results) {
-                   //console.log("\nI AM INSIDE\n");
                    dataCSV.push([
                      String(req.params.vehicleID),
-                     readable_datetime_string(new Date()),
+                     readable_datetime_string(timestamp),
                      date_string_from_datetime(start_date),
                      date_string_from_datetime(end_date),
                      total_energy_consumed,
@@ -162,7 +159,7 @@ exports.SessionsPerEV = (req, res) => {
                 else { // if the format required is json (default)
                   const finalJson = {
                     VehicleID: String(req.params.vehicleID),
-                    RequestTimestamp: readable_datetime_string(new Date()),
+                    RequestTimestamp: readable_datetime_string(timestamp),
                     PeriodFrom: date_string_from_datetime(start_date),
                     PeriodTo: date_string_from_datetime(end_date),
                     TotalEnergyConsumed: total_energy_consumed,
