@@ -12,6 +12,6 @@ module.exports = function(app) {
 
  app.get("/evcharge/api/SessionsPerEV/:vehicleID/:yyyymmdd_from/:yyyymmdd_to",
       authJwt.verifyToken,
-      //authJwt.isOwner,
+      authJwt.isOwnerOrAdmin,
       controller.SessionsPerEV);
 };

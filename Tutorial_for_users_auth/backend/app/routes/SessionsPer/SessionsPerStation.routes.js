@@ -12,6 +12,6 @@ module.exports = function(app) {
 
  app.get("/evcharge/api/SessionsPerStation/:stationID/:yyyymmdd_from/:yyyymmdd_to",
       authJwt.verifyToken,
-      //authJwt.isStationAdmin,
+      authJwt.isStationAdminOrAdmin,
       controller.SessionsPerStation);
 };

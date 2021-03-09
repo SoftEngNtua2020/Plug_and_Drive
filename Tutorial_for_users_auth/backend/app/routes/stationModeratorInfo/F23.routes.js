@@ -11,6 +11,7 @@ module.exports = function(app) {
   });
 
  app.post("/evcharge/api/getVehiclesChargingAtTime",
-      [authJwt.verifyToken],
+      authJwt.verifyToken,
+      authJwt.isStationAdmin,
       controller.F23);
 };

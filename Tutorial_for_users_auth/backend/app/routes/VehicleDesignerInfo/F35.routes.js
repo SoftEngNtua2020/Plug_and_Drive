@@ -11,6 +11,7 @@ module.exports = function(app) {
   });
 
  app.post("/evcharge/api/getEnergyConsumedByEV",
-      [authJwt.verifyToken],
+      authJwt.verifyToken,
+      authJwt.isDesigner,
       controller.F35);
 };
