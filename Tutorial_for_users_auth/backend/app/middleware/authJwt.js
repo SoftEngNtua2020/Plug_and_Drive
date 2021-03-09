@@ -199,7 +199,7 @@ const authJwt = {
   isStationAdmin: isStationAdmin,
   isModerator: isModerator,
   isModeratorOrAdmin: isModeratorOrAdmin,
-  noDataProvided: noDataProvided
+  noDataProvided: noDataProvided,
   isOwnerOrAdmin: isOwnerOrAdmin,
   isStationAdminOrAdmin: isStationAdminOrAdmin
 };
