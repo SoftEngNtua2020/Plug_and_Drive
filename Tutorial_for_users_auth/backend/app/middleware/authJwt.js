@@ -137,15 +137,6 @@ isModeratorOrAdmin = (req, res, next) => {
     });
   });
 };
-noDataProvided = (req, res, next) => {
-  if (!Object.keys(req.body).length){
-    return res.status(402).send({
-      message: "No Data Provided!"
-    });
-  }
-  next();
-  return;
-};
 
 isOwnerOrAdmin = (req, res, next) => {
   User.findByPk(req.userId).then(user => {
@@ -185,10 +176,20 @@ isStationAdminOrAdmin = (req, res, next) => {
       }
 
       res.status(403).send({
-        message: "Require Owner or Admin Role!"
+        message: "Require Station Admin or Admin Role!"
       });
     });
   });
+};
+
+noDataProvided = (req, res, next) => {
+  if (!Object.keys(req.body).length){
+    return res.status(402).send({
+      message: "No Data Provided!"
+    });
+  }
+  next();
+  return;
 };
 
 const authJwt = {
@@ -199,8 +200,8 @@ const authJwt = {
   isStationAdmin: isStationAdmin,
   isModerator: isModerator,
   isModeratorOrAdmin: isModeratorOrAdmin,
-  noDataProvided: noDataProvided,
   isOwnerOrAdmin: isOwnerOrAdmin,
-  isStationAdminOrAdmin: isStationAdminOrAdmin
+  isStationAdminOrAdmin: isStationAdminOrAdmin,
+  noDataProvided: noDataProvided
 };
 module.exports = authJwt;
