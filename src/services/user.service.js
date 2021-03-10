@@ -19,7 +19,7 @@ class UserService {
   }
 
   getAdminBoard() {
-    return axios.get(API_URL + 'admin', { headers: authHeader() });
+    return axios.get(API_URL + 'admin/users/:username', { headers: authHeader() });
   }
 
   getBonusPoints() {
@@ -36,6 +36,18 @@ class UserService {
 
   getLocalStations() {
     return axios.get(API_URL + 'getvehiclecostassump', { headers: authHeader() });
+  }
+
+  getPreviousEvents() {
+    return axios.get(API_URL + 'getvehicleeventdata', { headers: authHeader() });
+  }
+
+  getChargesAndPayments() {
+    return axios.get(API_URL + 'getCummulativeCostPerCharge', { headers: authHeader() });
+  }
+
+  getGetStationsData(){
+    return axios.get(API_URL + 'getStationData', { headers: authHeader() });
   }
 }
 

@@ -37,14 +37,18 @@ class AuthService {
   }
 
   setCharge(program, points, protocol, payment_method, station) {
-    return axios.post(API_URL + "start_charging", JSON.stringify({
+    return axios.post(API_URL + "start_charging", { body: {
       program,
       points,
       protocol,
       payment_method,
-      station,
-      header: authHeader()
-    }));
+      station
+    } ,
+    headers: {
+        "content-type": "application/json" ,
+        "x-access-token": JSON.parse(localStorage.getItem('user')).accessToken
+    }
+    });
   }
   /*setCharge(program, points, protocol, payment_method, station) {
     return axios.post(API_URL + "start_charging", JSON.stringify({header: authHeader2(), body:{
