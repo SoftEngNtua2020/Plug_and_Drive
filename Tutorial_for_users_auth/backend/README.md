@@ -15,7 +15,7 @@
          "username":"alex13",
          "password":"password13"
          }
-      
+
       Reply: {
          "id": 13,
          "username": "alex13",
@@ -52,8 +52,9 @@
             "message": "User was registered successfully!"
             }
       ```
+
 ### Admin Endpoints
-   1. 
+   1.
       ```json
          Type: POST,
          URL: http://localhost:8765/evcharge/api/admin/usermod/:username/:password,
@@ -64,7 +65,7 @@
             "message": "Created User Successfully"
             }
          ```
-   2. 
+   2.
       ```json
       Type: GET,
       URL: http://localhost:8765/evcharge/api/admin/users/:username,
@@ -78,7 +79,7 @@
          "user_id": 18
          }
       ```
-   3. 
+   3.
       ```json
       Type: POST,
       URL: http://localhost:8765/evcharge/api/admin/system/sessionsupd,
@@ -161,7 +162,7 @@
          }
       ]
       ```
-   - F19 
+   - F19
       ```json
       Type: POST,
       URl: http://localhost:8765/evcharge/api/start_charging,
@@ -173,7 +174,7 @@
          "program_id":1,
          "point_id":1,
          "protocol":"AC",
-         "payment_method":"CASH", 
+         "payment_method":"CASH",
          "station_id": 1
         },
       Reply: {
@@ -230,6 +231,104 @@
          }
       ]
       ```
+
+2. Κατασκευαστές Οχημάτων - Ενημέρωση
+  - F05
+   ```json
+   Type: POST,
+   URl: http://localhost:8765/evcharge/api/getEnergyConsumbedByEVType,
+   Headers: {
+      "Content-Type": "application/json",
+      "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+   },
+   Body:
+   {
+      "start_date": "2020-02-25",
+      "end_date": "2021-03-07"
+   },
+   Reply:
+   [
+       {
+           "VehicleType": "bev",
+           "TotalEnergyDelivered": 376.73
+       },
+       {
+           "VehicleType": "aev",
+           "TotalEnergyDelivered": 242.44
+       }
+   ]
+   ```
+   - F35
+      ```json
+      Type: POST,
+      URl: http://localhost:8765/evcharge/api/getEnergyConsumbedByEV,
+      Headers: {
+         "Content-Type": "application/json",
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+     },
+     Body:
+     {
+       "start_date": "2020-02-25",
+       "end_date": "2021-03-07"
+     },
+     Reply:
+     [
+        {
+            "VehicleID": 1,
+            "TotalEnergyDelivered": 376.73
+        },
+        {
+            "VehicleID": 2,
+            "TotalEnergyDelivered": 198.59999999999997
+        }
+     ]
+     ```
+    - F02
+       ```json
+       Type: POST,
+       URl: http://localhost:8765/evcharge/api/getChargingEventsByDesigner,
+       Headers: {
+          "Content-Type": "application/json",
+          "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+       },
+       Body:
+       {
+          "start_date": "2020-02-25",
+          "end_date": "2021-03-07"
+       },
+       Reply:
+       [
+         {
+             "session_id": 1,
+             "started_on": "2021-02-25T17:30:40.000Z",
+             "finished_on": "2021-02-25T17:40:40.000Z",
+             "energy_deliverd": 30,
+             "protocol": "AC",
+             "payment_method": "CASH",
+             "bonus_points_energy": 100,
+             "total_cost": 60,
+             "vehicle_id": 1,
+             "station_id": 1,
+             "point_id": 1,
+             "program_id": 1
+       },
+       {
+             "session_id": 10,
+             "started_on": "2020-10-22T07:31:40.000Z",
+             "finished_on": "2020-10-22T07:49:50.000Z",
+             "energy_deliverd": 70,
+             "protocol": "AC",
+             "payment_method": "CREDIT_CARD",
+             "bonus_points_energy": 100,
+             "total_cost": 60,
+             "vehicle_id": 1,
+             "station_id": 2,
+             "point_id": 3,
+             "program_id": 3
+       }
+     ]
+     ```
+
 3. Parking - Διαχείριση σημείων φόρτισης
 
    - Get Station Data
@@ -353,7 +452,109 @@
             "message": "Updated Program with given ID"
          }
       ```
-5. Ιδιοκτήτες Ηλεκτρικών Οχημάτων - Πληρωμή και ανάλυση εξόδων 
+
+4. Parking - Ενημέρωση
+  - F07 = SessionsPerStation
+    ```json
+    Type: GET,
+    URl: http://localhost:8765/evcharge/api/SessionsPerStation/:stationID/:yyyymmdd_from/:yyyymmdd_to
+    Headers: {
+       "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+                },
+    Reply: {
+      "StationID": "2",
+      "Operator": "C D",
+      "RequestTimestamp": "2021-03-09 23:08:54",
+      "PeriodFrom": "2020-01-01",
+      "PeriodTo": "2024-01-01",
+      "TotalEnergyDelivered": 70,
+      "NumberOfChargingSessions": 1,
+      "NumberOfActivePoints": 1,
+      "SessionsSummaryList": [
+          {
+              "PointID": "3",
+              "PointSessions": 1,
+              "EnergyDelivered": 70
+          }
+      ]
+    }
+    ```
+  - F17 = SessionsPerPoint
+    ```json
+    Type: GET,
+    URl: http://localhost:8765/evcharge/api/SessionsPerPoint/:pointID/:yyyymmdd_from/:yyyymmdd_to
+    Headers: {
+       "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+                },
+    Reply: {
+      "Point": "1",
+      "PointOperator": "A B",
+      "RequestTimestamp": "2021-03-09 23:09:38",
+      "PeriodFrom": "2019-01-01",
+      "PeriodTo": "2024-01-01",
+      "NumberOfChargingSessions": 49,
+      "ChargingSessionsList": [
+          {
+              "SessionIndex": 1,
+              "SessionID": "1",
+              "StartedOn": "2021-02-25 17:30:40",
+              "FinishedOn": "2021-02-25 17:40:40",
+              "Protocol": "AC",
+              "EnergyDelivered": 30,
+              "Payment": "CASH",
+              "VehicleType": "bev"
+          },
+          {
+              "SessionIndex": 2,
+              "SessionID": "12",
+              "StartedOn": "2021-03-04 21:52:01",
+              "FinishedOn": "2021-03-04 22:07:01",
+              "Protocol": "AC",
+              "EnergyDelivered": 14.5,
+              "Payment": "CASH",
+              "VehicleType": "bev"
+          }
+        ]
+    }
+    ```
+  - F23
+    ```json
+    Type: POST,
+    URl: http://localhost:8765/evcharge/api/getVehiclesChargingAtTime,
+    Headers: {
+       "Content-Type": "application/json",
+       "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+       },
+    Body:
+      {
+        "datetime": "2021-03-04 22:00:00"
+      },
+    Reply:
+      [
+          {
+              "VehicleID": 2,
+              "VehicleBrand": "BMW",
+              "VehicleType": "bev",
+              "VehicleModel": "i3",
+              "ReleaseYear": "2020",
+              "UsableBatterySize": 18.8,
+              "AverageConsumption": 14.5,
+              "CurrentBatteryCharge": 0.7899999999999991
+          },
+          {
+              "VehicleID": 1,
+              "VehicleBrand": "Audi",
+              "VehicleType": "bev",
+              "VehicleModel": "e-tron 55",
+              "ReleaseYear": "2019",
+              "UsableBatterySize": 86.5,
+              "AverageConsumption": 23.4,
+              "CurrentBatteryCharge": 86.49
+          }
+      ]
+      ```
+
+5. Ιδιοκτήτες Ηλεκτρικών Οχημάτων - Πληρωμή και ανάλυση εξόδων
    - F07
       ```json
       Type: GET,
@@ -387,7 +588,7 @@
          "Content-Type": "application/json",
          "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                   },
-      Body: 
+      Body:
       {
          "started_date":"2020-02-25",
          "finished_date":"2021-03-07"
@@ -396,7 +597,7 @@
       {
          "total_cost": 276.47
       }
-   
+
       ```   
    - F31
       ```json
@@ -421,5 +622,5 @@
             "card": 1,
             "cash": 9
       }
-      
+
       ```
