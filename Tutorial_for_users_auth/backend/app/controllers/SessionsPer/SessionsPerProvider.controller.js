@@ -104,8 +104,8 @@ exports.SessionsPerProvider = (req, res) => {
                      results[i].ProviderID = String(results[i].ProviderID);
                      results[i].StationID = String(results[i].StationID);
                      results[i].VehicleID = String(results[i].VehicleID);
-                     results[i].StartedOn = date_string_from_datetime(results[i].StartedOn);
-                     results[i].FinishedOn = date_string_from_datetime(results[i].FinishedOn);
+                     results[i].StartedOn = readable_datetime_string(results[i].StartedOn);
+                     results[i].FinishedOn = readable_datetime_string(results[i].FinishedOn);
                    }
                    if (req.query.format == 'csv') { // if the format required is csv
                     const headerCSV = [

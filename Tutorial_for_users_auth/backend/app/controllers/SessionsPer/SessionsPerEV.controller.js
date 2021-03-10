@@ -163,7 +163,6 @@ exports.SessionsPerEV = (req, res) => {
                         results[i].CostPerKWh,
                         results[i].SessionCost
                      ])
-                     console.log("Energy delivered = %d",results[i].EnergyDelivered);
                    }
                    const finalCSV = convertArrayToCSV(dataCSV, {
                      header: headerCSV,
@@ -208,6 +207,4 @@ exports.SessionsPerEV = (req, res) => {
     .catch(err => {
     res.status(400).send({ message: err.message });
     });
-
-
 };
