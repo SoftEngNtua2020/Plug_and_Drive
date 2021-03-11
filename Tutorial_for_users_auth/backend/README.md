@@ -112,7 +112,15 @@
 
       2. resetsessions
          ```json
-         {}
+         Type: POST,
+         URl: http://localhost:8765/evcharge/api/admin/resetsessions,
+         Headers: {
+            "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+         },
+         Body: {},
+         Reply: {
+            "status": "OK"
+         }
          ```
 
 # Υπόλοιπες Λειτουργίες

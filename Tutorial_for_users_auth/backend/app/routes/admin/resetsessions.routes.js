@@ -1,7 +1,7 @@
 //const { verifySignUp } = require("../middleware");
 const { authJwt } = require("../../middleware");
 const controller = require("../../controllers/admin/resetsessions.controller");
-const signupController = require("../../controllers/auth.controller");
+const signupController = require("../../controllers/initAdmin.controller");
 module.exports = function(app) {
   app.use(function(req, res, next) {
     res.header(
@@ -11,9 +11,9 @@ module.exports = function(app) {
     next();
   });
 
- app.get("/evcharge/api/admin/resetsessions",
+ app.post("/evcharge/api/admin/resetsessions",
       authJwt.verifyToken,
-      authJwt.isAdmin,     
+      authJwt.isAdmin,
       controller.resetsessions,
-      signupController.manageUser);
+      signupController.signup);
 };

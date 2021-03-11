@@ -68,6 +68,7 @@ require('./app/routes/vehicleOwnerPayments/F31.routes')(app);
 require('./app/routes/vehicleOwnerPayments/F26.routes')(app);
 require('./app/routes/admin/manageUser.routes')(app);
 require('./app/routes/admin/trackUser.routes')(app);
+//require('./app/routes/admin/resetsessions.routes')(app);
 require('./app/routes/admin/healthcheck.routes')(app);
 require('./app/routes/parkingAdmin/F11.routes')(app);
 require('./app/routes/parkingAdmin/F31.routes')(app);
