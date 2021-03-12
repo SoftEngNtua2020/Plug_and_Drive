@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import UserService from "../services/user.service";
 
-export default class Home extends Component {
+export default class Payments extends Component {
   constructor(props) {
     super(props);
 
@@ -28,10 +28,6 @@ export default class Home extends Component {
       }
     );
   }
-
-  /*<ul>
-    {this.state.content.map(content => <li> {this.state.content}}</li>)}
-  </ul>*/
 
   render() {
     return (

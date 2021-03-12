@@ -52,7 +52,7 @@ export default class EnergyConsumbedByEVType extends Component {
     this.form.validateAll();
 
     if (this.checkBtn.context._errors.length === 0) {
-      AuthService.getEnergyEV(this.state.start_date, this.state.end_date).then(
+      AuthService.getEnergyEVType(this.state.start_date, this.state.end_date).then(
         response => {
           this.setState({
             content: response.data,
@@ -69,7 +69,6 @@ export default class EnergyConsumbedByEVType extends Component {
 
           this.setState({
             successful: false,
-            content: "no"
           });
         }
       );
@@ -80,14 +79,14 @@ export default class EnergyConsumbedByEVType extends Component {
     const data = new Array(this.state.content.length)
     for (var i=0; i<this.state.content.length; i++) data[i] = new Array(2);
     for (var i=0; i<this.state.content.length; i++) {
-      data[i][0] = this.state.content[i].VehicleID;
+      data[i][0] = this.state.content[i].VehicleType;
       data[i][1] = this.state.content[i].TotalEnergyDelivered;
     }
     return (
       <div>
-        <table>
+        <table id="EnergyTableVType">
           <thead id="energy-table-data">
-            <td><h3><b>VehicleID</b></h3></td>
+            <td><h3><b>VehicleType</b></h3></td>
             <td><h3><b>TotalEnergyDelivered</b></h3></td>
           </thead>
           <tbody id="energy-table-data">
@@ -108,20 +107,17 @@ export default class EnergyConsumbedByEVType extends Component {
   render() {
     return (
       <div className="col-md-12">
-        <div className="card card-container">
-          <img
-            src="https://i.pinimg.com/originals/15/c0/d0/15c0d074605e69e381d24dbc20ba25b3.png"
-            alt="profile-img"
-            className="profile-img-card-car"
-          />
-
-          <Form
-            onSubmit={this.handleEnergy}
-            ref={c => {
-              this.form = c;
-            }}
-          >
-            {!this.state.successful && (
+        {!this.state.successful && (
+          <div className="card card-container">
+            <img
+              src="https://i.pinimg.com/originals/15/c0/d0/15c0d074605e69e381d24dbc20ba25b3.png"
+              alt="profile-img"
+              className="profile-img-card-car"></img>
+            <Form
+              onSubmit={this.handleEnergy}
+              ref={c => {
+                this.form = c;
+              }}>
               <div>
                 <div className="form-group">
                   <label htmlFor="startDate">Start Date</label>
@@ -134,7 +130,6 @@ export default class EnergyConsumbedByEVType extends Component {
                     validations={[required]}
                   />
                 </div>
-
                 <div className="form-group">
                   <label htmlFor="endDate">End Date</label>
                   <Input
@@ -146,37 +141,23 @@ export default class EnergyConsumbedByEVType extends Component {
                     validations={[required]}
                   />
                 </div>
-
                 <div className="form-group">
                   <button className="btn btn-primary btn-block">Submit</button>
                 </div>
               </div>
-            )}
-
-            {this.state.successful && (
-              <div className="form-group">
-                <div id="response"
-                  className={
-                    this.state.successful
-                      ? "alert alert-success"
-                      : "alert alert-danger"
-                  }
-                  role="alert"
-                >
-                  <header className="energy" id="energy">
-                    {this.table}
-                  </header>
-                </div>
-              </div>
-            )}
-            <CheckButton
-              style={{ display: "none" }}
-              ref={c => {
-                this.checkBtn = c;
-              }}
-            />
-          </Form>
-        </div>
+              <CheckButton
+                style={{ display: "none" }}
+                ref={c => {
+                  this.checkBtn = c;
+                }}/>
+            </Form>
+          </div>
+        )}
+        {this.state.successful && (
+          <header>
+            <h1>{this.table()}</h1>
+          </header>
+        )}
       </div>
     );
   }

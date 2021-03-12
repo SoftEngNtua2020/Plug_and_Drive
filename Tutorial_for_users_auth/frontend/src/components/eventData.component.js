@@ -45,35 +45,35 @@ export default class Events extends Component {
       }
       return (
         <div>
-          <table>
+          <table id="events">
             <thead id="events-table-data">
-              <td><h5><b>SessionID</b></h5></td>
-              <td><h5><b>StartedOn</b></h5></td>
-              <td><h5><b>FinishedOn</b></h5></td>
-              <td><h5><b>Energy</b></h5></td>
-              <td><h5><b>PointID</b></h5></td>
-              <td><h5><b>Protocol</b></h5></td>
-              <td><h5><b>Payment</b></h5></td>
-              <td><h5><b>BonusPointsEnergy</b></h5></td>
-              <td><h5><b>TotalCost</b></h5></td>
-              <td><h5><b>VehicleID</b></h5></td>
-              <td><h5><b>StationID</b></h5></td>
+              <td><h4><b>SessionID</b></h4></td>
+              <td><h4><b>StartedOn</b></h4></td>
+              <td><h4><b>FinishedOn</b></h4></td>
+              <td><h4><b>Energy</b></h4></td>
+              <td><h4><b>PointID</b></h4></td>
+              <td><h4><b>Protocol</b></h4></td>
+              <td><h4><b>Payment</b></h4></td>
+              <td><h4><b>BonusPointsEnergy</b></h4></td>
+              <td><h4><b>TotalCost</b></h4></td>
+              <td><h4><b>VehicleID</b></h4></td>
+              <td><h4><b>StationID</b></h4></td>
             </thead>
             <tbody id="events-table-data">
               {data.slice(0, data.length).map((item, index) => {
                 return (
                   <tr>
-                    <td><h8>{item[0]}</h8></td>
-                    <td><h8>{item[1]}</h8></td>
-                    <td><h8>{item[2]}</h8></td>
-                    <td><h8>{item[3]} kWr</h8></td>
-                    <td><h8>{item[4]}</h8></td>
-                    <td><h8>{item[5]}</h8></td>
-                    <td><h8>{item[6]}</h8></td>
-                    <td><h8>{item[7]} kWr</h8></td>
-                    <td><h8>{item[8]} euros</h8></td>
-                    <td><h8>{item[9]}</h8></td>
-                    <td><h8>{item[10]}</h8></td>
+                    <td><h6>{item[0]}</h6></td>
+                    <td><h6>{item[1]}</h6></td>
+                    <td><h6>{item[2]}</h6></td>
+                    <td><h6>{item[3]} kWr</h6></td>
+                    <td><h6>{item[4]}</h6></td>
+                    <td><h6>{item[5]}</h6></td>
+                    <td><h6>{item[6]}</h6></td>
+                    <td><h6>{item[7]} kWr</h6></td>
+                    <td><h6>{item[8]} euros</h6></td>
+                    <td><h6>{item[9]}</h6></td>
+                    <td><h6>{item[10]}</h6></td>
                   </tr>
                 );
               })}
@@ -86,14 +86,11 @@ export default class Events extends Component {
   render() {
     const { currentUser } = this.state.content;
     return (
-      <div className="container">
-        <div className="welcome">
-          <h2> Past Events : </h2>
-        </div>
-        <header className="jumbotron" id="events">
-          {this.table()}
+      <div className="col-md-12">
+        <header>
+          <h1>{this.table()}</h1>
         </header>
       </div>
-    );
+    )
   }
 }

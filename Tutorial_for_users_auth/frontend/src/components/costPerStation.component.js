@@ -17,7 +17,6 @@ export default class Stations extends Component {
         this.setState({
           content: response.data
         });
-        //show();
       },
       error => {
         this.setState({
@@ -28,24 +27,18 @@ export default class Stations extends Component {
   }
 
     table() {
-      const data = new Array(this.state.content.length)    //a new array with the size (rows) of reply array of objects size
-      for (var i=0; i<this.state.content.length; i++) data[i] = new Array(6);  //columns of it
+      const data = new Array(this.state.content.length)
+      for (var i=0; i<this.state.content.length; i++) data[i] = new Array(3);
       for (var i=0; i<this.state.content.length; i++) {
         data[i][0] = this.state.content[i].station_id;
-        data[i][1] = this.state.content[i].program_id;
-        data[i][2] = this.state.content[i].kwh_price;
-        data[i][3] = this.state.content[i].bonus_per_kwh;
-        data[i][4] = this.state.content[i].total_cost;
-        data[i][5] = this.state.content[i].total_bonus;
+        data[i][1] = this.state.content[i].total_cost;
+        data[i][2] = this.state.content[i].total_bonus;
       }
       return (
         <div>
           <table>
             <thead id="station-table-data">
               <td><h3><b>StationID</b></h3></td>
-              <td><h3><b>ProgramID</b></h3></td>
-              <td><h3><b>KwhPrice</b></h3></td>
-              <td><h3><b>BonusPerKwh</b></h3></td>
               <td><h3><b>TotalCost</b></h3></td>
               <td><h3><b>Bonus</b></h3></td>
             </thead>
@@ -54,11 +47,8 @@ export default class Stations extends Component {
                 return (
                   <tr>
                     <td><h5>{item[0]}</h5></td>
-                    <td><h5>{item[1]}</h5></td>
-                    <td><h5>{item[2]} euros</h5></td>
-                    <td><h5>{item[3]} points</h5></td>
-                    <td><h5>{item[4]} euros</h5></td>
-                    <td><h5>{item[5]} points</h5></td>
+                    <td><h5>{item[1]} euros</h5></td>
+                    <td><h5>{item[2]} points</h5></td>
                   </tr>
                 );
               })}
@@ -69,7 +59,6 @@ export default class Stations extends Component {
     }
 
   render() {
-    const { currentUser } = this.state.content;
     return (
       <div className="container">
         <div className="welcome">

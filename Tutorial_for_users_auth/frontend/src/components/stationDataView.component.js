@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import UserService from "../services/user.service";
 
-export default class Stations extends Component {
+export default class StationsView extends Component {
   constructor(props) {
     super(props);
 
@@ -15,7 +15,7 @@ export default class Stations extends Component {
   }
 
   componentDidMount() {          //pairnei mia apanthsh apo backend (thn vazei sto state.content kai thn emfanizei sto render()).
-    UserService.getGetStationsData().then(     //return axios.get(API_URL + 'getVehiclesData'); sto user.service.js
+    UserService.getStationData().then(     //return axios.get(API_URL + 'getVehiclesData'); sto user.service.js
       response => {
         this.setState({
           content: response.data.stations,
@@ -23,7 +23,6 @@ export default class Stations extends Component {
           programs: response.data.programs,
           providers: response.data.providers
         });
-        //show();
       },
       error => {
         this.setState({
@@ -50,15 +49,15 @@ export default class Stations extends Component {
       return (
         <div>
           <table>
-            <thead id="station-table-data">
-              <td><h3><b>StationId</b></h3></td>
+            <thead id="stations1">
+              <td><h3><b>StationID</b></h3></td>
               <td><h3><b>Location</b></h3></td>
               <td><h3><b>CompanyName</b></h3></td>
               <td><h3><b>PhoneNumber</b></h3></td>
-              <td><h3><b>StatioModeratorId</b></h3></td>
-              <td><h3><b>ProviderId</b></h3></td>
+              <td><h3><b>StationModeratorID</b></h3></td>
+              <td><h3><b>ProviderID</b></h3></td>
             </thead>
-            <tbody id="station-table-data">
+            <tbody id="stations1">
               {data.slice(0, data.length).map((item, index) => {
                 return (
                   <tr>
@@ -87,16 +86,16 @@ export default class Stations extends Component {
       return (
         <div>
           <table>
-            <thead id="points-table-data">
-              <td><h3><b>PointId</b></h3></td>
-              <td><h3><b>StationId</b></h3></td>
+            <thead id="stations2">
+              <td><h3><b>StationID</b></h3></td>
+              <td><h3><b>PointID</b></h3></td>
             </thead>
-            <tbody id="points-table-data">
+            <tbody id="stations2">
               {data.slice(0, data.length).map((item, index) => {
                 return (
                   <tr>
-                    <td><h5>{item[0]}</h5></td>
                     <td><h5>{item[1]}</h5></td>
+                    <td><h5>{item[0]}</h5></td>
                   </tr>
                 );
               })}
@@ -119,22 +118,22 @@ export default class Stations extends Component {
       return (
         <div>
           <table>
-            <thead id="program-table-data">
-              <td><h3><b>ProgramId</b></h3></td>
+            <thead id="stations3">
+              <td><h3><b>StationID</b></h3></td>
+              <td><h3><b>ProgramID</b></h3></td>
               <td><h3><b>ProgramName</b></h3></td>
               <td><h3><b>KwhPrice</b></h3></td>
               <td><h3><b>BonusPerKwh</b></h3></td>
-              <td><h3><b>StationId</b></h3></td>
             </thead>
-            <tbody id="program-table-data">
+            <tbody id="stations3">
               {data.slice(0, data.length).map((item, index) => {
                 return (
                   <tr>
+                    <td><h5>{item[4]}</h5></td>
                     <td><h5>{item[0]}</h5></td>
                     <td><h5>{item[1]}</h5></td>
                     <td><h5>{item[2]}</h5></td>
                     <td><h5>{item[3]}</h5></td>
-                    <td><h5>{item[4]}</h5></td>
                   </tr>
                 );
               })}
@@ -155,18 +154,18 @@ export default class Stations extends Component {
       return (
         <div>
           <table>
-            <thead id="program-table-data">
-              <td><h3><b>ProviderId</b></h3></td>
+            <thead id="stations4">
+              <td><h3><b>StationID</b></h3></td>
+              <td><h3><b>ProviderID</b></h3></td>
               <td><h3><b>ProviderName</b></h3></td>
-              <td><h3><b>StationId</b></h3></td>
             </thead>
-            <tbody id="program-table-data">
+            <tbody id="stations4">
               {data.slice(0, data.length).map((item, index) => {
                 return (
                   <tr>
+                    <td><h5>{item[2]}</h5></td>
                     <td><h5>{item[0]}</h5></td>
                     <td><h5>{item[1]}</h5></td>
-                    <td><h5>{item[2]}</h5></td>
                   </tr>
                 );
               })}
@@ -179,28 +178,19 @@ export default class Stations extends Component {
   render() {
     return (
       <div className="container">
-        <div className="welcome">
-          <h2> Stations Data : </h2>
+        <div className="welcome" id="welcome">
+          <h2><b>Stations Data</b></h2>
         </div>
-        <header className="jumbotron" id="getStationsData">
+        <header className="jumbotron" id="data1">
           {this.table1()}
         </header>
-        <div className="welcome">
-          <h2> Points Data : </h2>
-        </div>
-        <header className="jumbotron" id="getStationsData">
+        <header className="jumbotron" id="data2">
           {this.table2()}
         </header>
-        <div className="welcome">
-          <h2> Programs Data : </h2>
-        </div>
-        <header className="jumbotron" id="getStationsData">
+        <header className="jumbotron" id="data3">
           {this.table3()}
         </header>
-        <div className="welcome">
-          <h2> Providers Data : </h2>
-        </div>
-        <header className="jumbotron" id="getStationsData">
+        <header className="jumbotron" id="data4">
           {this.table4()}
         </header>
       </div>

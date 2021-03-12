@@ -15,70 +15,54 @@ const required = value => {
   }
 };
 
-export default class StationsManage extends Component {
+export default class StationsProgram extends Component {
   constructor(props) {
     super(props);
     this.handleStation = this.handleStation.bind(this);
+    this.onChangeProgramID = this.onChangeProgramID.bind(this);
+    this.onChangeProgramName = this.onChangeProgramName.bind(this);
+    this.onChangePrice = this.onChangePrice.bind(this);
+    this.onChangeBonus = this.onChangeBonus.bind(this);
     this.onChangeStationID = this.onChangeStationID.bind(this);
-    this.onChangeLocation = this.onChangeLocation.bind(this);
-    this.onChangeCompany = this.onChangeCompany.bind(this);
-    this.onChangePhoneNumber = this.onChangePhoneNumber.bind(this);
-    this.onChangeStModeratorID = this.onChangeStModeratorID.bind(this);
-    this.onChangeProviderID = this.onChangeProviderID.bind(this);
-    this.onChangePointID = this.onChangePointID.bind(this);
 
     this.state = {
+      program_id: 0,
+      program_name: "",
+      kwh_price: 0,
+      bonus_per_kwr: 0,
       station_id: 0,
-      location: "",
-      company_name: "",
-      phone_number: "",
-      st_moderator_id: 0,
-      provider_id: 0,
-      point_id: 0,
       message: "",
       successful: false
     };
   }
 
+  onChangeProgramID(e) {
+    this.setState({
+      program_id: e.target.value
+    });
+  }
+
+  onChangeProgramName(e) {
+    this.setState({
+      program_name: e.target.value
+    });
+  }
+
+  onChangePrice(e) {
+    this.setState({
+      kwh_price: e.target.value
+    });
+  }
+
+  onChangeBonus(e) {
+    this.setState({
+      bonus_per_kwh: e.target.value
+    });
+  }
+
   onChangeStationID(e) {
     this.setState({
       station_id: e.target.value
-    });
-  }
-
-  onChangeLocation(e) {
-    this.setState({
-      location: e.target.value
-    });
-  }
-
-  onChangeCompany(e) {
-    this.setState({
-      company_name: e.target.value
-    });
-  }
-
-  onChangePhoneNumber(e) {
-    this.setState({
-      phone_number: e.target.value
-    });
-  }
-
-  onChangeStModeratorID(e) {
-    this.setState({
-      st_moderator_id: e.target.value
-    });
-  }
-
-  onChangeProviderID(e) {
-    this.setState({
-      provider_id: e.target.value
-    });
-  }
-
-  onChangePointID(e) {
-    this.setState({
-      point_id: e.target.value
     });
   }
 
@@ -93,7 +77,7 @@ export default class StationsManage extends Component {
     this.form.validateAll();
 
     if (this.checkBtn.context._errors.length === 0) {
-      AuthService.setStation(this.station_id, this.location, this.company_name, this.phone_number, this.st_moderator_id, this.provider_id, this.point_id).then(
+      AuthService.setStationProgram(this.state.program_id, this.state.program_name, this.state.kwh_price, this.state.bonus_per_kwh, this.state.station_id).then(
         response => {
           this.setState({
             message: response.data.message,
@@ -135,6 +119,54 @@ export default class StationsManage extends Component {
             {!this.state.successful && (
               <div>
                 <div className="form-group">
+                  <label htmlFor="program">ProgramID</label>
+                  <Input
+                    type="number"
+                    className="form-control"
+                    name="program"
+                    value={this.state.program_id}
+                    onChange={this.onChangeProgramID}
+                    validations={[required]}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="program-name">ProgramName</label>
+                  <Input
+                    type="text"
+                    className="form-control"
+                    name="program-name"
+                    value={this.state.program_name}
+                    onChange={this.onChangeProgramName}
+                    validations={[required]}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="price">Price(kWh)</label>
+                  <Input
+                    type="number"
+                    className="form-control"
+                    name="price"
+                    value={this.state.kwh_price}
+                    onChange={this.onChangePrice}
+                    validations={[required]}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="bonus">Bonus(kWh)</label>
+                  <Input
+                    type="number"
+                    className="form-control"
+                    name="bonus"
+                    value={this.state.bonus_per_kwr}
+                    onChange={this.onChangeBonus}
+                    validations={[required]}
+                  />
+                </div>
+
+                <div className="form-group">
                   <label htmlFor="station">StationID</label>
                   <Input
                     type="number"
@@ -142,78 +174,6 @@ export default class StationsManage extends Component {
                     name="station"
                     value={this.state.station_id}
                     onChange={this.onChangeStationID}
-                    validations={[required]}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="location">Location</label>
-                  <Input
-                    type="text"
-                    className="form-control"
-                    name="location"
-                    value={this.state.location}
-                    onChange={this.onChangeLocation}
-                    validations={[required]}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="company">Company</label>
-                  <Input
-                    type="text"
-                    className="form-control"
-                    name="company"
-                    value={this.state.company_name}
-                    onChange={this.onChangeCompany}
-                    validations={[required]}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="phone">Phone Number</label>
-                  <Input
-                    type="text"
-                    className="form-control"
-                    name="phone"
-                    value={this.state.phone_number}
-                    onChange={this.onChangePhoneNumber}
-                    validations={[required]}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="moderator">StationModeratorID</label>
-                  <Input
-                    type="number"
-                    className="form-control"
-                    name="moderator"
-                    value={this.state.st_moderator_id}
-                    onChange={this.onChangeStModeratorID}
-                    validations={[required]}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="provider">ProviderID</label>
-                  <Input
-                    type="number"
-                    className="form-control"
-                    name="provider"
-                    value={this.state.provider_id}
-                    onChange={this.onChangeProviderID}
-                    validations={[required]}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="point">PointID</label>
-                  <Input
-                    type="number"
-                    className="form-control"
-                    name="point"
-                    value={this.state.point_id}
-                    onChange={this.onChangePointID}
                     validations={[required]}
                   />
                 </div>
