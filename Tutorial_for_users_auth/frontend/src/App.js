@@ -18,14 +18,18 @@ import BonusPoints from "./components/bonusPoints.component";
 import PaymentTimes from "./components/paymentTimes.component";
 import CostPerStation from "./components/costPerStation.component";
 import EventData from "./components/eventData.component";
-import StationDataView from "./components/stationDataView.component";
-import StationDataChange from "./components/stationDataChange.component";
-import StationProgramChange from "./components/stationPrograms.component";
+import ChargesAndPayments from "./components/chargesAndPayments.component";
 import CostPerPeriod from "./components/costPerPeriod.component";
-import EnergyConsumedByEVType from "./components/energyConsumedByEVType.component";
-import EnergyConsumedByEV from "./components/energyConsumedByEV.component";
-import EventDataByDesigner from "./components/eventDataByDesigner.component";
-import SessionsPerPoint from "./components/sessionsPerPointStation.component";
+import CreateOrModify from "./components/createOrModify.component";
+import BonusPerKwh from "./components/bonusPerKwh.component";
+import GetStationsData from "./components/getStationsData.component";
+import ChargingData from "./components/chargingData.component";
+import ChargesPerPeriod from "./components/chargesPerPeriod.component";
+import EnergyConsumptionType from "./components/energyConsumptionType.component";
+import EnergyConsumptionId from "./components/energyConsumptionId.component";
+import ChargingEvents from "./components/chargingEvents.component";
+import CarsCharges from "./components/carsCharges.component";
+
 
 class App extends Component {
   constructor(props) {
@@ -69,6 +73,12 @@ class App extends Component {
       </Link>
     </li>
   )}
+
+  <li className="nav-item">
+    <Link to={"/register"} className="nav-link">
+      Sign Up
+    </Link>
+  </li>
   */
 
   render() {
@@ -123,7 +133,8 @@ class App extends Component {
                   <a class="dropdown-item" href="/paymentTimes">View total payments</a>
                   <a class="dropdown-item" href="/costPerStation">Estimated cost per station</a>
                   <a class="dropdown-item" href="/eventData">See your previous events</a>
-                  <a class="dropdown-item" href="/costPerPeriod">CHeck</a>
+                  <a class="dropdown-item" href="/chargesAndPayments">View all charges & payments</a>
+                  <a class="dropdown-item" href="/costPerPeriod">Check your cost at a period of time</a>
                   <div class="dropdown-divider"> </div>
                   <a class="dropdown-item" href="/login" onClick={this.logOut}>LogOut</a>
                 </div>
@@ -142,10 +153,10 @@ class App extends Component {
                   <b>Select action</b>
                 </a>
                 <div class="dropdown-menu" id="dropdown-menu">
-                <a class="dropdown-item" href="/getEnergyConsumedByEVType">Energy about a vehicle type</a>
-                <a class="dropdown-item" href="/getEnergyConsumedByEV">Energy about a specific vehicle</a>
-                <a class="dropdown-item" href="/eventDataByDesigner">View your charging events</a>
-                <div class="dropdown-divider"> </div>
+                  <a class="dropdown-item" href="/energyConsumptionType">Cars energy consumption per time</a>
+                  <a class="dropdown-item" href="/energyConsumptionId">Energy consumption per car,kmh,time</a>
+                  <a class="dropdown-item" href="/chargingEvents">Charging Events</a>
+                  <div class="dropdown-divider"> </div>
                   <a class="dropdown-item" href="/login" onClick={this.logOut}>LogOut</a>
                 </div>
               </li>
@@ -163,10 +174,12 @@ class App extends Component {
                   <b>Select action</b>
                 </a>
                 <div class="dropdown-menu" id="dropdown-menu">
-                  <a class="dropdown-item" href="/stationDataView">View your Stations</a>
-                  <a class="dropdown-item" href="/stationDataChange">Manage your Stations</a>
-                  <a class="dropdown-item" href="/stationProgramChange">Manage your Programs</a>
-                  <a class="dropdown-item" href="/sessionsPerPoint">See the sessions per Point</a>
+                  <a class="dropdown-item" href="/createOrModify">Create - Modify a station</a>
+                  <a class="dropdown-item" href="/bonusPerKwh">Check your Bonus per Kwh</a>
+                  <a class="dropdown-item" href="/chargingData">View data from all charging events</a>
+                  <a class="dropdown-item" href="/chargesPerPeriod">Analytics from charging events</a>
+                  <a class="dropdown-item" href="/carsCharges">View a car's charging data</a>
+                  <a class="dropdown-item" href="/getStationsData">View data from all stations</a>
                   <div class="dropdown-divider"> </div>
                   <a class="dropdown-item" href="/login" onClick={this.logOut}>LogOut</a>
                 </div>
@@ -186,11 +199,6 @@ class App extends Component {
                 </Link>
               </li>
 
-              <li className="nav-item">
-                <Link to={"/register"} className="nav-link">
-                  Sign Up
-                </Link>
-              </li>
             </div>
           )}
           {showAdminBoard &&(
@@ -230,19 +238,21 @@ class App extends Component {
             <Route exact path="/bonusPoints" component={BonusPoints} />
             <Route exact path="/paymentTimes" component={PaymentTimes} />
             <Route exact path="/costPerStation" component={CostPerStation} />
-            <Route exact path="/eventData" component={EventData} />
-            <Route exact path="/stationDataView" component={StationDataView} />
-            <Route exact path="/stationDataChange" component={StationDataChange} />
-            <Route exact path="/stationProgramChange" component={StationProgramChange} />
+            <Route exact path="/chargesAndPayments" component={ChargesAndPayments} />
             <Route exact path="/costPerPeriod" component={CostPerPeriod} />
-            <Route exact path="/getEnergyConsumedByEVType" component={EnergyConsumedByEVType} />
-            <Route exact path="/getEnergyConsumedByEV" component={EnergyConsumedByEV} />
-            <Route exact path="/eventDataByDesigner" component={EventDataByDesigner} />
-            <Route exact path="/sessionsPerPoint" component={SessionsPerPoint} />
+            <Route exact path="/getStationsData" component={GetStationsData} />
+            <Route exact path="/eventData" component={EventData} />
+            <Route exact path="/createOrModify" component={CreateOrModify} />
+            <Route exact path="/bonusPerKwh" component={BonusPerKwh} />
+            <Route exact path="/chargingData" component={ChargingData} />
+            <Route exact path="/chargesPerPeriod" component={ChargesPerPeriod} />
+            <Route exact path="/energyConsumptionType" component={EnergyConsumptionType} />
+            <Route exact path="/energyConsumptionId" component={EnergyConsumptionId} />
+            <Route exact path="/chargingEvents" component={ChargingEvents} />
+            <Route exact path="/carsCharges" component={CarsCharges} />
             <Route path="/user" component={BoardUser} />
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} />
-            <Route path = "http://pluganddrive.ddns.net:8765/evcharge/api/SessionsPerStation/:pointID/:yyyymmdd_from/:yyyymmdd_to" component = {SessionsPerPoint} />
           </Switch>
         </div>
       </div>

@@ -42,14 +42,17 @@ class UserService {
     return axios.get(API_URL + 'getvehicleeventdata', { headers: authHeader() });
   }
 
-  getStationData() {
+  getChargesAndPayments() {
+    return axios.get(API_URL + 'getCummulativeCostPerCharge', { headers: authHeader() });
+  }
+
+  getGetStationsData(){
     return axios.get(API_URL + 'getStationData', { headers: authHeader() });
   }
 
-  getSessionsPerStation() {
-    return axios.get(API_URL + 'getStationData', { headers: authHeader() });
+  getChargingData(time1,time2){
+    return axios.get(API_URL + 'SessionsPerStation/:stationID/:' + time1 + '_from/:' + time2 + '_to', { headers: authHeader() });
   }
-
 }
 
 export default new UserService();

@@ -12,7 +12,7 @@ export default class Stations extends Component {
   }
 
   componentDidMount() {          //pairnei mia apanthsh apo backend (thn vazei sto state.content kai thn emfanizei sto render()).
-    UserService.getLocalStations().then(     //return axios.get(API_URL + 'getVehiclesData'); sto user.service.js
+    UserService.getChargesAndPayments().then(     //return axios.get(API_URL + 'getVehiclesData'); sto user.service.js
       response => {
         this.setState({
           content: response.data
@@ -29,25 +29,19 @@ export default class Stations extends Component {
 
     table() {
       const data = new Array(this.state.content.length)    //a new array with the size (rows) of reply array of objects size
-      for (var i=0; i<this.state.content.length; i++) data[i] = new Array(6);  //columns of it
+      for (var i=0; i<this.state.content.length; i++) data[i] = new Array(3);  //columns of it
       for (var i=0; i<this.state.content.length; i++) {
-        data[i][0] = this.state.content[i].station_id;
-        data[i][1] = this.state.content[i].program_id;
-        data[i][2] = this.state.content[i].kwh_price;
-        data[i][3] = this.state.content[i].bonus_per_kwh;
-        data[i][4] = this.state.content[i].total_cost;
-        data[i][5] = this.state.content[i].total_bonus;
+        data[i][0] = this.state.content[i].session_id;
+        data[i][1] = this.state.content[i].finished_on;
+        data[i][2] = this.state.content[i].total_cost;
       }
       return (
         <div>
           <table>
             <thead id="station-table-data">
-              <td><h3><b>StationID</b></h3></td>
-              <td><h3><b>ProgramID</b></h3></td>
-              <td><h3><b>KwhPrice</b></h3></td>
-              <td><h3><b>BonusPerKwh</b></h3></td>
+              <td><h3><b>SessionID</b></h3></td>
+              <td><h3><b>FinishedOn</b></h3></td>
               <td><h3><b>TotalCost</b></h3></td>
-              <td><h3><b>Bonus</b></h3></td>
             </thead>
             <tbody id="station-table-data">
               {data.slice(0, data.length).map((item, index) => {
@@ -56,9 +50,6 @@ export default class Stations extends Component {
                     <td><h5>{item[0]}</h5></td>
                     <td><h5>{item[1]}</h5></td>
                     <td><h5>{item[2]} euros</h5></td>
-                    <td><h5>{item[3]} points</h5></td>
-                    <td><h5>{item[4]} euros</h5></td>
-                    <td><h5>{item[5]} points</h5></td>
                   </tr>
                 );
               })}
@@ -73,9 +64,9 @@ export default class Stations extends Component {
     return (
       <div className="container">
         <div className="welcome">
-          <h2> Local Stations : </h2>
+          <h2> Your payment history : </h2>
         </div>
-        <header className="jumbotron" id="stations">
+        <header className="jumbotron" id="chargesPayments">
           {this.table()}
         </header>
       </div>

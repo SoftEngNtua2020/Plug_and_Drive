@@ -5,7 +5,7 @@ import authHeader from '../services/auth-header';
 import UserService from "../services/user.service";
 
 
-export default class BonusPoints extends Component {
+export default class Home extends Component {
 
   constructor(props) {
     super(props);

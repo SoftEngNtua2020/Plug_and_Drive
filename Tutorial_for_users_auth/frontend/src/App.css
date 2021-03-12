@@ -48,7 +48,7 @@ label {
 }
 
 #container{
-  color: black
+  color: white;
 }
 
 #databutton{
@@ -100,13 +100,13 @@ label {
 }
 
 #navbardrop{
-  margin-right: 30px;
+  margin-right: 100px;
   color: white;
   font-family: inherit;
 }
 
 #username{
-  margin-right: 15px;
+  margin-right: 20px;
 }
 
 #footer{
@@ -118,33 +118,33 @@ label {
 
 #datacar{
   font-family: serif;
-  width: 900px;
-  height: 380px;        /*για εξωτερικό περιεχόμενο*/
+  width: 800px;
+  height: auto;        /*για εξωτερικό περιεχόμενο*/
   color: black;
   text-align: center;   /*για εσωτερικό περιεχόμενο*/
-  opacity: 0.6;
+  opacity: 0.9;
   padding: 30px;    /*για εσωτερικό περιεχόμενο*/
   margin: auto;    /*για εξωτερικο κουτι , αποστασεις απο ολοκληρη την σελλιδα*/
 }
 
 #datapayment{
   font-family: serif;
-  width: 600px;
+  width: 400px;
   height: 150px;        /*για εξωτερικό περιεχόμενο*/
   color: black;
   text-align: center;   /*για εσωτερικό περιεχόμενο*/
-  opacity: 0.7;
+  opacity: 0.8;
   padding: 30px;    /*για εσωτερικό περιεχόμενο*/
   margin: auto;    /*για εξωτερικο κουτι , αποστασεις απο ολοκληρη την σελλιδα*/
 }
 
 #databonus{
   font-family: serif;
-  width: 600px;
+  width: 400px;
   height: 100px;        /*για εξωτερικό περιεχόμενο*/
   color: black;
   text-align: center;   /*για εσωτερικό περιεχόμενο*/
-  opacity: 0.6;
+  opacity: 0.8;
   padding: 30px;    /*για εσωτερικό περιεχόμενο*/
   margin: auto;    /*για εξωτερικο κουτι , αποστασεις απο ολοκληρη την σελλιδα*/
 }
@@ -158,21 +158,32 @@ body{
 
 table{
   width: 100%;
-  height: 100%;
+  height: 100%;text-align: center;
   text-align: center;
   border-collapse: collapse;
 }
 
 td{
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 #stations{
   position: relative;
   top: 50px;
-  width: 500px;
-  height: 600px;
-  opacity: 0.6;
+  width: 1100px;
+  height: auto;
+  opacity: 0.9;
+  text-align: center;
+  margin: auto;
+  padding: auto;
+}
+
+#chargesPayments{
+  position: relative;
+  top: 50px;
+  width: 900px;
+  height: auto;
+  opacity: 0.9;
   text-align: center;
   margin: auto;
   padding: auto;
@@ -183,11 +194,12 @@ td{
 }
 
 #events{
-  background: white;
   position: relative;
-  right: 120px;
+  right: 160px;
   top: 50px;
-  opacity: 0.7;
+  width: 1400px;
+  height: auto;
+  opacity: 0.9;
   text-align: center;
   padding: auto;
   margin: auto;
@@ -195,69 +207,21 @@ td{
 
 #events-table-data{
   font-family: serif;
-  color:black;
 }
 
-#stations1, #stations2, #stations3, #stations4{
-  font-family: serif;
-}
-
-#welcome{
-  color:black;
-  position:relative;
-  top: 60px;
-}
-
-#data1{
-  position:relative;
-  right:100px;
-  top: 60px;
-  width: 1400px;
-  height: 100px;
-  opacity: 0.6;
+#getStationsData{
+  width: 1280px;
+  height: auto;
   text-align: center;
-  padding: 10px;
-  margin: auto;
+  opacity: 0.9;
+  position: relative;
+  right: 70px;
 }
 
-#data2{
-  position:relative;
-  right:100px;
-  top: 60px;
-  width: 1400px;
-  height: 170px;
-  opacity: 0.6;
-  text-align: center;
-  padding: 10px;
-  margin: auto;
-}
-
-#data3{
-  position:relative;
-  right:100px;
-  top: 60px;
-  width: 1400px;
-  height: 170px;
-  opacity: 0.6;
-  text-align: center;
-  padding: 10px;
-  margin: auto;
-}
-
-#data4{
-  position:relative;
-  right:100px;
-  top: 60px;
-  width: 1400px;
-  height: 100px;
-  opacity: 0.6;
-  text-align: center;
-  padding: 10px;
-  margin: auto;
-}
-
-#stationCard{
-  opacity: 0.6;
+#response{
+  position: relative;
+  width: 330px;
+  right: 30px;
 }
 
 #energy-table-data{
@@ -269,7 +233,7 @@ td{
   background-color: white;
   padding: auto;
   margin: auto;
-  opacity: 0.6;
+  opacity: 0.8;
   position:relative;
   right:200px;
 }
@@ -278,7 +242,7 @@ td{
   background-color: white;
   padding: auto;
   margin: auto;
-  opacity: 0.6;
+  opacity: 0.7;
   position:relative;
   top: 100px;
 }
@@ -287,11 +251,7 @@ td{
   background-color: white;
   padding: auto;
   margin: auto;
-  opacity: 0.6;
+  opacity: 0.7;
   position:relative;
   top: 100px;
-}
-
-#form{
-  opacity: 0.7;
 }

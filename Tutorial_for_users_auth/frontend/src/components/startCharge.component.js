@@ -106,7 +106,7 @@ export default class Register extends Component {
   render() {
     return (
       <div className="col-md-12">
-        <div className="card card-container" id="form">
+        <div className="card card-container">
           <img
             src="https://i.pinimg.com/originals/15/c0/d0/15c0d074605e69e381d24dbc20ba25b3.png"
             alt="profile-img"
