@@ -42,12 +42,12 @@ export default class Stations extends Component {
         <div id="table-responsive">
           <table>
             <thead id="station-table-data">
-              <td><h3><b>StationID</b></h3></td>
-              <td><h3><b>ProgramID</b></h3></td>
-              <td><h3><b>KwhPrice</b></h3></td>
-              <td><h3><b>BonusPerKwh</b></h3></td>
-              <td><h3><b>TotalCost</b></h3></td>
-              <td><h3><b>Bonus</b></h3></td>
+              <td><h3><b>Station</b></h3></td>
+              <td><h3><b>Charging Program</b></h3></td>
+              <td><h3><b>Kwh Price</b></h3></td>
+              <td><h3><b>Bonus Points Per Kwh</b></h3></td>
+              <td><h3><b>Total Cost</b></h3></td>
+              <td><h3><b>Bonus Points</b></h3></td>
             </thead>
             <tbody id="station-table-data">
               {data.slice(0, data.length).map((item, index) => {
@@ -55,9 +55,9 @@ export default class Stations extends Component {
                   <tr>
                     <td><h5>{item[0]}</h5></td>
                     <td><h5>{item[1]}</h5></td>
-                    <td><h5>{item[2]} euros</h5></td>
+                    <td><h5>{item[2]} €</h5></td>
                     <td><h5>{item[3]} points</h5></td>
-                    <td><h5>{item[4]} euros</h5></td>
+                    <td><h5>{item[4]} €</h5></td>
                     <td><h5>{item[5]} points</h5></td>
                   </tr>
                 );
@@ -73,7 +73,7 @@ export default class Stations extends Component {
     return (
       <div className="container">
         <div className="welcome">
-          <h2> Local Stations : </h2>
+          <h2> Local Stations </h2>
         </div>
         <header className="jumbotron" id="stations">
           {this.table()}

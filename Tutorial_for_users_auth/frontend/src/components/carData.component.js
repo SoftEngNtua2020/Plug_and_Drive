@@ -37,9 +37,9 @@ export default class Home extends Component {
             <h3> <b>Type</b>: {this.state.content.type} </h3>
             <h3> <b>Model</b>: {this.state.content.model} </h3>
             <h3> <b>Release year</b>: {this.state.content.release_year} </h3>
-            <h3> <b>Usable battery size</b>: {this.state.content.usable_battery_size} </h3>
-            <h3> <b>Average consumption</b>: {this.state.content.average_consumption} </h3>
-            <h3> <b>Current battery charge</b>: {this.state.content.current_battery_charge} </h3>
+            <h3> <b>Usable battery size</b>: {this.state.content.usable_battery_size + " kWh"} </h3>
+            <h3> <b>Average consumption</b>: {this.state.content.average_consumption+ " kWh"} </h3>
+            <h3> <b>Current battery charge</b>: {this.state.content.current_battery_charge+ " kWh"} </h3>
             <h3> <b>Owner id</b>: {this.state.content.owner_id} </h3>
           </header>
       </div>
