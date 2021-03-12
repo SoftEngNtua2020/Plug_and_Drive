@@ -83,7 +83,7 @@ export default class EnergyConsumbedByEVType extends Component {
       data[i][1] = this.state.content[i].TotalEnergyDelivered;
     }
     return (
-      <div>
+      <div id="table-responsive">
         <table id="EnergyTableVType">
           <thead id="energy-table-data">
             <td><h3><b>VehicleType</b></h3></td>
@@ -154,8 +154,8 @@ export default class EnergyConsumbedByEVType extends Component {
           </div>
         )}
         {this.state.successful && (
-          <header>
-            <h1>{this.table()}</h1>
+          <header className="jumbotron">
+              <h1>{this.table()}</h1>
           </header>
         )}
       </div>

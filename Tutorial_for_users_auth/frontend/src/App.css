@@ -167,8 +167,9 @@ table{
 }
 #table-responsive{
   overflow-y:scroll;
-  height:500px;
+  height: 500px;
 }
+
 td{
   border: 1px solid black;
 }
@@ -200,6 +201,7 @@ td{
 #station-table-data{
   font-family: serif;
 }
+
 
 #events{
   position: relative;
@@ -243,7 +245,7 @@ td{
   margin: auto;
   opacity: 0.8;
   position:relative;
-  right:200px;
+  width:max-content;
 }
 
 #EnergyTableVID{
@@ -252,7 +254,7 @@ td{
   margin: auto;
   opacity: 0.7;
   position:relative;
-  top: 100px;
+
 }
 
 #EnergyTableVType{
@@ -261,5 +263,5 @@ td{
   margin: auto;
   opacity: 0.7;
   position:relative;
-  top: 100px;
+
 }

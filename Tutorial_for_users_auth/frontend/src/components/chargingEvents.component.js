@@ -93,7 +93,7 @@ export default class EnergyConsumbedByEVType extends Component {
       data[i][11] = this.state.content[i].program_id;
     }
     return (
-      <div>
+      <div id="table-responsive">
         <table id="EnergyTableDesigner">
           <thead id="energy-table-data">
             <td><h4><b>SessionID</b></h4></td>
@@ -120,7 +120,7 @@ export default class EnergyConsumbedByEVType extends Component {
                   <td><h6>{item[4]}</h6></td>
                   <td><h6>{item[5]}</h6></td>
                   <td><h6>{item[6]} points</h6></td>
-                  <td><h6>{item[7]} euros</h6></td>
+                  <td><h6>{item[7]} €</h6></td>
                   <td><h6>{item[8]}</h6></td>
                   <td><h6>{item[9]}</h6></td>
                   <td><h6>{item[10]}</h6></td>
@@ -184,7 +184,7 @@ export default class EnergyConsumbedByEVType extends Component {
           </div>
         )}
         {this.state.successful && (
-          <header>
+          <header className="jumbotron">
             <h1>{this.table()}</h1>
           </header>
         )}
