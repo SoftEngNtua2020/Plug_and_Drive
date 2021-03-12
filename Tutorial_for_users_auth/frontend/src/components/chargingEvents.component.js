@@ -69,7 +69,6 @@ export default class EnergyConsumbedByEVType extends Component {
 
           this.setState({
             successful: false,
-            content: "no"
           });
         }
       );
@@ -94,28 +93,38 @@ export default class EnergyConsumbedByEVType extends Component {
       data[i][11] = this.state.content[i].program_id;
     }
     return (
-      <div >
-        <table>
+      <div id="table-responsive">
+        <table id="EnergyTableDesigner">
           <thead id="energy-table-data">
-            <td><h3><b>VehicleID</b></h3></td>
-            <td><h3><b>TotalEnergyDelivered</b></h3></td>
+            <td><h4><b>SessionID</b></h4></td>
+            <td><h4><b>StartedOn</b></h4></td>
+            <td><h4><b>FinishedOn</b></h4></td>
+            <td><h4><b>EnergyDelivered</b></h4></td>
+            <td><h4><b>Protocol</b></h4></td>
+            <td><h4><b>PaymentMethod</b></h4></td>
+            <td><h4><b>BonusPointsEnergy</b></h4></td>
+            <td><h4><b>TotalCost</b></h4></td>
+            <td><h4><b>VehicleID</b></h4></td>
+            <td><h4><b>StationID</b></h4></td>
+            <td><h4><b>PointID</b></h4></td>
+            <td><h4><b>ProgramID</b></h4></td>
           </thead>
           <tbody id="energy-table-data">
             {data.slice(0, data.length).map((item, index) => {
               return (
                 <tr>
-                  <td><h5>{item[0]}</h5></td>
-                  <td><h5>{item[1]}</h5></td>
-                  <td><h5>{item[2]}</h5></td>
-                  <td><h5>{item[3]} joule</h5></td>
-                  <td><h5>{item[4]}</h5></td>
-                  <td><h5>{item[5]} points</h5></td>
-                  <td><h5>{item[6]}</h5></td>
-                  <td><h5>{item[7]} kWh</h5></td>
-                  <td><h5>{item[8]} euros</h5></td>
-                  <td><h5>{item[9]}</h5></td>
-                  <td><h5>{item[10]}</h5></td>
-                  <td><h5>{item[11]}</h5></td>
+                  <td><h6>{item[0]}</h6></td>
+                  <td><h6>{item[1]}</h6></td>
+                  <td><h6>{item[2]}</h6></td>
+                  <td><h6>{item[3]} kWh</h6></td>
+                  <td><h6>{item[4]}</h6></td>
+                  <td><h6>{item[5]}</h6></td>
+                  <td><h6>{item[6]} points</h6></td>
+                  <td><h6>{item[7]} €</h6></td>
+                  <td><h6>{item[8]}</h6></td>
+                  <td><h6>{item[9]}</h6></td>
+                  <td><h6>{item[10]}</h6></td>
+                  <td><h6>{item[11]}</h6></td>
                 </tr>
               );
             })}
@@ -128,20 +137,17 @@ export default class EnergyConsumbedByEVType extends Component {
   render() {
     return (
       <div className="col-md-12">
-        <div className="card card-container">
-          <img
-            src="https://i.pinimg.com/originals/15/c0/d0/15c0d074605e69e381d24dbc20ba25b3.png"
-            alt="profile-img"
-            className="profile-img-card-car"
-          />
-
-          <Form
-            onSubmit={this.handleEnergy}
-            ref={c => {
-              this.form = c;
-            }}
-          >
-            {!this.state.successful && (
+        {!this.state.successful && (
+          <div className="card card-container">
+            <img
+              src="https://i.pinimg.com/originals/15/c0/d0/15c0d074605e69e381d24dbc20ba25b3.png"
+              alt="profile-img"
+              className="profile-img-card-car"></img>
+            <Form
+              onSubmit={this.handleEnergy}
+              ref={c => {
+                this.form = c;
+              }}>
               <div>
                 <div className="form-group">
                   <label htmlFor="startDate">Start Date</label>
@@ -154,7 +160,6 @@ export default class EnergyConsumbedByEVType extends Component {
                     validations={[required]}
                   />
                 </div>
-
                 <div className="form-group">
                   <label htmlFor="endDate">End Date</label>
                   <Input
@@ -166,37 +171,23 @@ export default class EnergyConsumbedByEVType extends Component {
                     validations={[required]}
                   />
                 </div>
-
                 <div className="form-group">
                   <button className="btn btn-primary btn-block">Submit</button>
                 </div>
               </div>
-            )}
-
-            {this.state.successful && (
-              <div className="form-group">
-                <div id="response"
-                  className={
-                    this.state.successful
-                      ? "alert alert-success"
-                      : "alert alert-danger"
-                  }
-                  role="alert"
-                >
-                  <header className="energy" id="energy">
-                    <h1>{this.table()}</h1>
-                  </header>
-                </div>
-              </div>
-            )}
-            <CheckButton
-              style={{ display: "none" }}
-              ref={c => {
-                this.checkBtn = c;
-              }}
-            />
-          </Form>
-        </div>
+              <CheckButton
+                style={{ display: "none" }}
+                ref={c => {
+                  this.checkBtn = c;
+                }}/>
+            </Form>
+          </div>
+        )}
+        {this.state.successful && (
+          <header className="jumbotron">
+            <h1>{this.table()}</h1>
+          </header>
+        )}
       </div>
     );
   }
