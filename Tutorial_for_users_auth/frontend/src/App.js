@@ -90,36 +90,7 @@ class App extends Component {
           <Link to={"/"} className="navbar-brand">
             Plug & Drive
           </Link>
-          <div className="navbar-nav mr-auto">
-            <li className="nav-item">
-              <Link to={"/home"} className="nav-link">
-                SoftEng 2020
-              </Link>
-            </li>
-
-            {showModeratorBoard && (
-              <li className="nav-item">
-                <Link to={"/mod"} className="nav-link">
-                  Moderator Board
-                </Link>
-              </li>
-            )}
-
-            {showAdminBoard ? (
-              <li className="nav-item">
-                <Link to={"/admin"} className="nav-link">
-                  Admin Board
-                </Link>
-              </li>
-            ):(
-              <li className="nav-item">
-                <Link to={"/user"} className="nav-link">
-                  User
-                </Link>
-              </li>
-            )}
-          </div>
-
+          
           {showOwnerBoard && (
             <div className="navbar-nav ml-auto">
               <li class="nav-item dropdown">
@@ -127,21 +98,21 @@ class App extends Component {
                   <b>Select action</b>
                 </a>
                 <div class="dropdown-menu" id="dropdown-menu">
-                  <a class="dropdown-item" href="/startCharge">Start Charging!</a>
-                  <a class="dropdown-item" href="/carData">View your Car's Data</a>
-                  <a class="dropdown-item" href="/bonusPoints">Check your Bonus</a>
-                  <a class="dropdown-item" href="/paymentTimes">View total payments</a>
-                  <a class="dropdown-item" href="/costPerStation">Estimated cost per station</a>
-                  <a class="dropdown-item" href="/eventData">See your previous events</a>
-                  <a class="dropdown-item" href="/chargesAndPayments">View all charges & payments</a>
-                  <a class="dropdown-item" href="/costPerPeriod">Check your cost at a period of time</a>
+                  <a class="dropdown-item" href="/carData">🏎️ View your Car's Data </a>
+                  <a class="dropdown-item" href="/costPerStation">💰 Estimate cost per station </a>
+                  <a class="dropdown-item" href="/startCharge">⛽ Start Charging </a>
+                  <a class="dropdown-item" href="/bonusPoints">✨ Check your Bonus </a>
+                  <a class="dropdown-item" href="/paymentTimes">🧾 View total payments </a>
+                  <a class="dropdown-item" href="/eventData">📋 View all charging events </a>
+                  <a class="dropdown-item" href="/costPerPeriod">📅 Spent per time period </a>
+                  <a class="dropdown-item" href="/chargesAndPayments">📈 View cummulative payments </a>
                   <div class="dropdown-divider"> </div>
-                  <a class="dropdown-item" href="/login" onClick={this.logOut}>LogOut</a>
+                  <a class="dropdown-item" href="/login" onClick={this.logOut}>🏴󠁡󠁺󠁢󠁥󠁹󠁿 Logout</a>
                 </div>
               </li>
               <li className="nav-item" id="username">
                 <Link to={"/profile"} className="nav-link">
-                  {currentUser.username}
+                  {"🧑‍🦱 " + currentUser.username}
                 </Link>
               </li>
             </div>
@@ -162,7 +133,7 @@ class App extends Component {
               </li>
               <li className="nav-item" id="username">
                 <Link to={"/profile"} className="nav-link">
-                  {currentUser.username}
+                  {"🧑‍🦱 " + currentUser.username}
                 </Link>
               </li>
             </div>
@@ -186,7 +157,7 @@ class App extends Component {
               </li>
               <li className="nav-item" id="username">
                 <Link to={"/profile"} className="nav-link">
-                  {currentUser.username}
+                  {"🧑‍🦱 " + currentUser.username}
                 </Link>
               </li>
             </div>
@@ -199,30 +170,6 @@ class App extends Component {
                 </Link>
               </li>
 
-            </div>
-          )}
-          {showAdminBoard &&(
-            <div className="navbar-nav ml-auto">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                  <b>Select action</b>
-                </a>
-                <div class="dropdown-menu" id="dropdown-menu">
-                  <a class="dropdown-item" href="/login" onClick={this.logOut}>LogOut</a>
-                </div>
-              </li>
-            </div>
-          )}
-          {showModeratorBoard &&(
-            <div className="navbar-nav ml-auto">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                  <b>Select action</b>
-                </a>
-                <div class="dropdown-menu" id="dropdown-menu">
-                  <a class="dropdown-item" href="/login" onClick={this.logOut}>LogOut</a>
-                </div>
-              </li>
             </div>
           )}
         </nav>

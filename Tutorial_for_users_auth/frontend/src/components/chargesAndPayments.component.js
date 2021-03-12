@@ -36,7 +36,7 @@ export default class Stations extends Component {
         data[i][2] = this.state.content[i].total_cost;
       }
       return (
-        <div>
+        <div id="table-responsive">
           <table>
             <thead id="station-table-data">
               <td><h3><b>SessionID</b></h3></td>
@@ -60,6 +60,9 @@ export default class Stations extends Component {
     }
 
   render() {
+
+
+
     const { currentUser } = this.state.content;
     return (
       <div className="container">

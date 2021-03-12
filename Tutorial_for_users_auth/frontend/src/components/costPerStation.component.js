@@ -39,7 +39,7 @@ export default class Stations extends Component {
         data[i][5] = this.state.content[i].total_bonus;
       }
       return (
-        <div>
+        <div id="table-responsive">
           <table>
             <thead id="station-table-data">
               <td><h3><b>StationID</b></h3></td>
