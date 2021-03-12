@@ -231,3 +231,35 @@ td{
   width: 330px;
   right: 30px;
 }
+
+#energy-table-data{
+  font-family: serif;
+  color:black;
+}
+
+#EnergyTableDesigner{
+  background-color: white;
+  padding: auto;
+  margin: auto;
+  opacity: 0.8;
+  position:relative;
+  right:200px;
+}
+
+#EnergyTableVID{
+  background-color: white;
+  padding: auto;
+  margin: auto;
+  opacity: 0.7;
+  position:relative;
+  top: 100px;
+}
+
+#EnergyTableVType{
+  background-color: white;
+  padding: auto;
+  margin: auto;
+  opacity: 0.7;
+  position:relative;
+  top: 100px;
+}
