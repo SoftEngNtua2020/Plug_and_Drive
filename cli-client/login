@@ -7,7 +7,7 @@ from pathlib import Path
 
 def login(ar):
     #url = 'https://localhost:8765/evcharge/api/login'
-    url = 'http://localhost:8765/evcharge/api/login'
+    url = 'http://pluganddrive.ddns.net:8765/evcharge/api/login'
     info = {'username': ar.username, 'password': ar.passw}
     res = requests.post(url, data=info)
     
