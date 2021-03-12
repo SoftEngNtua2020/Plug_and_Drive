@@ -53,9 +53,9 @@ export default class Login extends Component {
     this.form.validateAll();
 
     if (this.checkBtn.context._errors.length === 0) {
-      AuthService.login(this.state.username, this.state.password).then(
+      AuthService.login(this.state.username, this.state.password).then(  //o xeirismos toy login ginetai apo to auth.service.js kai thn synarthsh login (kanei post ta data)
         () => {
-          this.props.history.push("/profile");
+          this.props.history.push("/profile");   //an to login einai petyxhmeno , pame sthn selida /profile
           window.location.reload();
         },
         error => {
@@ -84,7 +84,8 @@ export default class Login extends Component {
       <div className="col-md-12">
         <div className="card card-container">
           <img
-            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+            //src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+            src="https://toppng.com/uploads/preview/image-1-source-rick-and-morty-11562982914hmlrrghjuu.png"
             alt="profile-img"
             className="profile-img-card"
           />

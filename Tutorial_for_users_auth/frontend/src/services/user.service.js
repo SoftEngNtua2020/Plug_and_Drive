@@ -1,12 +1,13 @@
 import axios from 'axios';
 import authHeader from './auth-header';
 
- // const API_URL = 'http://localhost:8080/api/test/';
-const API_URL = "http://83.212.79.138:8080/api/test/";
+//const API_URL = 'http://localhost:8080/api/test/';
+const API_URL = "http://pluganddrive.ddns.net:8765/evcharge/api/"
+//const API_URL = "http://83.212.79.138:8080/api/test/";
 
 class UserService {
   getPublicContent() {
-    return axios.get(API_URL + 'all');
+    return axios.get('http://pluganddrive.ddns.net:8765/api/test/all');
   }
 
   getUserBoard() {
@@ -18,7 +19,39 @@ class UserService {
   }
 
   getAdminBoard() {
-    return axios.get(API_URL + 'admin', { headers: authHeader() });
+    return axios.get(API_URL + 'admin/users/:username', { headers: authHeader() });
+  }
+
+  getBonusPoints() {
+    return axios.get(API_URL + 'getTotalBonus', { headers: authHeader() });
+  }
+
+  getTimesPaidCard() {
+    return axios.get(API_URL + 'getTimesPaidCard', { headers: authHeader() });
+  }
+
+  getVehiclesData() {
+    return axios.get(API_URL + 'getvehicledata', { headers: authHeader() });
+  }
+
+  getLocalStations() {
+    return axios.get(API_URL + 'getvehiclecostassump', { headers: authHeader() });
+  }
+
+  getPreviousEvents() {
+    return axios.get(API_URL + 'getvehicleeventdata', { headers: authHeader() });
+  }
+
+  getChargesAndPayments() {
+    return axios.get(API_URL + 'getCummulativeCostPerCharge', { headers: authHeader() });
+  }
+
+  getGetStationsData(){
+    return axios.get(API_URL + 'getStationData', { headers: authHeader() });
+  }
+
+  getChargingData(time1,time2){
+    return axios.get(API_URL + 'SessionsPerStation/:stationID/:' + time1 + '_from/:' + time2 + '_to', { headers: authHeader() });
   }
 }
 

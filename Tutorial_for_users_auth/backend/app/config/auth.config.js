@@ -1,3 +1,3 @@
 module.exports = {
-   secret: "bezkoder-secret-key"
+   secret: "O Giannis Einai Magkas kai o Nikos einai Polonos"
  };

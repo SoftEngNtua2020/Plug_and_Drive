@@ -1,3 +1,5 @@
+const fs = require('fs');
+const https = require('https');
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -68,6 +70,7 @@ require('./app/routes/vehicleOwnerPayments/F31.routes')(app);
 require('./app/routes/vehicleOwnerPayments/F26.routes')(app);
 require('./app/routes/admin/manageUser.routes')(app);
 require('./app/routes/admin/trackUser.routes')(app);
+//require('./app/routes/admin/resetsessions.routes')(app);
 require('./app/routes/admin/healthcheck.routes')(app);
 require('./app/routes/parkingAdmin/F11.routes')(app);
 require('./app/routes/parkingAdmin/F31.routes')(app);
@@ -75,6 +78,12 @@ require('./app/routes/parkingAdmin/getStationData.routes')(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8765;
+/*
+https.createServer({
+  key: fs.readFileSync('server.key'),
+  cert: fs.readFileSync('server.cert')
+}, app)
+*/
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });

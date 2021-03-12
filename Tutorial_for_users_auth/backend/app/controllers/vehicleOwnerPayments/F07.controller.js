@@ -5,7 +5,9 @@ const ROLES = db.ROLES;
 const Vehicle = db.vehicle;
 const Event = db.session;
 const vehicle_owner = db.owner;
-
+function readable_datetime_string(x) {
+   return x.toISOString().replace(/T/, ' ').replace(/\..+/, '');
+}
 var cummulative = 0;
 exports.CummulativeCostPerCharge = (req, res) => {
    vehicle_owner.findOne({
@@ -32,7 +34,7 @@ exports.CummulativeCostPerCharge = (req, res) => {
                   sessionJson.push({
                      session_id: i,
                      //started_on: sessions[i].started_on,
-                     finished_on: sessions[i].finished_on,
+                     finished_on: readable_datetime_string(sessions[i].finished_on),
                      //energy_deliverd: sessions[i].energy_deliverd,
                      //point_id: sessions[i].point_id,
                      //protocol: sessions[i].protocol,
