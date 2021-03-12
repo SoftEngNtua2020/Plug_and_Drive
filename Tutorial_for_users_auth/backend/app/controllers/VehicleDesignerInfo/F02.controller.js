@@ -2,6 +2,10 @@ const db = require("../../models");
 const sequelize = require("sequelize");
 const { Op } = require("sequelize");
 
+function readable_datetime_string(x) {
+   return x.toISOString().replace(/T/, ' ').replace(/\..+/, '');
+}
+
 exports.F02 = (req, res) => {
   // check that user: req.userId is a vehicle designer
   db.designer.findOne({
@@ -36,6 +40,10 @@ exports.F02 = (req, res) => {
          }
       })
        .then(results => {
+           for (var i in results) {
+             results[i].started_on = readable_datetime_string(results[i].started_on);
+             results[i].finished_on = readable_datetime_string(results[i].finished_on);
+           }
            if(results.length == 0) { // if the answer is empty
              res.status(402).send([]);
            }
