@@ -110,6 +110,8 @@ label {
 }
 
 #footer{
+  margin-top: 80%;
+  width: 100%;
   clear : both;
   color: #A4A4A4;
   text-align: center;
@@ -181,7 +183,9 @@ td{
   margin: auto;
   padding: auto;
 }
-
+#middleDoc{
+  margin-top: 5%;
+}
 #chargesPayments{
   position: relative;
   top: 50px;
