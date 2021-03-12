@@ -20,24 +20,29 @@ export default class Profile extends Component {
             <strong>{currentUser.username}</strong> Profile
           </h3>
         </header>
-        <p>
-          <strong>Token:</strong>{" "}
-          {currentUser.accessToken.substring(0, 20)} ...{" "}
-          {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
-        </p>
-        <p>
-          <strong>Id:</strong>{" "}
-          {currentUser.id}
-        </p>
-        <p>
-          <strong>Email:</strong>{" "}
-          {currentUser.email}
-        </p>
-        <strong>Authorities:</strong>
-        <ul>
-          {currentUser.roles &&
+        <div id="container">
+          <p>
+            <strong>Token:</strong>{" "}
+            {currentUser.accessToken.substring(0, 20)} ...{" "}
+            {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
+          </p>
+          <p>
+            <strong>Id:</strong>{" "}
+            {currentUser.id}
+          </p>
+          <p>
+            <strong>Email:</strong>{" "}
+            {currentUser.email}
+          </p>
+          <strong>Authorities:</strong>
+          <ul>
+            {currentUser.roles &&
             currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
-        </ul>
+          </ul>
+        </div>
+        <div id="footer">
+          Copyright &copy; 2021 ECE NTUA
+        </div>
       </div>
     );
   }
