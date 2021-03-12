@@ -4,15 +4,28 @@ import requests
 import json
 from pathlib import Path
 from datetime import date
+from prettytable import from_csv
+from prettytable import DEFAULT
 
 def sessions_per_station(ar):
     url = 'http://pluganddrive.ddns.net:8765/evcharge/api/SessionsPerStation/' + ar.station + '/' + str(ar.datefrom) + '/' + str(ar.dateto)
     if (ar.format == 'csv'):
         url = url + '?format=csv'
-    print(url)
+    #print(url)
     headers = {'x-access-token' : ar.apikey}
     res = requests.get(url, headers=headers)
-    #print(res.status_code)
+    print(res.status_code)
+    if (ar.format == 'json' and res.status_code == 200):
+        print(json.dumps(res.json(), indent=4, sort_keys=False))
+    elif (ar.format == 'csv' and res.status_code == 200):
+        f = open("./SessionsPerStation.cv",'w+')
+        f.truncate(0)
+        f.write(res.text)
+        f.seek(0)
+        x = from_csv(f, delimiter =',')
+        x.set_style(DEFAULT)
+        print(x)
+        f.close()
     #json = res.json() #in reality a python dict
     #print(json)
     #print(json['accessToken'])

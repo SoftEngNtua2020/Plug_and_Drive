@@ -6,4 +6,4 @@
 - CLI functional tests.
 - CLI unit tests.
 
-echo PATH="$PATH:/path/to/CLI" >> ~/.bashrc
+export PATH="$PATH:/path/to/cli-client"

@@ -4,13 +4,15 @@ import requests
 import json
 
 def resetsessions(ar):
-        res = requests.get('http://pluganddrive.ddns.net:8765/evcharge/api/admin/resetsessions')
-        print(res.status_code)
-        print(res.json())
-        return True
+	headers = {'x-access-token' : ar.apikey}
+    res = requests.post('http://localhost:8765/evcharge/api/admin/resetsessions', headers=headers)
+    print(res.status_code)
+    print(res.json())
+    return True
 
 
 parser = argparse.ArgumentParser()
+parser.add_argument('--apikey', help='Give API key', required='TRUE')
 args = parser.parse_args()
 
 resetsessions(args)

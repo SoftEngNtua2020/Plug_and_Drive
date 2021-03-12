@@ -1,0 +1,4 @@
+StationID,Operator,RequestTimestamp,PeriodFrom,PeriodTo,TotalEnergyDelivered,NumberOfChargingSessions,NumberOfActivePoints,PointID,PointSessions,EnergyDelivered
+1,Ariana Rudiger,2021-03-13 00:56:44,2019-02-04,2020-02-04,11796,200,3,1,67,3974
+1,Ariana Rudiger,2021-03-13 00:56:44,2019-02-04,2020-02-04,11796,200,3,2,68,3848
+1,Ariana Rudiger,2021-03-13 00:56:44,2019-02-04,2020-02-04,11796,200,3,3,65,3974
