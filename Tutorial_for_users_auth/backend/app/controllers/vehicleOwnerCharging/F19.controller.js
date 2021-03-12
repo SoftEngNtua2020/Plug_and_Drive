@@ -41,7 +41,7 @@ exports.AddSession = (req, res) => {
                Event.create({
                   started_on: DateFormat(now),
                   finished_on: DateFormat(end),
-                  energy_deliverd: kwh_need,
+                  energy_deliverd: Rounding_to_two(kwh_need),
                   point_id: req.body.point_id,
                   protocol: req.body.protocol,
                   payment_method: req.body.payment_method,
