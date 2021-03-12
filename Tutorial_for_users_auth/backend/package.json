@@ -4,7 +4,7 @@
   "description": "Node.js Rest Apis with Express, Sequelize & MySQL",
   "main": "server.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --timeout 10000"
   },
   "keywords": [
     "nodejs",
