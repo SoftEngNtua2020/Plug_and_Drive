@@ -1,3 +1,4 @@
+
 process.env.NODE_ENV = 'test';
 
 let db = require("../app/models");
@@ -96,6 +97,18 @@ describe('Login and test SessionsPer{EV,Point,Provider,Station}', () => {
             });
       });
   });
-
+    describe("logout", () => {
+      it("it should return http code 200", (done) => {
+        chai.request(server)
+            .post('/evcharge/api/logout')
+            .set('x-access-token', token)
+            .end((err, res) => {
+                  res.should.have.status(200);
+                  //res.body.should.be.a('array');
+                  //res.body.length.should.be.eql(0);
+              done();
+            });
+      });
+  });
 
 });

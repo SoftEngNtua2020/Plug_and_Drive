@@ -141,5 +141,46 @@ describe('Use case: Vehicle Owner', () => {
       });
   });
 
+  describe("get total bonus points (F31)", () => {
+      it("it should return the total bonus points of the user whose token is provided", (done) => {
+        chai.request(server)
+            .get('/evcharge/api/getTotalBonus')
+            .set('x-access-token', token)
+            .end((err, res) => {
+                  res.should.have.status(200);
+                  //res.body.should.be.a('array');
+                  //res.body.length.should.be.eql(0);
+              done();
+            });
+      });
+  });
+
+    describe("get times paid by card/cash (F26)", () => {
+      it("it should return the times the user paid with card or cash", (done) => {
+        chai.request(server)
+            .get('/evcharge/api/getTimesPaidCard')
+            .set('x-access-token', token)
+            .end((err, res) => {
+                  res.should.have.status(200);
+                  //res.body.should.be.a('array');
+                  //res.body.length.should.be.eql(0);
+              done();
+            });
+      });
+  });
+    describe("logout", () => {
+      it("it should return http code 200", (done) => {
+        chai.request(server)
+            .post('/evcharge/api/logout')
+            .set('x-access-token', token)
+            .end((err, res) => {
+                  res.should.have.status(200);
+                  //res.body.should.be.a('array');
+                  //res.body.length.should.be.eql(0);
+              done();
+            });
+      });
+  });
+
 });
 
