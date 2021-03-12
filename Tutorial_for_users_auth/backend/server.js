@@ -78,11 +78,13 @@ require('./app/routes/parkingAdmin/getStationData.routes')(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8765;
-
+/*
 https.createServer({
   key: fs.readFileSync('server.key'),
   cert: fs.readFileSync('server.cert')
-}, app).listen(PORT, () => {
+}, app)
+*/
+app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 
