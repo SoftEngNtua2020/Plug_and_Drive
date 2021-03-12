@@ -1,0 +1,104 @@
+#!/usr/bin/env python3
+import argparse
+import requests
+import json
+from pathlib import Path
+
+def healthcheck(ar):
+    print(ar)
+    headers = {'x-access-token' : ar.apikey}
+    res = requests.get('http://pluganddrive.ddns.net:8765/evcharge/api/admin/healthcheck', headers=headers)
+    print(res.status_code)
+    print(res.json())
+    return True
+
+
+def resetsessions(ar):
+    print(ar)
+    headers = {'x-access-token' : ar.apikey}
+    res = requests.get('http://pluganddrive.ddns.net:8765/evcharge/api/admin/resetsessions', headers=headers)
+    print(res.status_code)
+    print(res.json())
+    return True
+
+
+def usermod(ar):
+    print(ar)
+    headers = {'x-access-token' : ar.apikey}
+    res = requests.post('http://pluganddrive.ddns.net:8765/evcharge/api/admin/usermod/' + ar.username + '/' + ar.passw, headers=headers)
+    print(res.status_code)
+    print(res.json())
+    return True
+
+def users(ar):
+    print(ar)
+    headers = {'x-access-token' : ar.apikey}
+    res = requests.get('http://pluganddrive.ddns.net:8765/evcharge/api/admin/users/' + ar.username, headers=headers)
+    print(res.status_code)
+    print(res.json())
+    return True
+
+def sessionsupd(ar):
+    print(ar)
+    headers = {'x-access-token' : ar.apikey}
+    files = {'file': open(ar.source, 'rb')}
+    res = requests.post('http://pluganddrive.ddns.net:8765/evcharge/api/admin/system/sessionsupd', headers=headers, files=files)
+    print(res)
+    print(res.status_code)
+    print(res.json())
+    return True
+
+
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(prefix_chars='+')
+    subs = parser.add_subparsers(help='sub-command help')
+    #--usermod
+    usermod_parser = subs.add_parser('--usermod', help='Create new user or update password of existing user')
+    usermod_parser.add_argument('--username', help="The user's username", required=True)
+    usermod_parser.add_argument('--passw', help="The user's password", required=True)
+    usermod_parser.add_argument('--apikey',help="Admin's api key",required=True)
+    usermod_parser.set_defaults(func=usermod)
+
+    #--users
+    users_parser = subs.add_parser('--users', help='Request data of user with provided username')
+    users_parser.add_argument('--username',help="username",required=True)
+    users_parser.add_argument('--apikey',help="Admin's api key",required=True)
+    users_parser.set_defaults(func=users)
+
+    #--sessionsupd
+    sessionsupd_parser = subs.add_parser('--sessionsupd', help='Upload CSV file')
+    sessionsupd_parser.add_argument('--apikey',help="Admin's api key",required=True)
+    sessionsupd_parser.add_argument('--source',help="CSV file to be uploaded",required=True)
+    sessionsupd_parser.set_defaults(func=sessionsupd)
+
+
+    #--healthcheck
+    healthcheck_parser = subs.add_parser('--healthcheck', help='Perform a system healthcheck')
+    healthcheck_parser.add_argument('--apikey',help="Admin's api key",required=True)
+    healthcheck_parser.set_defaults(func=healthcheck)
+
+    #--resetsessions
+    resetsessions_parser = subs.add_parser('--resetsessions', help='Reset ')
+    resetsessions_parser.set_defaults(func=resetsessions)
+    resetsessions_parser.add_argument('--apikey',help="Admin's api key",required=True)
+
+
+
+
+    args = parser.parse_args() 
+
+    if args.func.__name__ == 'healthcheck':
+        healthcheck(args)
+    elif args.func.__name__ == 'resetsessions':
+        resetsessions(args)
+    elif args.func.__name__ == 'usermod':
+        usermod(args)
+    elif args.func.__name__ == 'users':
+        users(args)
+    elif args.func.__name__ == 'sessionsupd':
+        sessionsupd(args)
+
+
+

@@ -1,0 +1,3 @@
+started_on;finished_on;energy_deliverd;protocol;payment_method;bonus_points_energy;total_cost;vehicle_id;station_id;point_id;program_id
+2021-03-11 18:30:40;2021-03-07 18:40:40;30;AC;CASH;100;60;1;1;1;1
+2021-03-11 19:30:40;2021-03-07 19:40:40;30;AC;CASH;100;60;1;1;1;1
