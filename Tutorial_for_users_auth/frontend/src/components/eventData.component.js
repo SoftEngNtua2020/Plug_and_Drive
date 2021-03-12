@@ -44,7 +44,7 @@ export default class Events extends Component {
         data[i][10] = this.state.content[i].station_id;
       }
       return (
-        <div>
+        <div id="table-responsive">
           <table>
             <thead id="events-table-data">
               <td><h5><b>SessionID</b></h5></td>

@@ -157,12 +157,16 @@ body{
 }
 
 table{
+  position: relative;
   width: 100%;
-  height: 100%;text-align: center;
+  height: 100%;
   text-align: center;
   border-collapse: collapse;
 }
-
+#table-responsive{
+  overflow-y:scroll;
+  height:500px;
+}
 td{
   border: 1px solid black;
 }

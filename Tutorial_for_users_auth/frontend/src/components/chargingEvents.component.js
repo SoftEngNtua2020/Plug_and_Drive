@@ -94,7 +94,7 @@ export default class EnergyConsumbedByEVType extends Component {
       data[i][11] = this.state.content[i].program_id;
     }
     return (
-      <div>
+      <div >
         <table>
           <thead id="energy-table-data">
             <td><h3><b>VehicleID</b></h3></td>
