@@ -1,48 +1,49 @@
 #!/usr/bin/env python3
 import argparse
 import requests
+import sys
 import json
 from pathlib import Path
 
 def healthcheck(ar):
-    print(ar)
+    #print(ar)
     headers = {'x-access-token' : ar.apikey}
-    res = requests.get('http://pluganddrive.ddns.net:8765/evcharge/api/admin/healthcheck', headers=headers)
+    res = requests.get('http://localhost:8765/evcharge/api/admin/healthcheck', headers=headers)
     print(res.status_code)
     print(res.json())
     return True
 
 
 def resetsessions(ar):
-    print(ar)
+    #print(ar)
     headers = {'x-access-token' : ar.apikey}
-    res = requests.get('http://pluganddrive.ddns.net:8765/evcharge/api/admin/resetsessions', headers=headers)
+    res = requests.post('http://localhost:8765/evcharge/api/admin/resetsessions', headers=headers)
     print(res.status_code)
     print(res.json())
     return True
 
 
 def usermod(ar):
-    print(ar)
+    #print(ar)
     headers = {'x-access-token' : ar.apikey}
-    res = requests.post('http://pluganddrive.ddns.net:8765/evcharge/api/admin/usermod/' + ar.username + '/' + ar.passw, headers=headers)
+    res = requests.post('http://localhost:8765/evcharge/api/admin/usermod/' + ar.username + '/' + ar.passw, headers=headers)
     print(res.status_code)
     print(res.json())
     return True
 
 def users(ar):
-    print(ar)
+    #print(ar)
     headers = {'x-access-token' : ar.apikey}
-    res = requests.get('http://pluganddrive.ddns.net:8765/evcharge/api/admin/users/' + ar.username, headers=headers)
+    res = requests.get('http://localhost:8765/evcharge/api/admin/users/' + ar.username, headers=headers)
     print(res.status_code)
     print(res.json())
     return True
 
 def sessionsupd(ar):
-    print(ar)
+    #print(ar)
     headers = {'x-access-token' : ar.apikey}
     files = {'file': open(ar.source, 'rb')}
-    res = requests.post('http://pluganddrive.ddns.net:8765/evcharge/api/admin/system/sessionsupd', headers=headers, files=files)
+    res = requests.post('http://localhost:8765/evcharge/api/admin/system/sessionsupd', headers=headers, files=files)
     print(res)
     print(res.status_code)
     print(res.json())
@@ -89,16 +90,22 @@ if __name__ == '__main__':
 
     args = parser.parse_args() 
 
-    if args.func.__name__ == 'healthcheck':
-        healthcheck(args)
-    elif args.func.__name__ == 'resetsessions':
-        resetsessions(args)
-    elif args.func.__name__ == 'usermod':
-        usermod(args)
-    elif args.func.__name__ == 'users':
-        users(args)
-    elif args.func.__name__ == 'sessionsupd':
-        sessionsupd(args)
+    if hasattr(args, 'func'):
+
+        if args.func.__name__ == 'healthcheck':
+            healthcheck(args)
+        elif args.func.__name__ == 'resetsessions':
+            resetsessions(args)
+        elif args.func.__name__ == 'usermod':
+            usermod(args)
+        elif args.func.__name__ == 'users':
+            users(args)
+        elif args.func.__name__ == 'sessionsupd':
+            sessionsupd(args)
+    else:
+     parser.print_help()
+     sys.exit(2)
+
 
 
 

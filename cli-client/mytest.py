@@ -13,14 +13,14 @@ def capture(command):
 
 def test_valid_login():
 	home = str(Path.home())
-	command = ["./login", "--username", "alex1", "--passw", "password1"]
+	command = ["./login", "--username", "Chucho", "--passw", "password1"]
 	out, err, exitcode = capture(command)
 	assert os.path.exists(home + '/softeng20bAPI.token')
 	assert exitcode == 0
 	assert b"200" in out
 
 def test_invalid_login():
-	command = ["./login", "--username", "alex1", "--passw", "passwor"]
+	command = ["./login", "--username", "Chucho", "--passw", "wrongpassword:("]
 	out, err, exitcode = capture(command)
 	assert exitcode == 1
 	assert b"401" in out
@@ -40,7 +40,7 @@ def test_invalid_logout():
 
 def test_valid_relogin():
 	home = str(Path.home())
-	command = ["./login", "--username", "alex1", "--passw", "password1"]
+	command = ["./login", "--username", "Chucho", "--passw", "password1"]
 	out, err, exitcode = capture(command)
 	assert os.path.exists(home + '/softeng20bAPI.token')
 	assert exitcode == 0
@@ -88,7 +88,9 @@ def test_users():
 	home = str(Path.home())
 	with open(home + '/softeng20bAPI.token', 'r') as file:
 		data = file.read().replace('\n', '')
-	command = ["./Admin", "--users", "--username", "alex22", "--apikey", data]
+	command = ["./Admin", "--users", "--username", "Chucho", "--apikey", data]
 	out, err, exitcode = capture(command)
 	assert b"200" in out
+
+
 
