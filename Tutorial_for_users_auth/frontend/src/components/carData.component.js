@@ -30,7 +30,7 @@ export default class Home extends Component {
     return (
       <div className="container">
         <div className="welcome">
-          <h2> Your Car's data are : </h2>
+          <h2> Your Car's data </h2>
         </div>
           <header className="jumbotron" id="datacar" >
             <h3> <b>Brand</b>: {this.state.content.brand} </h3>

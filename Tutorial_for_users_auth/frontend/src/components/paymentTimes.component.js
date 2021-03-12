@@ -29,15 +29,11 @@ export default class Home extends Component {
     );
   }
 
-  /*<ul>
-    {this.state.content.map(content => <li> {this.state.content}}</li>)}
-  </ul>*/
-
   render() {
     return (
       <div className="container">
         <div className="welcome">
-          <h2> Your previous payments on "Plug & Drive" are : </h2>
+          <h2> Previous payments on Plug & Drive </h2>
           <header className="jumbotron" id="datapayment" >
             <h3> <b>Card</b>: {this.state.content.card} </h3>
             <h3> <b>Cash</b>: {this.state.content.cash} </h3>

@@ -42,9 +42,9 @@ export default class Home extends Component {
     return (
       <div className="container">
         <div className="welcome">
-          <h2> The total Bonus points you have on "Plug & Drive" are : </h2>
+          <h2> Total Bonus points you have on Plug & Drive </h2>
           <header className="jumbotron" id="databonus" >
-            <h3>{this.state.content.bonus_points} <b>points</b></h3>
+            <h3><b>{this.state.content.bonus_points} points</b></h3>
           </header>
         </div>
 
