@@ -1,18 +1,22 @@
 import React, { Component } from "react";
+import axios from 'axios';
+import authHeader from '../services/auth-header';
 
 import UserService from "../services/user.service";
 
+
 export default class Home extends Component {
+
   constructor(props) {
     super(props);
 
     this.state = {
-      content: ""
+      content: {}
     };
   }
 
   componentDidMount() {          //pairnei mia apanthsh apo backend (thn vazei sto state.content kai thn emfanizei sto render()).
-    UserService.getPublicContent().then(     //return axios.get(API_URL + 'all'); sto user.service.js
+    axios.get("http://pluganddrive.ddns.net:8765/evcharge/api/getTotalBonus", { headers: authHeader() }).then(     //return axios.get(API_URL + 'getBonusPoints'); sto user.service.js
       response => {
         this.setState({
           content: response.data
@@ -20,30 +24,30 @@ export default class Home extends Component {
       },
       error => {
         this.setState({
-          content:
-            (error.response && error.response.data) ||
-            error.message ||
-            error.toString()
+          content: "WTF"
         });
       }
     );
   }
 
-  /*<header className="jumbotron">
+  /*
+  <header className="jumbotron">
+    <div id="show">
       <h3>{this.state.content}</h3>
-    </header>
+    </div>
+  </header>
   */
 
   render() {
     return (
       <div className="container">
         <div className="welcome">
-          <h2> Welcome to "Plug & Drive" </h2>
-          <p> ~Where plugging your electrical car, becomes an easy task~ </p>
+          <h2> The total Bonus points you have on "Plug & Drive" are : </h2>
+          <header className="jumbotron" id="databonus" >
+            <h3>{this.state.content.bonus_points} <b>points</b></h3>
+          </header>
         </div>
-        <div id="footer">
-          Copyright &copy; 2021 ECE NTUA
-        </div>
+
       </div>
     );
   }

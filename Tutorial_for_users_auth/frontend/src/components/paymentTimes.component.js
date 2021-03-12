@@ -7,12 +7,12 @@ export default class Home extends Component {
     super(props);
 
     this.state = {
-      content: ""
+      content: {}
     };
   }
 
   componentDidMount() {          //pairnei mia apanthsh apo backend (thn vazei sto state.content kai thn emfanizei sto render()).
-    UserService.getPublicContent().then(     //return axios.get(API_URL + 'all'); sto user.service.js
+    UserService.getTimesPaidCard().then(     //return axios.get(API_URL + 'getTimesPaidCard'); sto user.service.js
       response => {
         this.setState({
           content: response.data
@@ -29,20 +29,19 @@ export default class Home extends Component {
     );
   }
 
-  /*<header className="jumbotron">
-      <h3>{this.state.content}</h3>
-    </header>
-  */
+  /*<ul>
+    {this.state.content.map(content => <li> {this.state.content}}</li>)}
+  </ul>*/
 
   render() {
     return (
       <div className="container">
         <div className="welcome">
-          <h2> Welcome to "Plug & Drive" </h2>
-          <p> ~Where plugging your electrical car, becomes an easy task~ </p>
-        </div>
-        <div id="footer">
-          Copyright &copy; 2021 ECE NTUA
+          <h2> Your previous payments on "Plug & Drive" are : </h2>
+          <header className="jumbotron" id="datapayment" >
+            <h3> <b>Card</b>: {this.state.content.card} </h3>
+            <h3> <b>Cash</b>: {this.state.content.cash} </h3>
+          </header>
         </div>
       </div>
     );

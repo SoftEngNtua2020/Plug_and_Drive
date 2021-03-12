@@ -12,6 +12,24 @@ import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
+import StartCharge from "./components/startCharge.component";
+import CarData from "./components/carData.component";
+import BonusPoints from "./components/bonusPoints.component";
+import PaymentTimes from "./components/paymentTimes.component";
+import CostPerStation from "./components/costPerStation.component";
+import EventData from "./components/eventData.component";
+import ChargesAndPayments from "./components/chargesAndPayments.component";
+import CostPerPeriod from "./components/costPerPeriod.component";
+import CreateOrModify from "./components/createOrModify.component";
+import BonusPerKwh from "./components/bonusPerKwh.component";
+import GetStationsData from "./components/getStationsData.component";
+import ChargingData from "./components/chargingData.component";
+import ChargesPerPeriod from "./components/chargesPerPeriod.component";
+import EnergyConsumptionType from "./components/energyConsumptionType.component";
+import EnergyConsumptionId from "./components/energyConsumptionId.component";
+import ChargingEvents from "./components/chargingEvents.component";
+import CarsCharges from "./components/carsCharges.component";
+
 
 class App extends Component {
   constructor(props) {
@@ -21,6 +39,9 @@ class App extends Component {
     this.state = {
       showModeratorBoard: false,
       showAdminBoard: false,
+      showOwnerBoard: false,
+      showDesignerBoard: false,
+      showStationsBoard: false,
       currentUser: undefined,
     };
   }
@@ -33,6 +54,9 @@ class App extends Component {
         currentUser: user,
         showModeratorBoard: user.roles.includes("ROLE_MODERATOR"),
         showAdminBoard: user.roles.includes("ROLE_ADMIN"),
+        showOwnerBoard: user.roles.includes("ROLE_VEHICLE_OWNER"),
+        showDesignerBoard: user.roles.includes("ROLE_VEHICLE_DESIGNER"),
+        showStationsBoard: user.roles.includes("ROLE_STATION_ADMIN")
       });
     }
   }
@@ -41,8 +65,24 @@ class App extends Component {
     AuthService.logout();
   }
 
+  /*
+  {currentUser && (
+    <li className="nav-item">
+      <Link to={"/user"} className="nav-link">
+        User
+      </Link>
+    </li>
+  )}
+
+  <li className="nav-item">
+    <Link to={"/register"} className="nav-link">
+      Sign Up
+    </Link>
+  </li>
+  */
+
   render() {
-    const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
+    const { currentUser, showModeratorBoard, showAdminBoard , showOwnerBoard, showDesignerBoard, showStationsBoard} = this.state;
 
     return (
       <div>
@@ -65,15 +105,13 @@ class App extends Component {
               </li>
             )}
 
-            {showAdminBoard && (
+            {showAdminBoard ? (
               <li className="nav-item">
                 <Link to={"/admin"} className="nav-link">
                   Admin Board
                 </Link>
               </li>
-            )}
-
-            {currentUser && (
+            ):(
               <li className="nav-item">
                 <Link to={"/user"} className="nav-link">
                   User
@@ -82,20 +120,78 @@ class App extends Component {
             )}
           </div>
 
-          {currentUser ? (
+          {showOwnerBoard && (
             <div className="navbar-nav ml-auto">
-              <li className="nav-item">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                  <b>Select action</b>
+                </a>
+                <div class="dropdown-menu" id="dropdown-menu">
+                  <a class="dropdown-item" href="/startCharge">Start Charging!</a>
+                  <a class="dropdown-item" href="/carData">View your Car's Data</a>
+                  <a class="dropdown-item" href="/bonusPoints">Check your Bonus</a>
+                  <a class="dropdown-item" href="/paymentTimes">View total payments</a>
+                  <a class="dropdown-item" href="/costPerStation">Estimated cost per station</a>
+                  <a class="dropdown-item" href="/eventData">See your previous events</a>
+                  <a class="dropdown-item" href="/chargesAndPayments">View all charges & payments</a>
+                  <a class="dropdown-item" href="/costPerPeriod">Check your cost at a period of time</a>
+                  <div class="dropdown-divider"> </div>
+                  <a class="dropdown-item" href="/login" onClick={this.logOut}>LogOut</a>
+                </div>
+              </li>
+              <li className="nav-item" id="username">
                 <Link to={"/profile"} className="nav-link">
                   {currentUser.username}
                 </Link>
               </li>
-              <li className="nav-item">
-                <a href="/login" className="nav-link" onClick={this.logOut}>
-                  LogOut
+            </div>
+          )}
+          {showDesignerBoard && (
+            <div className="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                  <b>Select action</b>
                 </a>
+                <div class="dropdown-menu" id="dropdown-menu">
+                  <a class="dropdown-item" href="/energyConsumptionType">Cars energy consumption per time</a>
+                  <a class="dropdown-item" href="/energyConsumptionId">Energy consumption per car,kmh,time</a>
+                  <a class="dropdown-item" href="/chargingEvents">Charging Events</a>
+                  <div class="dropdown-divider"> </div>
+                  <a class="dropdown-item" href="/login" onClick={this.logOut}>LogOut</a>
+                </div>
+              </li>
+              <li className="nav-item" id="username">
+                <Link to={"/profile"} className="nav-link">
+                  {currentUser.username}
+                </Link>
               </li>
             </div>
-          ) : (
+          )}
+          {showStationsBoard && (
+            <div className="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                  <b>Select action</b>
+                </a>
+                <div class="dropdown-menu" id="dropdown-menu">
+                  <a class="dropdown-item" href="/createOrModify">Create - Modify a station</a>
+                  <a class="dropdown-item" href="/bonusPerKwh">Check your Bonus per Kwh</a>
+                  <a class="dropdown-item" href="/chargingData">View data from all charging events</a>
+                  <a class="dropdown-item" href="/chargesPerPeriod">Analytics from charging events</a>
+                  <a class="dropdown-item" href="/carsCharges">View a car's charging data</a>
+                  <a class="dropdown-item" href="/getStationsData">View data from all stations</a>
+                  <div class="dropdown-divider"> </div>
+                  <a class="dropdown-item" href="/login" onClick={this.logOut}>LogOut</a>
+                </div>
+              </li>
+              <li className="nav-item" id="username">
+                <Link to={"/profile"} className="nav-link">
+                  {currentUser.username}
+                </Link>
+              </li>
+            </div>
+          )}
+          {!currentUser &&(
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
                 <Link to={"/login"} className="nav-link">
@@ -103,10 +199,29 @@ class App extends Component {
                 </Link>
               </li>
 
-              <li className="nav-item">
-                <Link to={"/register"} className="nav-link">
-                  Sign Up
-                </Link>
+            </div>
+          )}
+          {showAdminBoard &&(
+            <div className="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                  <b>Select action</b>
+                </a>
+                <div class="dropdown-menu" id="dropdown-menu">
+                  <a class="dropdown-item" href="/login" onClick={this.logOut}>LogOut</a>
+                </div>
+              </li>
+            </div>
+          )}
+          {showModeratorBoard &&(
+            <div className="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                  <b>Select action</b>
+                </a>
+                <div class="dropdown-menu" id="dropdown-menu">
+                  <a class="dropdown-item" href="/login" onClick={this.logOut}>LogOut</a>
+                </div>
               </li>
             </div>
           )}
@@ -118,6 +233,23 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/startCharge" component={StartCharge} />
+            <Route exact path="/carData" component={CarData} />
+            <Route exact path="/bonusPoints" component={BonusPoints} />
+            <Route exact path="/paymentTimes" component={PaymentTimes} />
+            <Route exact path="/costPerStation" component={CostPerStation} />
+            <Route exact path="/chargesAndPayments" component={ChargesAndPayments} />
+            <Route exact path="/costPerPeriod" component={CostPerPeriod} />
+            <Route exact path="/getStationsData" component={GetStationsData} />
+            <Route exact path="/eventData" component={EventData} />
+            <Route exact path="/createOrModify" component={CreateOrModify} />
+            <Route exact path="/bonusPerKwh" component={BonusPerKwh} />
+            <Route exact path="/chargingData" component={ChargingData} />
+            <Route exact path="/chargesPerPeriod" component={ChargesPerPeriod} />
+            <Route exact path="/energyConsumptionType" component={EnergyConsumptionType} />
+            <Route exact path="/energyConsumptionId" component={EnergyConsumptionId} />
+            <Route exact path="/chargingEvents" component={ChargingEvents} />
+            <Route exact path="/carsCharges" component={CarsCharges} />
             <Route path="/user" component={BoardUser} />
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} />
