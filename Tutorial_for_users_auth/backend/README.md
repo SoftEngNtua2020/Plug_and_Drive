@@ -241,7 +241,7 @@
       ```
 
 2. Κατασκευαστές Οχημάτων - Ενημέρωση
-  - F05
+    - F05
       ```json
       Type: POST,
       URl: http://localhost:8765/evcharge/api/getEnergyConsumedByEVType,
@@ -266,7 +266,7 @@
           }
       ]
       ```
-  - F35
+   - F35
       ```json
       Type: POST,
       URl: http://localhost:8765/evcharge/api/getEnergyConsumedByEV,
@@ -291,7 +291,7 @@
         }
      ]
      ```
-  - F02
+   - F02
        ```json
        Type: POST,
        URl: http://localhost:8765/evcharge/api/getChargingEventsByDesigner,
@@ -462,7 +462,7 @@
       ```
 
 4. Parking - Ενημέρωση
-  - F07 = SessionsPerStation
+   - F07 = SessionsPerStation
        ```json
        Type: GET,
        URl: http://localhost:8765/evcharge/api/SessionsPerStation/:stationID/:yyyymmdd_from/:yyyymmdd_to
@@ -487,7 +487,7 @@
          ]
        }
        ```
-  - F17 = SessionsPerPoint
+   - F17 = SessionsPerPoint
        ```json
        Type: GET,
        URl: http://localhost:8765/evcharge/api/SessionsPerPoint/:pointID/:yyyymmdd_from/:yyyymmdd_to
@@ -525,7 +525,7 @@
            ]
        }
        ```
-  - F23
+   - F23
        ```json
        Type: POST,
        URl: http://localhost:8765/evcharge/api/getVehiclesChargingAtTime,
