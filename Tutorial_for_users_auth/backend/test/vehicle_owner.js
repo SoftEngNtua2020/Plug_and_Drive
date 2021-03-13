@@ -183,4 +183,3 @@ describe('Use case: Vehicle Owner', () => {
   });
 
 });
-
