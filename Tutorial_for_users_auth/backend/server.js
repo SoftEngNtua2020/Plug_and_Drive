@@ -169,3 +169,5 @@ await db.session.sync({ force: false }).then(() => {
      name: "admin"
    });
  }*/
+
+module.exports = app;
