@@ -222,7 +222,7 @@ export default class StationSessionsPoints extends Component {
     }
     else {
       return(
-        <div id="table-responsive">
+        <div >
           <header className="jumbotron">
           <div className="col-md-12">
               <h3> <b>Point</b>: {this.state.content.Point} </h3>
@@ -232,9 +232,9 @@ export default class StationSessionsPoints extends Component {
               <h3> <b>PeriodTo</b>: {this.state.content.PeriodTo} </h3>
               <h3> <b>NumberOfChargingSessions</b>: {this.state.content.NumberOfChargingSessions} </h3>
           </div>
-          
+          <div id="table-responsive">
               <h1>{this.table()}</h1>
-
+          </div>
             </header>
         </div>
       )
