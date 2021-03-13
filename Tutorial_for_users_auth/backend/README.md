@@ -291,7 +291,7 @@
         }
      ]
      ```
-    - F02
+   - F02
        ```json
        Type: POST,
        URl: http://localhost:8765/evcharge/api/getChargingEventsByDesigner,
