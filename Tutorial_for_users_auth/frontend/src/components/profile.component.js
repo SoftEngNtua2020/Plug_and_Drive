@@ -36,9 +36,6 @@ export default class Profile extends Component {
             currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
           </ul>
         </div>
-        <div id="footer">
-          Copyright &copy; 2021 ECE NTUA
-        </div>
       </div>
     );
   }
