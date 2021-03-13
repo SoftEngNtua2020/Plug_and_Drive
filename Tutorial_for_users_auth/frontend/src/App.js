@@ -124,7 +124,7 @@ class App extends Component {
               </li>
               <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbardrop-sec" data-toggle="dropdown">
-                  <b>Payment</b>
+                  <b>Payments</b>
                 </a>
                 <div class="dropdown-menu" id="dropdown-menu">
                   <a class="dropdown-item" href="/paymentTimes">🧾 View total payments </a>
