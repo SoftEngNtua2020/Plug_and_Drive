@@ -7,7 +7,7 @@ mydb = mysql.connector.connect(
     host = "snf-17690.ok-kno.grnetcloud.net",
     user = "PnG",
     passwd = "alexander",
-    database = "test2"
+    database = "test5"
 )
 mycursor = mydb.cursor()
 designers = ["Tesla","Anteros","Aurica","Bremach","BXR","Chrysler","CustomCraftedCars","Dodge","ElioMotors","EquusAutomotive","E-Z-GO","Falcon","Faraday","Ford","GeneralMotors","Buick","Cadillac","Chevrolet","GMC","Hennessey","Jeep","Karma","Lincoln","Local","Lucid","Lyons","Niama-Reisser","Panoz","Polaris","Racefab","RamTrucks","Rezvani","Rivian","Rossion","Saleen","ShelbyAmerican","TrionSupercars","Zimmer","Merkur","Mosler","Oakland","Oldsmobile","Packard","Plymouth","Pontiac","Rambler","ReliableDayton","Saturn","Studebaker","Vector","Willys"]
@@ -17,6 +17,7 @@ years = np.arange(2008,2021,1)
 usable = np.arange(25,250,1)
 addbat = np.arange(1,20,1)
 cons = np.arange(13,25,0.1)
+designer_ids = np.arange(1,8,1)
 for i in range(1,51):
    brand = designers[i-1]
    ch_type = np.random.choice(types)
@@ -25,7 +26,7 @@ for i in range(1,51):
    usable_battery_size = np.random.choice(usable)
    average_consumption = np.random.choice(cons)
    current_battery_charge = usable_battery_size - np.random.choice(addbat)
-   designer_id = i
+   designer_id = np.random.choice(designer_ids)
    owner_id = i
    
    sqlFormula = """INSERT INTO vehicles (brand,type,model,release_year,usable_battery_size,average_consumption,current_battery_charge,designer_id,owner_id) 

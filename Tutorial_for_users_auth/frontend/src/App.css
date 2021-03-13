@@ -100,11 +100,15 @@ label {
 }
 
 #navbardrop{
-  margin-right: 100px;
+  margin-right: 70px;
   color: white;
   font-family: inherit;
 }
-
+#navbardrop-sec{
+  margin-right: 60px;
+  color: white;
+  font-family: inherit;
+}
 #username{
   margin-right: 20px;
 }
@@ -167,8 +171,9 @@ table{
 }
 #table-responsive{
   overflow-y:scroll;
-  height:500px;
+  height: 500px;
 }
+
 td{
   border: 1px solid black;
 }
@@ -201,6 +206,7 @@ td{
   font-family: serif;
 }
 
+
 #events{
   position: relative;
   right: 160px;
@@ -230,4 +236,36 @@ td{
   position: relative;
   width: 330px;
   right: 30px;
+}
+
+#energy-table-data{
+  font-family: serif;
+  color:black;
+}
+
+#EnergyTableDesigner{
+  background-color: white;
+  padding: auto;
+  margin: auto;
+  opacity: 0.8;
+  position:relative;
+  width:max-content;
+}
+
+#EnergyTableVID{
+  background-color: white;
+  padding: auto;
+  margin: auto;
+  opacity: 0.7;
+  position:relative;
+
+}
+
+#EnergyTableVType{
+  background-color: white;
+  padding: auto;
+  margin: auto;
+  opacity: 0.7;
+  position:relative;
+
 }

@@ -2,7 +2,7 @@ module.exports = {
    HOST: "snf-17690.ok-kno.grnetcloud.net",
    USER: "PnG",
    PASSWORD: "alexander",
-   DB: "test2",
+   DB: "test5",
    //DB: "PnG_Auth",
    dialect: "mysql",
    pool: {
@@ -13,3 +13,4 @@ module.exports = {
      logging: false
    }
  };
+

@@ -108,10 +108,10 @@ class AuthService {
   }
 
   getEventData(startedDate, finishedDate){
-    return axios.post({method: 'post', url: API_URL + 'getChargingEventsByDesigner',  data: {
-      start_date: startedDate,
-      end_date: finishedDate
-    },
+    return axios({method: 'post', url: API_URL + 'getChargingEventsByDesigner',  data: {
+      "start_date": startedDate,
+      "end_date": finishedDate
+    } ,
     headers: authHeader()
     });
   }
