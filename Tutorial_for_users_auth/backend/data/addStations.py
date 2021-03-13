@@ -7,7 +7,7 @@ mydb = mysql.connector.connect(
     host = "snf-17690.ok-kno.grnetcloud.net",
     user = "PnG",
     passwd = "alexander",
-    database = "test2"
+    database = "test5"
 )
 mycursor = mydb.cursor()
 

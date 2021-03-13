@@ -95,13 +95,20 @@ class App extends Component {
             <div className="navbar-nav ml-auto">
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                  <b>Select action</b>
+                  <b>Charge</b>
                 </a>
                 <div class="dropdown-menu" id="dropdown-menu">
                   <a class="dropdown-item" href="/carData">🏎️ View your Car's Data </a>
                   <a class="dropdown-item" href="/costPerStation">💰 Estimate cost per station </a>
                   <a class="dropdown-item" href="/startCharge">⛽ Start Charging </a>
                   <a class="dropdown-item" href="/bonusPoints">✨ Check your Bonus </a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop-sec" data-toggle="dropdown">
+                  <b>Payment</b>
+                </a>
+                <div class="dropdown-menu" id="dropdown-menu">
                   <a class="dropdown-item" href="/paymentTimes">🧾 View total payments </a>
                   <a class="dropdown-item" href="/eventData">📋 View all charging events </a>
                   <a class="dropdown-item" href="/costPerPeriod">📅 Spent per time period </a>
