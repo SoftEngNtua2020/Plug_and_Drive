@@ -242,30 +242,30 @@
 
 2. Κατασκευαστές Οχημάτων - Ενημέρωση
   - F05
-   ```json
-   Type: POST,
-   URl: http://localhost:8765/evcharge/api/getEnergyConsumedByEVType,
-   Headers: {
-      "Content-Type": "application/json",
-      "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
-   },
-   Body:
-   {
-      "start_date": "2020-02-25",
-      "end_date": "2021-03-07"
-   },
-   Reply:
-   [
-       {
-           "VehicleType": "bev",
-           "TotalEnergyDelivered": 376.73
-       },
-       {
-           "VehicleType": "aev",
-           "TotalEnergyDelivered": 242.44
-       }
-   ]
-   ```
+      ```json
+      Type: POST,
+      URl: http://localhost:8765/evcharge/api/getEnergyConsumedByEVType,
+      Headers: {
+         "Content-Type": "application/json",
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+      },
+      Body:
+      {
+         "start_date": "2020-02-25",
+         "end_date": "2021-03-07"
+      },
+      Reply:
+      [
+          {
+              "VehicleType": "bev",
+              "TotalEnergyDelivered": 376.73
+          },
+          {
+              "VehicleType": "aev",
+              "TotalEnergyDelivered": 242.44
+          }
+      ]
+      ```
    - F35
       ```json
       Type: POST,
