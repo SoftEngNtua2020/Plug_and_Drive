@@ -164,7 +164,7 @@ class App extends Component {
             </div>
           )}
           {showStationsBoard && (
-            <div className="navbar-nav ml-auto">
+            <div className="navbar-nav mr-auto">
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                   <b>Manage Station</b>
