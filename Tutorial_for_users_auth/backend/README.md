@@ -266,7 +266,7 @@
           }
       ]
       ```
-   - F35
+  - F35
       ```json
       Type: POST,
       URl: http://localhost:8765/evcharge/api/getEnergyConsumedByEV,
@@ -291,7 +291,7 @@
         }
      ]
      ```
-   - F02
+  - F02
        ```json
        Type: POST,
        URl: http://localhost:8765/evcharge/api/getChargingEventsByDesigner,
@@ -463,104 +463,104 @@
 
 4. Parking - Ενημέρωση
   - F07 = SessionsPerStation
-    ```json
-    Type: GET,
-    URl: http://localhost:8765/evcharge/api/SessionsPerStation/:stationID/:yyyymmdd_from/:yyyymmdd_to
-    Headers: {
-       "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
-                },
-    Reply: {
-      "StationID": "2",
-      "Operator": "C D",
-      "RequestTimestamp": "2021-03-09 23:08:54",
-      "PeriodFrom": "2020-01-01",
-      "PeriodTo": "2024-01-01",
-      "TotalEnergyDelivered": 70,
-      "NumberOfChargingSessions": 1,
-      "NumberOfActivePoints": 1,
-      "SessionsSummaryList": [
-          {
-              "PointID": "3",
-              "PointSessions": 1,
-              "EnergyDelivered": 70
-          }
-      ]
-    }
-    ```
+       ```json
+       Type: GET,
+       URl: http://localhost:8765/evcharge/api/SessionsPerStation/:stationID/:yyyymmdd_from/:yyyymmdd_to
+       Headers: {
+          "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+                   },
+       Reply: {
+         "StationID": "2",
+         "Operator": "C D",
+         "RequestTimestamp": "2021-03-09 23:08:54",
+         "PeriodFrom": "2020-01-01",
+         "PeriodTo": "2024-01-01",
+         "TotalEnergyDelivered": 70,
+         "NumberOfChargingSessions": 1,
+         "NumberOfActivePoints": 1,
+         "SessionsSummaryList": [
+             {
+                 "PointID": "3",
+                 "PointSessions": 1,
+                 "EnergyDelivered": 70
+             }
+         ]
+       }
+       ```
   - F17 = SessionsPerPoint
-    ```json
-    Type: GET,
-    URl: http://localhost:8765/evcharge/api/SessionsPerPoint/:pointID/:yyyymmdd_from/:yyyymmdd_to
-    Headers: {
-       "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
-                },
-    Reply: {
-      "Point": "1",
-      "PointOperator": "A B",
-      "RequestTimestamp": "2021-03-09 23:09:38",
-      "PeriodFrom": "2019-01-01",
-      "PeriodTo": "2024-01-01",
-      "NumberOfChargingSessions": 49,
-      "ChargingSessionsList": [
-          {
-              "SessionIndex": 1,
-              "SessionID": "1",
-              "StartedOn": "2021-02-25 17:30:40",
-              "FinishedOn": "2021-02-25 17:40:40",
-              "Protocol": "AC",
-              "EnergyDelivered": 30,
-              "Payment": "CASH",
-              "VehicleType": "bev"
-          },
-          {
-              "SessionIndex": 2,
-              "SessionID": "12",
-              "StartedOn": "2021-03-04 21:52:01",
-              "FinishedOn": "2021-03-04 22:07:01",
-              "Protocol": "AC",
-              "EnergyDelivered": 14.5,
-              "Payment": "CASH",
-              "VehicleType": "bev"
-          }
-        ]
-    }
-    ```
+       ```json
+       Type: GET,
+       URl: http://localhost:8765/evcharge/api/SessionsPerPoint/:pointID/:yyyymmdd_from/:yyyymmdd_to
+       Headers: {
+          "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+                   },
+       Reply: {
+         "Point": "1",
+         "PointOperator": "A B",
+         "RequestTimestamp": "2021-03-09 23:09:38",
+         "PeriodFrom": "2019-01-01",
+         "PeriodTo": "2024-01-01",
+         "NumberOfChargingSessions": 49,
+         "ChargingSessionsList": [
+             {
+                 "SessionIndex": 1,
+                 "SessionID": "1",
+                 "StartedOn": "2021-02-25 17:30:40",
+                 "FinishedOn": "2021-02-25 17:40:40",
+                 "Protocol": "AC",
+                 "EnergyDelivered": 30,
+                 "Payment": "CASH",
+                 "VehicleType": "bev"
+             },
+             {
+                 "SessionIndex": 2,
+                 "SessionID": "12",
+                 "StartedOn": "2021-03-04 21:52:01",
+                 "FinishedOn": "2021-03-04 22:07:01",
+                 "Protocol": "AC",
+                 "EnergyDelivered": 14.5,
+                 "Payment": "CASH",
+                 "VehicleType": "bev"
+             }
+           ]
+       }
+       ```
   - F23
-    ```json
-    Type: POST,
-    URl: http://localhost:8765/evcharge/api/getVehiclesChargingAtTime,
-    Headers: {
-       "Content-Type": "application/json",
-       "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
-       },
-    Body:
-      {
-        "datetime": "2021-03-04 22:00:00"
-      },
-    Reply:
-      [
-          {
-              "VehicleID": 2,
-              "VehicleBrand": "BMW",
-              "VehicleType": "bev",
-              "VehicleModel": "i3",
-              "ReleaseYear": "2020",
-              "UsableBatterySize": 18.8,
-              "AverageConsumption": 14.5,
-              "CurrentBatteryCharge": 0.7899999999999991
+       ```json
+       Type: POST,
+       URl: http://localhost:8765/evcharge/api/getVehiclesChargingAtTime,
+       Headers: {
+          "Content-Type": "application/json",
+          "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
           },
-          {
-              "VehicleID": 1,
-              "VehicleBrand": "Audi",
-              "VehicleType": "bev",
-              "VehicleModel": "e-tron 55",
-              "ReleaseYear": "2019",
-              "UsableBatterySize": 86.5,
-              "AverageConsumption": 23.4,
-              "CurrentBatteryCharge": 86.49
-          }
-      ]
-      ```
+       Body:
+         {
+           "datetime": "2021-03-04 22:00:00"
+         },
+       Reply:
+         [
+             {
+                 "VehicleID": 2,
+                 "VehicleBrand": "BMW",
+                 "VehicleType": "bev",
+                 "VehicleModel": "i3",
+                 "ReleaseYear": "2020",
+                 "UsableBatterySize": 18.8,
+                 "AverageConsumption": 14.5,
+                 "CurrentBatteryCharge": 0.7899999999999991
+             },
+             {
+                 "VehicleID": 1,
+                 "VehicleBrand": "Audi",
+                 "VehicleType": "bev",
+                 "VehicleModel": "e-tron 55",
+                 "ReleaseYear": "2019",
+                 "UsableBatterySize": 86.5,
+                 "AverageConsumption": 23.4,
+                 "CurrentBatteryCharge": 86.49
+             }
+         ]
+         ```
 
 5. Ιδιοκτήτες Ηλεκτρικών Οχημάτων - Πληρωμή και ανάλυση εξόδων
    - F07
