@@ -124,11 +124,11 @@ class App extends Component {
                   <b>Select action</b>
                 </a>
                 <div class="dropdown-menu" id="dropdown-menu">
-                  <a class="dropdown-item" href="/energyConsumptionType">Cars energy consumption per time</a>
-                  <a class="dropdown-item" href="/energyConsumptionId">Energy consumption per car,kmh,time</a>
-                  <a class="dropdown-item" href="/chargingEvents">Charging Events</a>
+                  <a class="dropdown-item" href="/energyConsumptionType">🔋 Energy consumption per type</a>
+                  <a class="dropdown-item" href="/energyConsumptionId">🛣️ Energy consumption per car,kmh</a>
+                  <a class="dropdown-item" href="/chargingEvents">📋 All Charging Events</a>
                   <div class="dropdown-divider"> </div>
-                  <a class="dropdown-item" href="/login" onClick={this.logOut}>LogOut</a>
+                  <a class="dropdown-item" href="/login" onClick={this.logOut}>🏴 Logout</a>
                 </div>
               </li>
               <li className="nav-item" id="username">
