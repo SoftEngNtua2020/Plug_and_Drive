@@ -100,11 +100,15 @@ label {
 }
 
 #navbardrop{
-  margin-right: 100px;
+  margin-right: 70px;
   color: white;
   font-family: inherit;
 }
-
+#navbardrop-sec{
+  margin-right: 60px;
+  color: white;
+  font-family: inherit;
+}
 #username{
   margin-right: 20px;
 }
