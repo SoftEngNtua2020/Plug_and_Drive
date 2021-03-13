@@ -40,11 +40,8 @@ export default class Home extends Component {
         <div className="welcome">
           <div id="middleDoc">
           <h2> Welcome to Plug & Drive </h2>
-          <p> ~Where plugging your electrical car, becomes an easy task~ </p>
+          <p> ~The place where charging your electrical car, becomes an easy task~ </p>
           </div>
-        </div>
-        <div id="footer">
-          Copyright &copy; 2021 ECE NTUA
         </div>
       </div>
     );

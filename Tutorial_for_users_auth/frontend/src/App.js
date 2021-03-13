@@ -195,7 +195,6 @@ class App extends Component {
           )}
           
         </nav>
-
         <div className="container mt-3">
           <Switch>
             <Route exact path={["/", "/home"]} component={Home} />
@@ -223,6 +222,9 @@ class App extends Component {
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} />
           </Switch>
+        </div>
+        <div id="footer">
+          Copyright &copy; Plug & Drive 2021 
         </div>
       </div>
     );
