@@ -30,7 +30,8 @@ export default class StationSessionsPoints extends Component {
       start_date: "",
       end_date: "",
       content: {},
-      successful: false
+      successful: false,
+      message:""
     };
   }
 
@@ -192,6 +193,7 @@ export default class StationSessionsPoints extends Component {
                   <button className="btn btn-primary btn-block">Submit</button>
                 </div>
               </div>
+              {this.state.message}
               <CheckButton
                 style={{ display: "none" }}
                 ref={c => {
