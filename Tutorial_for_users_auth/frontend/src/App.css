@@ -109,6 +109,9 @@ label {
   color: white;
   font-family: inherit;
 }
+#profile-thing{
+  text-align: center;
+}
 #navbardrop-DEVS{
   margin-right: 1000px;
   color: white;
