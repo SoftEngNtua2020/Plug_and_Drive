@@ -49,7 +49,9 @@ class UserService {
   getSessionsPerStation() {
     return axios.get(API_URL + 'getStationData', { headers: authHeader() });
   }
-
+  getChargesAndPayments() {
+    return axios.get(API_URL + 'getCummulativeCostPerCharge', { headers: authHeader() });
+  }
 }
 
 export default new UserService();

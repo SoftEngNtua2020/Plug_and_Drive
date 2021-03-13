@@ -67,7 +67,7 @@ export default class Stations extends Component {
     return (
       <div className="container">
         <div className="welcome">
-          <h2> Your cummulative payment history </h2>
+          <h2> Your cumulative payment history </h2>
         </div>
         <header className="jumbotron" id="chargesPayments">
           {this.table()}

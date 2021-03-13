@@ -130,7 +130,7 @@ class App extends Component {
                   <a class="dropdown-item" href="/paymentTimes">🧾 View total payments </a>
                   <a class="dropdown-item" href="/eventData">📋 View all charging events </a>
                   <a class="dropdown-item" href="/costPerPeriod">📅 Spent per time period </a>
-                  <a class="dropdown-item" href="/chargesAndPayments">📈 View cummulative payments </a>
+                  <a class="dropdown-item" href="/chargesAndPayments">📈 View cumulative payments </a>
                   <div class="dropdown-divider"> </div>
                   <a class="dropdown-item" href="/login" onClick={this.logOut}>🏴󠁡󠁺󠁢󠁥󠁹󠁿 Logout</a>
                 </div>
