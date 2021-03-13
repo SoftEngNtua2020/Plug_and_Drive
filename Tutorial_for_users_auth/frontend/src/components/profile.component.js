@@ -19,7 +19,6 @@ export default class Profile extends Component {
           <h3>
             <strong>🧑‍🦱 {currentUser.username}</strong> Profile
           </h3>
-        </header>
         <div id="container">
           
           <p>
@@ -36,6 +35,7 @@ export default class Profile extends Component {
             currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
           </ul>
         </div>
+            </header>
       </div>
     );
   }
