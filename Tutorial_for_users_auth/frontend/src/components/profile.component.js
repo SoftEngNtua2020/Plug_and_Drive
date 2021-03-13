@@ -20,7 +20,7 @@ export default class Profile extends Component {
             <strong>🧑‍🦱 {currentUser.username}</strong> Profile
           </h3>
         <div >
-          
+          <p> <p></p></p>
           <p>
             <strong>🔑 Id:</strong>{" "}
             {currentUser.id}
