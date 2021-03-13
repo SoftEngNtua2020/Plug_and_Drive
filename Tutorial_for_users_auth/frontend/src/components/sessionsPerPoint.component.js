@@ -233,9 +233,7 @@ export default class StationSessionsPoints extends Component {
               <h3> <b>NumberOfChargingSessions</b>: {this.state.content.NumberOfChargingSessions} </h3>
           </div>
 
-            <header>
               <h1>{this.table()}</h1>
-            </header>
 
             </header>
         </div>
