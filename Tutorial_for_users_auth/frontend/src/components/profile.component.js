@@ -15,7 +15,7 @@ export default class Profile extends Component {
 
     return (
       <div className="container">
-        <header className="jumbotron">
+        <header className="jumbotron" id="profile-thing">
           <h3>
             <strong>🧑‍🦱 {currentUser.username}</strong> Profile
           </h3>
