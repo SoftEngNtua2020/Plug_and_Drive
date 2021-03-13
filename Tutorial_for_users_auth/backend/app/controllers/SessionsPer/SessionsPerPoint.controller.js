@@ -71,7 +71,7 @@ exports.SessionsPerPoint = (req, res) => {
           }
         })
         .then(something => {
-          if ((!something && !admin_flag) || (something.usr_id != req.userId && !admin_flag)) {
+          if ((!something && !admin_flag) || (something.user_id != req.userId && !admin_flag)) {
             return res.status(401).send({message: "Unauthorized!"});
           }
           else {
