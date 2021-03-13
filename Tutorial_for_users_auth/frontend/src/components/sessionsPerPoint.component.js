@@ -222,7 +222,7 @@ export default class StationSessionsPoints extends Component {
     }
     else {
       return(
-        <div>
+        <div id="table-responsive">
             <header className="jumbotron" id="sessionsPoint">
           <div className="col-md-12">
               <h3> <b>Point</b>: {this.state.content.Point} </h3>
