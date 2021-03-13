@@ -25,7 +25,8 @@ exports.vehicleEventData = (req, res) => {
          Event.findAll({
             where: {
                vehicle_id: vehicledata.vehicle_id
-            }
+            },
+            order: [['finished_on', 'ASC']]
          })
             .then(sessions => {
                var sessionJson = [];
