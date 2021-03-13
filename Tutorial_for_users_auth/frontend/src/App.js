@@ -90,7 +90,21 @@ class App extends Component {
           <Link to={"/"} className="navbar-brand">
             Plug & Drive
           </Link>
-          
+          <div className="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop-DEVS" data-toggle="dropdown">
+                  <b>Developers</b>
+                </a>
+                <div class="dropdown-menu" id="dropdown-menu">
+                  <a class="dropdown-item" href="https://github.com/AlexandrosKyriakakis"> 🤖 Alexandros Kyriakakis </a>
+                  <a class="dropdown-item" href="https://github.com/galexo"> 🙉 Ian Alexopoulos </a>
+                  <a class="dropdown-item" href="https://github.com/nikoskostas"> 🦊 Nikos Kostas </a>
+                  <a class="dropdown-item" href="https://github.com/kkgit99"> 🦉 Konstantinos Kopsinis </a>
+                  <a class="dropdown-item" href="https://github.com/elgrg"> 🦈 Giorgos Paraskevoloulos </a>
+                  <a class="dropdown-item" href="https://github.com/lefteriskom"> 🦍 Leuteris Komvopoulos </a>
+                </div>
+              </li>
+              </div>
           {showOwnerBoard && (
             <div className="navbar-nav ml-auto">
               <li class="nav-item dropdown">
@@ -179,6 +193,7 @@ class App extends Component {
 
             </div>
           )}
+          
         </nav>
 
         <div className="container mt-3">

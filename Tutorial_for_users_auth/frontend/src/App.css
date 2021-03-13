@@ -109,6 +109,11 @@ label {
   color: white;
   font-family: inherit;
 }
+#navbardrop-DEVS{
+  margin-right: 1400px;
+  color: white;
+  font-family: inherit;
+}
 #username{
   margin-right: 20px;
 }
