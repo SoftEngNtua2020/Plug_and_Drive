@@ -76,7 +76,7 @@ export default class EnergyConsumbedByEVType extends Component {
       data[i][1] = this.state.content[i].TotalEnergyDelivered;
     }
     return (
-      <div id="table-responsive">
+      <div >
         <table id="EnergyTableVID">
           <thead id="energy-table-data">
             <td><h3><b>VehicleID</b></h3></td>
