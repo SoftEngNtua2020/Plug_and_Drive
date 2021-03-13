@@ -29,7 +29,11 @@ import EnergyConsumptionType from "./components/energyConsumptionType.component"
 import EnergyConsumptionId from "./components/energyConsumptionId.component";
 import ChargingEvents from "./components/chargingEvents.component";
 import CarsCharges from "./components/carsCharges.component";
-
+import SessionsPerPoint from "./components/sessionsPerPoint.component";
+import SessionsPerStation from "./components/sessionsPerStation.component";
+import StationDataView from "./components/stationDataView.component";
+import StationDataChange from "./components/stationDataChange.component";
+import StationProgramChange from "./components/stationPrograms.component";
 
 class App extends Component {
   constructor(props) {
@@ -101,7 +105,7 @@ class App extends Component {
                   <a class="dropdown-item" href="https://github.com/nikoskostas"> 🦊 Nikos Kostas </a>
                   <a class="dropdown-item" href="https://github.com/kkgit99"> 🦉 Konstantinos Kopsinis </a>
                   <a class="dropdown-item" href="https://github.com/elgrg"> 🦈 Giorgos Paraskevoloulos </a>
-                  <a class="dropdown-item" href="https://github.com/lefteriskom"> 🦍 Leuteris Komvopoulos </a>
+                  <a class="dropdown-item" href="https://github.com/lefteriskom"> 🦍 Lefteris Komvopoulos </a>
                 </div>
               </li>
               </div>
@@ -163,22 +167,28 @@ class App extends Component {
             <div className="navbar-nav ml-auto">
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                  <b>Select action</b>
+                  <b>Manage Station</b>
                 </a>
                 <div class="dropdown-menu" id="dropdown-menu">
-                  <a class="dropdown-item" href="/createOrModify">Create - Modify a station</a>
-                  <a class="dropdown-item" href="/bonusPerKwh">Check your Bonus per Kwh</a>
-                  <a class="dropdown-item" href="/chargingData">View data from all charging events</a>
-                  <a class="dropdown-item" href="/chargesPerPeriod">Analytics from charging events</a>
-                  <a class="dropdown-item" href="/carsCharges">View a car's charging data</a>
-                  <a class="dropdown-item" href="/getStationsData">View data from all stations</a>
+                  <a class="dropdown-item" href="/stationDataView"> 🏭 View your Stations Data</a>
+                  <a class="dropdown-item" href="/stationDataChange"> 🔛 Manage your Stations</a>
+                  <a class="dropdown-item" href="/stationProgramChange"> 💰 Manage your Programs</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop-sec" data-toggle="dropdown">
+                  <b>Data Analysis</b>
+                </a>
+                <div class="dropdown-menu" id="dropdown-menu">
+                  <a class="dropdown-item" href="/sessionsPerPoint"> 📋 See the sessions per Point</a>
+                  <a class="dropdown-item" href="/sessionsPerStation"> 🚉 See the sessions per Station</a>
                   <div class="dropdown-divider"> </div>
-                  <a class="dropdown-item" href="/login" onClick={this.logOut}>LogOut</a>
+                  <a class="dropdown-item" href="/login" onClick={this.logOut}>🏴󠁡󠁺󠁢󠁥󠁹󠁿 Logout</a>
                 </div>
               </li>
               <li className="nav-item" id="username">
                 <Link to={"/profile"} className="nav-link">
-                  {"🧑‍🦱 " + currentUser.username}
+                  {currentUser.username}
                 </Link>
               </li>
             </div>
@@ -218,6 +228,11 @@ class App extends Component {
             <Route exact path="/energyConsumptionId" component={EnergyConsumptionId} />
             <Route exact path="/chargingEvents" component={ChargingEvents} />
             <Route exact path="/carsCharges" component={CarsCharges} />
+            <Route exact path="/sessionsPerPoint" component={SessionsPerPoint} />
+            <Route exact path="/sessionsPerStation" component={SessionsPerStation} />
+            <Route exact path="/stationDataView" component={StationDataView} />
+            <Route exact path="/stationDataChange" component={StationDataChange} />
+            <Route exact path="/stationProgramChange" component={StationProgramChange} />
             <Route path="/user" component={BoardUser} />
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} />
