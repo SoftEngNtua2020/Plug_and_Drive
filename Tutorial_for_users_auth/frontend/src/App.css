@@ -236,7 +236,10 @@ td{
   position: relative;
   right: 70px;
 }
-
+#SessionsTable{
+  width: 1200px;
+  height: auto;
+}
 #response{
   position: relative;
   width: 330px;
