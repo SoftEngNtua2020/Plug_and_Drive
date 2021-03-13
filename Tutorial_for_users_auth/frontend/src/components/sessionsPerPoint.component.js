@@ -232,6 +232,7 @@ export default class StationSessionsPoints extends Component {
               <h3> <b>PeriodTo</b>: {this.state.content.PeriodTo} </h3>
               <h3> <b>NumberOfChargingSessions</b>: {this.state.content.NumberOfChargingSessions} </h3>
           </div>
+          <p><p><p></p></p></p>
           <div id="table-responsive">
               <h1>{this.table()}</h1>
           </div>
