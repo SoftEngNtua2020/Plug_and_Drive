@@ -94,7 +94,7 @@ class App extends Component {
           <Link to={"/"} className="navbar-brand">
             Plug & Drive
           </Link>
-          <div className="navbar-nav ml-auto">
+          <div className="navbar-nav mr-auto">
           <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbardrop-DEVS" data-toggle="dropdown">
                   <b>Developers</b>
