@@ -2,8 +2,8 @@ import axios from "axios";
 import authHeader from './auth-header';
 import authHeader2 from './auth-header2';
 // http://83.212.79.138
-//const API_URL = "http://localhost:8080/api/auth/";
-const API_URL = "http://localhost:8765/evcharge/api/"
+//const API_URL = "http://pluganddrive.ddns.net:8080/api/auth/";
+const API_URL = "http://pluganddrive.ddns.net:8765/evcharge/api/"
 //const BASE_URL = "http://localhost:8080/api";
 //const API_URL = "http://83.212.79.138:8080/api/auth/";
 class AuthService {
