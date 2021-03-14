@@ -19,8 +19,8 @@ describe('Use case: Vehicle Designer', () => {
   describe('/login', () => {
       it('it should login a vehicle designer with correct username and password', (done) => {
         const user = {
-          username: "Vassili",
-          password: "password64"
+          username: "Rollin",
+          password: "password51"
         }
         chai.request(server)
             .post('/evcharge/api/login')
@@ -42,7 +42,7 @@ describe('Use case: Vehicle Designer', () => {
         }
         chai.request(server)
             .post('/evcharge/api/getChargingEventsByDesigner')
-            .set('x-observatory-auth', token)
+            .set('x-access-token', token)
             .send(Body)
             .end((err, res) => {
                   res.should.have.status(200);
@@ -59,7 +59,7 @@ describe('Use case: Vehicle Designer', () => {
         }
         chai.request(server)
             .post('/evcharge/api/getEnergyConsumedByEVType')
-            .set('x-observatory-auth', token)
+            .set('x-access-token', token)
             .send(Body)
             .end((err, res) => {
                   res.should.have.status(200);
@@ -76,7 +76,7 @@ describe('Use case: Vehicle Designer', () => {
         }
         chai.request(server)
             .post('/evcharge/api/getEnergyConsumedByEV')
-            .set('x-observatory-auth', token)
+            .set('x-access-token', token)
             .send(Body)
             .end((err, res) => {
                   res.should.have.status(200);
@@ -89,7 +89,7 @@ describe('Use case: Vehicle Designer', () => {
     it("it should return http code 200", (done) => {
       chai.request(server)
           .post('/evcharge/api/logout')
-          .set('x-observatory-auth', token)
+          .set('x-access-token', token)
           .end((err, res) => {
                 res.should.have.status(200);
                 //res.body.should.be.a('array');
