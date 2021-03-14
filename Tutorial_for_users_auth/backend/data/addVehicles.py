@@ -7,7 +7,7 @@ mydb = mysql.connector.connect(
     host = "snf-17690.ok-kno.grnetcloud.net",
     user = "PnG",
     passwd = "alexander",
-    database = "test5"
+    database = "test6"
 )
 mycursor = mydb.cursor()
 designers = ["Tesla","Anteros","Aurica","Bremach","BXR","Chrysler","CustomCraftedCars","Dodge","ElioMotors","EquusAutomotive","E-Z-GO","Falcon","Faraday","Ford","GeneralMotors","Buick","Cadillac","Chevrolet","GMC","Hennessey","Jeep","Karma","Lincoln","Local","Lucid","Lyons","Niama-Reisser","Panoz","Polaris","Racefab","RamTrucks","Rezvani","Rivian","Rossion","Saleen","ShelbyAmerican","TrionSupercars","Zimmer","Merkur","Mosler","Oakland","Oldsmobile","Packard","Plymouth","Pontiac","Rambler","ReliableDayton","Saturn","Studebaker","Vector","Willys"]

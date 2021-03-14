@@ -7,7 +7,7 @@ mydb = mysql.connector.connect(
     host = "snf-17690.ok-kno.grnetcloud.net",
     user = "PnG",
     passwd = "alexander",
-    database = "test5"
+    database = "test6"
 )
 mycursor = mydb.cursor()
 People = pd.read_csv("./people.csv")

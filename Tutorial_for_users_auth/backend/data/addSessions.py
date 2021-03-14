@@ -7,7 +7,7 @@ mydb = mysql.connector.connect(
     host = "snf-17690.ok-kno.grnetcloud.net",
     user = "PnG",
     passwd = "alexander",
-    database = "test5"
+    database = "test6"
 )
 mycursor = mydb.cursor()
 
@@ -19,7 +19,7 @@ payment_methods = ["CASH","CREDIT_CARD"]
 bonus = np.arange(50,400,1)
 costs = np.arange(10,200,1)
 stations = np.arange(1,51,1)
-points = np.arange(1,4,1)
+points = np.arange(0,3,1)
 for i in range(1,51):
    for j in range(400):
       year,month,day = np.random.choice(years), np.random.choice(months), np.random.choice(days)
@@ -33,8 +33,8 @@ for i in range(1,51):
       total_cost = np.random.choice(costs)
       vehicle_id = i
       station_id = np.random.choice(stations)
-      point_id = np.random.choice(points)
-      program_id = np.random.choice(points)
+      point_id = station_id*3 - np.random.choice(points)
+      program_id = station_id*3 - np.random.choice(points)
       sqlFormula = """INSERT INTO session (started_on,finished_on,energy_deliverd,protocol,payment_method,bonus_points_energy,total_cost,vehicle_id,station_id,point_id,program_id) 
                     VALUES ('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}')""".format(start,finish,energy_deliverd,protocol,payment_method,bonus_points_energy,total_cost,vehicle_id,station_id,point_id,program_id)
       mycursor.execute(sqlFormula)
