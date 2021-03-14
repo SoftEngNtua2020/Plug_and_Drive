@@ -49,7 +49,7 @@ Inside the CLI directory
 ```sh
 pytest test_admin.py
 ```
-Tests administrivative commands
+Tests administrative commands
 ```sh
 pytest test_sessions.py
 ```
