@@ -3,8 +3,7 @@ const sequelize = require("sequelize");
 const { Op } = require("sequelize");
 
 exports.F23 = (req, res) => {
-  // check that user: req.userId is a vehicle owner
-  // and check that user: req.userId is an owner for the vehicle: req.params.vehicleID
+  // check that user: req.userId is a station moderator
   db.moderator.findOne({
     attributes: ['st_moderator_id'], // to reduce table size
     where: {
@@ -16,14 +15,20 @@ exports.F23 = (req, res) => {
       return res.status(401).send({message: "Unauthorized!"});
     }
     else {
-      var datetime = new Date(req.body.datetime);
-      datetime.setTime( datetime.getTime() - new Date().getTimezoneOffset()*60*1000 );
+      //var datetime = new Date(req.body.datetime);
+      //datetime.setTime( datetime.getTime() - new Date().getTimezoneOffset()*60*1000 );
+      var start_datetime = new Date(req.body.start_datetime);
+      start_datetime.setTime( start_datetime.getTime() - new Date().getTimezoneOffset()*60*1000 );
+      var end_datetime = new Date(req.body.end_datetime);
+      end_datetime.setTime( end_datetime.getTime() - new Date().getTimezoneOffset()*60*1000 );
 
       db.session.findAll({
          attributes: [[sequelize.col('vehicle.vehicle_id'), 'VehicleID'], [sequelize.col('vehicle.brand'), 'VehicleBrand'], [sequelize.col('vehicle.type'), 'VehicleType'], [sequelize.col('vehicle.model'), 'VehicleModel'], [sequelize.col('vehicle.release_year'), 'ReleaseYear'], [sequelize.col('vehicle.usable_battery_size'), 'UsableBatterySize'], [sequelize.col('vehicle.average_consumption'), 'AverageConsumption'], [sequelize.col('vehicle.current_battery_charge'), 'CurrentBatteryCharge']],
          where: {
-           started_on: { [Op.lte]: datetime },
-           finished_on: { [Op.gte]: datetime }
+           /*started_on: { [Op.gte]: datetime },
+           finished_on: { [Op.lte]: datetime }*/
+           started_on: { [Op.gte]: start_datetime },
+           finished_on: { [Op.lte]: end_datetime }
          },
          raw: true,
          include: [
