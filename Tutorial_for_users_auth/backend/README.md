@@ -57,7 +57,8 @@
       ```
 
 ### Admin Endpoints
-   1. Πραγματοποιεί προσθήκη νέου χρήστη ή αλλαγή password εάν ο χρήστης υπάρχει ήδη.
+   1. usermod <br/>
+      Πραγματοποιεί προσθήκη νέου χρήστη ή αλλαγή password εάν ο χρήστης υπάρχει ήδη.
       ```json
          Type: POST,
          URL: http://localhost:8765/evcharge/api/admin/usermod/:username/:password,
@@ -68,7 +69,8 @@
             "message": "Created User Successfully"
             }
          ```
-   2. Εμφανίζει τα στοιχεία του αντίστοιχου χρήστη.
+   2. users <br/>
+      Εμφανίζει τα στοιχεία του αντίστοιχου χρήστη.
       ```json
       Type: GET,
       URL: http://localhost:8765/evcharge/api/admin/users/:username,
@@ -82,7 +84,8 @@
          "user_id": 18
          }
       ```
-   3. Πραγματοποιεί το ανέβασμα αρχείου CSV με δεδομένα γεγονότων φόρτισης και την προσθήκη τους στη βάση δεδομένων.
+   3. sessionsupd <br/>
+      Πραγματοποιεί το ανέβασμα αρχείου CSV με δεδομένα γεγονότων φόρτισης και την προσθήκη τους στη βάση δεδομένων.
       ```json
       Type: POST,
       URL: http://localhost:8765/evcharge/api/admin/system/sessionsupd,
