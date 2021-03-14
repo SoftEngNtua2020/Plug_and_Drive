@@ -108,14 +108,14 @@ export default class StationSessionsPoints extends Component {
       <div>
         <table id="SessionsTable">
           <thead id="sessions-table-data">
-            <td><h3><b>SessionIndex</b></h3></td>
-            <td><h3><b>SessionID</b></h3></td>
-            <td><h3><b>StartedOn</b></h3></td>
-            <td><h3><b>FinishedOn</b></h3></td>
+            <td><h3><b>Session Index</b></h3></td>
+            <td><h3><b>Session ID</b></h3></td>
+            <td><h3><b>Started On</b></h3></td>
+            <td><h3><b>Finished On</b></h3></td>
             <td><h3><b>Protocol</b></h3></td>
-            <td><h3><b>EnergyDelivered</b></h3></td>
+            <td><h3><b>Energy Delivered</b></h3></td>
             <td><h3><b>Payment</b></h3></td>
-            <td><h3><b>VehicleType</b></h3></td>
+            <td><h3><b>Vehicle Type</b></h3></td>
           </thead>
           <tbody id="sessions-table-data">
             {data.slice(0, data.length).map((item, index) => {
@@ -173,7 +173,7 @@ export default class StationSessionsPoints extends Component {
               }}>
               <div>
               <div className="form-group">
-                <label htmlFor="point">PointID</label>
+                <label htmlFor="point">Point ID</label>
                   <Input
                     type="number"
                     className="form-control"
@@ -226,11 +226,11 @@ export default class StationSessionsPoints extends Component {
           <header className="jumbotron">
           <div className="col-md-12">
               <h3> <b>Point</b>: {this.state.content.Point} </h3>
-              <h3> <b>PointOperator</b>: {this.state.content.PointOperator} </h3>
-              <h3> <b>RequestTimestamp</b>: {this.state.content.RequestTimestamp} </h3>
-              <h3> <b>PeriodFrom</b>: {this.state.content.PeriodFrom} </h3>
-              <h3> <b>PeriodTo</b>: {this.state.content.PeriodTo} </h3>
-              <h3> <b>NumberOfChargingSessions</b>: {this.state.content.NumberOfChargingSessions} </h3>
+              <h3> <b>Point Operator</b>: {this.state.content.PointOperator} </h3>
+              <h3> <b>Request Timestamp</b>: {this.state.content.RequestTimestamp} </h3>
+              <h3> <b>Period From</b>: {this.state.content.PeriodFrom} </h3>
+              <h3> <b>Period To</b>: {this.state.content.PeriodTo} </h3>
+              <h3> <b>Number Of Charging Sessions</b>: {this.state.content.NumberOfChargingSessions} </h3>
           </div>
           <p><p><p></p></p></p>
           <div id="table-responsive">

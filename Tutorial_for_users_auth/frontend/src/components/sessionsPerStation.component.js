@@ -157,7 +157,7 @@ export default class StationSessionsPoints extends Component {
               }}>
               <div>
               <div className="form-group">
-                <label htmlFor="station">StationID</label>
+                <label htmlFor="station">Station ID</label>
                   <Input
                     type="number"
                     className="form-control"
@@ -219,7 +219,7 @@ export default class StationSessionsPoints extends Component {
               <h3> <b>Number Of Active Points</b>: {this.state.content.NumberOfActivePoints} </h3>
           </div>
           <p> </p>
-          <div className="col-md-12">
+          <div>
             <header>
               <h1>{this.table()}</h1>
             </header>
