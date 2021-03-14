@@ -61,7 +61,8 @@ describe('Use case: Station Moderator info', () => {
   describe("get the vehicles charging at a time (F23)", () => {
       it('it should return the vehicles charging at the specified time and station', (done) => {
         const Body =   {
-          "datetime": "2020-03-22 17:00:00"
+          "start_datetime": "2019-11-11 19:42:17",
+          "end_datetime": "2022-08-04 23:59:59"
         }
         chai.request(server)
             .post('/evcharge/api/getVehiclesChargingAtTime')
