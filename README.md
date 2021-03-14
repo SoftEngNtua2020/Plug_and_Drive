@@ -27,9 +27,9 @@ The goal of the project was to develop an application that electric vehicle owne
 
 | Name
 | ----- 
+| Alexandros Kyriakakis
 | Giannis Alexopoulos
 | Lefteris Komvopoulos 
-| Alexandros Kyriakakis
 | Konstantinos Kopsinis
 | Giorgos Paraskevopoulos
 | Nikos Kostas
