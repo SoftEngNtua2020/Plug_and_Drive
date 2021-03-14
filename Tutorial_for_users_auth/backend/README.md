@@ -57,8 +57,7 @@
       ```
 
 ### Admin Endpoints
-   1. <br/>
-      Πραγματοποιεί προσθήκη νέου χρήστη ή αλλαγή password εάν ο χρήστης υπάρχει ήδη. <br/>
+   1. Πραγματοποιεί προσθήκη νέου χρήστη ή αλλαγή password εάν ο χρήστης υπάρχει ήδη.
       ```json
          Type: POST,
          URL: http://localhost:8765/evcharge/api/admin/usermod/:username/:password,
@@ -69,8 +68,7 @@
             "message": "Created User Successfully"
             }
          ```
-   2. <br/>
-      Εμφανίζει τα στοιχεία του αντίστοιχου χρήστη.
+   2. Εμφανίζει τα στοιχεία του αντίστοιχου χρήστη.
       ```json
       Type: GET,
       URL: http://localhost:8765/evcharge/api/admin/users/:username,
@@ -84,8 +82,7 @@
          "user_id": 18
          }
       ```
-   3. <br/>
-      Πραγματοποιεί το ανέβασμα αρχείου CSV με δεδομένα γεγονότων φόρτισης και την προσθήκη τους στη βάση δεδομένων.
+   3. Πραγματοποιεί το ανέβασμα αρχείου CSV με δεδομένα γεγονότων φόρτισης και την προσθήκη τους στη βάση δεδομένων.
       ```json
       Type: POST,
       URL: http://localhost:8765/evcharge/api/admin/system/sessionsupd,
@@ -104,7 +101,8 @@
          }
       ```
    4. Πρόσθετα (βοηθητικά) Endpoints
-      1. healthcheck
+      1. healthcheck <br/>
+         Eπιβεβαιώνει την πλήρη συνδεσιμότητα (end-to-end connectivity) μεταξύ του χρήστη και της βάσης δεδομένων.
          ```json
          Type: GET,
          URl: http://localhost:8765/evcharge/api/admin/healthcheck,
@@ -116,7 +114,8 @@
          }
          ```
 
-      2. resetsessions
+      2. resetsessions <br/>
+         Πραγματοποιεί αρχικοποίηση του πίνακα γεγονότων φόρτισης, καθώς και αρχικοποίηση του default διαχειριστικού λογαριασμού.
          ```json
          Type: POST,
          URl: http://localhost:8765/evcharge/api/admin/resetsessions,
@@ -541,7 +540,8 @@
           },
        Body:
          {
-           "datetime": "2021-03-04 22:00:00"
+             "start_datetime": "2019-11-11 19:42:17",
+             "end_datetime": "2022-08-04 23:59:59"
          },
        Reply:
          [
