@@ -1,7 +1,7 @@
 # Rest Api Documentation
 
-## Base URL: http://localhost:8765/evcharge/api
-## Okeanos URL: http://pluganddrive.ddns.net:8765/evcharge/api
+## Base URL: https://localhost:8765/evcharge/api
+## Okeanos URL: https://pluganddrive.ddns.net:8765/evcharge/api
 
 ### Login & Logout
    - Login <br/>
@@ -33,7 +33,7 @@
          Type: POST,
          URl: http://localhost:8765/evcharge/api/logout,
          Headers: {
-           "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+           "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                      },
          Reply: 200
          ```
@@ -63,7 +63,7 @@
          Type: POST,
          URL: http://localhost:8765/evcharge/api/admin/usermod/:username/:password,
          Headers: {
-           "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+           "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                      },
          Reply: {
             "message": "Created User Successfully"
@@ -75,7 +75,7 @@
       Type: GET,
       URL: http://localhost:8765/evcharge/api/admin/users/:username,
       Headers: {
-           "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+           "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                      },
       Reply: {
          "st_moderator_id": 2,
@@ -90,7 +90,7 @@
       Type: POST,
       URL: http://localhost:8765/evcharge/api/admin/system/sessionsupd,
       Headers: {
-           "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+           "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                      },
       Encoding: multipart/form-data,
       file: path_to_file/import.csv,
@@ -110,7 +110,7 @@
          Type: GET,
          URl: http://localhost:8765/evcharge/api/admin/healthcheck,
          Headers: {
-            "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+            "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                   },
          Reply: {
             "status": "200 OK"
@@ -123,7 +123,7 @@
          Type: POST,
          URl: http://localhost:8765/evcharge/api/admin/resetsessions,
          Headers: {
-            "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+            "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
          },
          Body: {},
          Reply: {
@@ -134,12 +134,13 @@
 # Υπόλοιπες Λειτουργίες
 
 1. Ιδιοκτήτες ηλεκτρικών οχημάτων - Φόρτιση
-   - F01
+   - F01 <br/>
+     Εμφανίζει τα στοιχεία των οχημάτων του ιδιοκτήτη.
       ```json
       Type: GET,
       URl: http://localhost:8765/evcharge/api/getvehicledata,
       Headers: {
-         "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                   },
       Reply: {
          "brand": "BMW",
@@ -152,12 +153,13 @@
          "owner_id": 2
       }
       ```
-   - F33
+   - F33 <br/>
+     Υπολογίζει και εμφανίζει τα αναμενόμενα κόστη φόρτισης με βάση το σταθμό και το πρόγραμμα φόρτισης, για τον ιδιοκτήτη.
       ```json
       Type: GET,
       URl: http://localhost:8765/evcharge/api/getvehiclecostassump,
       Headers: {
-         "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                   },
       Reply: [
          {
@@ -178,13 +180,14 @@
          }
       ]
       ```
-   - F19
+   - F19 <br/>
+     Πραγματοποιεί και εισάγει στη βάση δεδομένων την επιλεγόμενη φόρτιση οχήματος του ιδιοκτήτη.
       ```json
       Type: POST,
       URl: http://localhost:8765/evcharge/api/start_charging,
       Headers: {
          "Content-Type": "application/json",
-         "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
       },
       Body: {
          "program_id":1,
@@ -198,12 +201,13 @@
          "message": "Session was registered successfully!"
          }
       ```
-   - F29
+   - F29 <br/>
+     Εμφανίζει όλα τα γεγονότα φόρτισης του ιδιοκτήτη.
       ```json
       Type: GET,
       URl: http://localhost:8765/evcharge/api/getvehicleeventdata,
       Headers: {
-         "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                   },
       Reply:[
          {
@@ -249,13 +253,14 @@
       ```
 
 2. Κατασκευαστές Οχημάτων - Ενημέρωση
-    - F05
+    - F05 <br/>
+      Εμφανίζει την ενέργεια που καταναλώθηκε ανά κατηγορία οχήματος του κατασκευαστή.
       ```json
       Type: POST,
       URl: http://localhost:8765/evcharge/api/getEnergyConsumedByEVType,
       Headers: {
          "Content-Type": "application/json",
-         "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
       },
       Body:
       {
@@ -274,13 +279,14 @@
           }
       ]
       ```
-   - F35
+   - F35 <br/>
+     Εμφανίζει την ενέργεια που καταναλώθηκε ανά όχημα του κατασκευαστή.
       ```json
       Type: POST,
       URl: http://localhost:8765/evcharge/api/getEnergyConsumedByEV,
       Headers: {
          "Content-Type": "application/json",
-         "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
      },
      Body:
      {
@@ -299,13 +305,14 @@
         }
      ]
      ```
-   - F02
+   - F02 <br/>
+     Εμφανίζει τα γεγονότα φόρτισης των οχημάτων του κατασκευαστή.
        ```json
        Type: POST,
        URl: http://localhost:8765/evcharge/api/getChargingEventsByDesigner,
        Headers: {
           "Content-Type": "application/json",
-          "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+          "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
        },
        Body:
        {
@@ -347,12 +354,13 @@
 
 3. Parking - Διαχείριση σημείων φόρτισης
 
-   - Get Station Data
+   - Get Station Data <br/>
+     Εμφανίζει τα στοιχεία των σταθμών φόρτισης του διαχειριστή.
       ```json
       Type: GET,
       URl: http://localhost:8765/evcharge/api/getStationData,
       Headers: {
-         "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                   },
       Reply:{
          "stations": [
@@ -421,13 +429,14 @@
          ]
       }
       ```
-   - F11
+   - F11 <br/>
+     Πραγματοποιεί δημιουργία νέου σταθμού φόρτισης ή μεταβολές σε αυτόν, εφόσον ήδη υπάρχει.
       ```json
       Type: POST,
       URl: http://localhost:8765/evcharge/api/manageStations,
       Headers: {
          "Content-Type": "application/json",
-         "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
       },
       Body: {
          "station":{
@@ -447,13 +456,14 @@
          "message": "Updated Station and Point"
       }
       ```
-   - F31
+   - F31 <br/>
+     Πραγματοποιεί δημιουργία νέου προγράμματος φόρτισης ή μεταβολές σε αυτό, εφόσον ήδη υπάρχει.
       ```json
       Type: POST,
          URl: http://localhost:8765/evcharge/api/manageChargingProgram,
          Headers: {
             "Content-Type": "application/json",
-            "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+            "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
          },
          Body:{
             "program":{
@@ -470,12 +480,13 @@
       ```
 
 4. Parking - Ενημέρωση
-   - F07 = SessionsPerStation
+   - F07 = SessionsPerStation <br/>
+     Εμφανίζει τα στοιχεία των γεγονότων φόρτισης του σταθμού φόρτισης.
        ```json
        Type: GET,
        URl: http://localhost:8765/evcharge/api/SessionsPerStation/:stationID/:yyyymmdd_from/:yyyymmdd_to
        Headers: {
-          "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+          "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                    },
        Reply: {
          "StationID": "2",
@@ -495,12 +506,13 @@
          ]
        }
        ```
-   - F17 = SessionsPerPoint
+   - F17 = SessionsPerPoint <br/>
+     Εμφανίζει τα στοιχεία των γεγονότων φόρτισης των σημείων του σταθμού φόρτισης.
        ```json
        Type: GET,
        URl: http://localhost:8765/evcharge/api/SessionsPerPoint/:pointID/:yyyymmdd_from/:yyyymmdd_to
        Headers: {
-          "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+          "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                    },
        Reply: {
          "Point": "1",
@@ -533,13 +545,14 @@
            ]
        }
        ```
-   - F23
+   - F23 <br/>
+     Εμφανίζει τα στοιχεία των αυτοκίνητων που φόρτιζαν στο σταθμό φόρτισης, κατά το αντίστοιχο διάστημα.
        ```json
        Type: POST,
        URl: http://localhost:8765/evcharge/api/getVehiclesChargingAtTime,
        Headers: {
           "Content-Type": "application/json",
-          "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+          "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
           },
        Body:
          {
@@ -572,12 +585,13 @@
          ```
 
 5. Ιδιοκτήτες Ηλεκτρικών Οχημάτων - Πληρωμή και ανάλυση εξόδων
-   - F07
+   - F07 <br/>
+     Εμφανίζει τα κόστη των γεγονότων φόρτισης του ιδιοκτήτη.
       ```json
       Type: GET,
       URl: http://localhost:8765/evcharge/api/getCummulativeCostPerCharge,
       Headers: {
-         "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                   },
       Reply:[
          {
@@ -597,13 +611,14 @@
          }
       ]
       ```
-   - F14
+   - F14 <br/>
+     Εμφανίζει το συνολικό κόστος των γεγονότων φόρτισης για το αντίστοιχο διάστημα, για τον ιδιοκτήτη.
       ```json
       Type: POST,
       URl: http://localhost:8765/evcharge/api/getCummulativeCostPerPeriod,
       Headers: {
          "Content-Type": "application/json",
-         "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                   },
       Body:
       {
@@ -616,24 +631,26 @@
       }
 
       ```   
-   - F31
+   - F31 <br/>
+     Εμφανίζει τους bonus πόντους του ιδιοκτήτη.
       ```json
       Type: GET,
       URl: http://localhost:8765/evcharge/api/getTotalBonus,
       Headers: {
-         "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                   },
       Reply:
       {
          "bonus_points": 138
       }
       ```
-   - F26
+   - F26 <br/>
+     Εμφανίζει το συνολικό πλήθος και τη μέθοδο πληρωμών του ιδιοκτήτη.
       ```json
       Type: GET,
       URl: http://localhost:8765/evcharge/api/getTimesPaidCard,
       Headers: {
-         "x-observatory-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
+         "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDg5OTAxMiwiZXhwIjoxNjE0OTg1NDEyfQ.f77pFxPnn053bdv4GyL4Ed97XuwJz_VYM1I85Exbr9w",
                   },
       Reply:{
             "card": 1,
