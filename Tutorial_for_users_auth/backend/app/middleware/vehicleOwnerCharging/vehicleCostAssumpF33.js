@@ -1,7 +1,7 @@
 
 
 verifyToken = (req, res) => {
-   let token = req.headers["x-access-token"];
+   let token = req.headers["x-observatory-auth"];
  
    if (!token) {
      return res.status(403).send({

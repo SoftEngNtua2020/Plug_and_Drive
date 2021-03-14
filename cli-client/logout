@@ -9,7 +9,7 @@ import os
 def logout(ar):
     home = str(Path.home())
     url = 'http://pluganddrive.ddns.net:8765/evcharge/api/logout'
-    headers = {'x-access-token' : ar.apikey}
+    headers = {'x-observatory-auth' : ar.apikey}
     res = requests.post(url, headers=headers)
     print(res.status_code)
     if (res.status_code == 200):

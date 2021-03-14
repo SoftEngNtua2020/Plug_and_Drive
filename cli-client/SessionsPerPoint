@@ -12,7 +12,7 @@ def sessions_per_point(ar):
     if (ar.format == 'csv'):
         url = url + '?format=csv'
     #print(url)
-    headers = {'x-access-token' : ar.apikey}
+    headers = {'x-observatory-auth' : ar.apikey}
     res = requests.get(url, headers=headers)
     print(res.status_code)
     if (ar.format == 'json' and res.status_code == 200):

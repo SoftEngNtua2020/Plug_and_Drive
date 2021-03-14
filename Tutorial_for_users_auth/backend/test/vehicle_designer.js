@@ -42,7 +42,7 @@ describe('Use case: Vehicle Designer', () => {
         }
         chai.request(server)
             .post('/evcharge/api/getChargingEventsByDesigner')
-            .set('x-access-token', token)
+            .set('x-observatory-auth', token)
             .send(Body)
             .end((err, res) => {
                   res.should.have.status(200);
@@ -59,7 +59,7 @@ describe('Use case: Vehicle Designer', () => {
         }
         chai.request(server)
             .post('/evcharge/api/getEnergyConsumedByEVType')
-            .set('x-access-token', token)
+            .set('x-observatory-auth', token)
             .send(Body)
             .end((err, res) => {
                   res.should.have.status(200);
@@ -76,7 +76,7 @@ describe('Use case: Vehicle Designer', () => {
         }
         chai.request(server)
             .post('/evcharge/api/getEnergyConsumedByEV')
-            .set('x-access-token', token)
+            .set('x-observatory-auth', token)
             .send(Body)
             .end((err, res) => {
                   res.should.have.status(200);
@@ -89,7 +89,7 @@ describe('Use case: Vehicle Designer', () => {
     it("it should return http code 200", (done) => {
       chai.request(server)
           .post('/evcharge/api/logout')
-          .set('x-access-token', token)
+          .set('x-observatory-auth', token)
           .end((err, res) => {
                 res.should.have.status(200);
                 //res.body.should.be.a('array');

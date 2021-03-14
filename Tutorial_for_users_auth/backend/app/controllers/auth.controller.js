@@ -41,10 +41,10 @@ exports.signup = (req, res) => {
 };
 
 exports.logout = (req, res) =>{
-  /*if(!req.headers["x-access-token"]){
+  /*if(!req.headers["x-observatory-auth"]){
     return res.status(404).send({ message: "User Not found." });
   }*/
-  db.BANNED.push(req.headers["x-access-token"]);
+  db.BANNED.push(req.headers["x-observatory-auth"]);
   res.status(200).send();
 };
 var counter = 0;

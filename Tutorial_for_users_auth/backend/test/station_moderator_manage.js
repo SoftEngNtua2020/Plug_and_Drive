@@ -38,7 +38,7 @@ describe('Use case: Station Moderator manage', () => {
       it('it should return all the data for each station that this station moderator is responsible for', (done) => {
         chai.request(server)
             .get('/evcharge/api/getStationData')
-            .set('x-access-token', token)
+            .set('x-observatory-auth', token)
             .end((err, res) => {
                   res.should.have.status(200);
               done();
@@ -64,7 +64,7 @@ describe('Use case: Station Moderator manage', () => {
         }
         chai.request(server)
             .post('/evcharge/api/manageStations')
-            .set('x-access-token', token)
+            .set('x-observatory-auth', token)
             .send(Body)
             .end((err, res) => {
                   res.should.have.status(200);
@@ -86,7 +86,7 @@ describe('Use case: Station Moderator manage', () => {
          }
         chai.request(server)
             .post('/evcharge/api/manageChargingProgram')
-            .set('x-access-token', token)
+            .set('x-observatory-auth', token)
             .send(Body)
             .end((err, res) => {
                   res.should.have.status(200);
@@ -99,7 +99,7 @@ describe('Use case: Station Moderator manage', () => {
     it("it should return http code 200", (done) => {
       chai.request(server)
           .post('/evcharge/api/logout')
-          .set('x-access-token', token)
+          .set('x-observatory-auth', token)
           .end((err, res) => {
                 res.should.have.status(200);
                 //res.body.should.be.a('array');

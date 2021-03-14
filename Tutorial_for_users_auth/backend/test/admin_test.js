@@ -41,7 +41,7 @@ describe('Admin', () => {
   it("perform a system healthcheck (end-to-end connectivity with database)", (done) => {
     chai.request(server)
         .get('/evcharge/api/admin/healthcheck')
-        .set('x-access-token', token)
+        .set('x-observatory-auth', token)
         .end((err, res) => {
               res.should.have.status(200);
               //res.body.should.be.a('array');
@@ -55,7 +55,7 @@ describe('Admin', () => {
     it("it should create new user or update password of existing user", (done) => {
       chai.request(server)
           .post('/evcharge/api/admin/usermod/testuser/testpassword')
-          .set('x-access-token', token)
+          .set('x-observatory-auth', token)
           .end((err, res) => {
                 res.should.have.status(200);
                 //res.body.should.be.a('array');
@@ -70,7 +70,7 @@ describe('Admin', () => {
     it("it should return info of requested user", (done) => {
       chai.request(server)
           .get('/evcharge/api/admin/users/Vivianne')
-          .set('x-access-token', token)
+          .set('x-observatory-auth', token)
           .end((err, res) => {
                 res.should.have.status(200);
                 //res.body.should.be.a('array');
@@ -86,7 +86,7 @@ describe('Admin', () => {
     it("it should return http code 200", (done) => {
       chai.request(server)
           .post('/evcharge/api/logout')
-          .set('x-access-token', token)
+          .set('x-observatory-auth', token)
           .end((err, res) => {
                 res.should.have.status(200);
                 //res.body.should.be.a('array');

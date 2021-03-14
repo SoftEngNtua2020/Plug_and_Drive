@@ -41,7 +41,7 @@ describe('Use case: Vehicle Owner', () => {
       it('it should return the data of the user whose token is provided', (done) => {
         chai.request(server)
             .get('/evcharge/api/getvehicledata')
-            .set('x-access-token', token)
+            .set('x-observatory-auth', token)
             .end((err, res) => {
                   res.should.have.status(200);
 
@@ -56,7 +56,7 @@ describe('Use case: Vehicle Owner', () => {
       it('it should return the assumption of the charging cost per program/station', (done) => {
         chai.request(server)
             .get('/evcharge/api/getvehiclecostassump')
-            .set('x-access-token', token)
+            .set('x-observatory-auth', token)
             .end((err, res) => {
                   res.should.have.status(200);
 
@@ -78,7 +78,7 @@ describe('Use case: Vehicle Owner', () => {
           }
         chai.request(server)
             .post('/evcharge/api/start_charging')
-            .set('x-access-token', token)
+            .set('x-observatory-auth', token)
             .send(Body)
             .end((err, res) => {
                   res.should.have.status(200);
@@ -94,7 +94,7 @@ describe('Use case: Vehicle Owner', () => {
       it('it should return a list of past charging events', (done) => {
         chai.request(server)
             .get('/evcharge/api/getvehicleeventdata')
-            .set('x-access-token', token)
+            .set('x-observatory-auth', token)
             .end((err, res) => {
                   res.should.have.status(200);
 
@@ -110,7 +110,7 @@ describe('Use case: Vehicle Owner', () => {
       it("it should return the accumulative cost and the date of the user's past charging sessions", (done) => {
         chai.request(server)
             .get('/evcharge/api/getCummulativeCostPerCharge')
-            .set('x-access-token', token)
+            .set('x-observatory-auth', token)
             .end((err, res) => {
                   res.should.have.status(200);
 
@@ -129,7 +129,7 @@ describe('Use case: Vehicle Owner', () => {
         }
         chai.request(server)
             .post('/evcharge/api/getCummulativeCostPerPeriod')
-            .set('x-access-token', token)
+            .set('x-observatory-auth', token)
             .send(Body)
             .end((err, res) => {
                   res.should.have.status(200);
@@ -145,7 +145,7 @@ describe('Use case: Vehicle Owner', () => {
       it("it should return the total bonus points of the user whose token is provided", (done) => {
         chai.request(server)
             .get('/evcharge/api/getTotalBonus')
-            .set('x-access-token', token)
+            .set('x-observatory-auth', token)
             .end((err, res) => {
                   res.should.have.status(200);
                   //res.body.should.be.a('array');
@@ -159,7 +159,7 @@ describe('Use case: Vehicle Owner', () => {
       it("it should return the times the user paid with card or cash", (done) => {
         chai.request(server)
             .get('/evcharge/api/getTimesPaidCard')
-            .set('x-access-token', token)
+            .set('x-observatory-auth', token)
             .end((err, res) => {
                   res.should.have.status(200);
                   //res.body.should.be.a('array');
@@ -172,7 +172,7 @@ describe('Use case: Vehicle Owner', () => {
       it("it should return http code 200", (done) => {
         chai.request(server)
             .post('/evcharge/api/logout')
-            .set('x-access-token', token)
+            .set('x-observatory-auth', token)
             .end((err, res) => {
                   res.should.have.status(200);
                   //res.body.should.be.a('array');

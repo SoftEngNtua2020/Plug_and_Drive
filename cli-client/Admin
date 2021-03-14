@@ -7,7 +7,7 @@ from pathlib import Path
 
 def healthcheck(ar):
     #print(ar)
-    headers = {'x-access-token' : ar.apikey}
+    headers = {'x-observatory-auth' : ar.apikey}
     res = requests.get('http://pluganddrive.ddns.net:8765/evcharge/api/admin/healthcheck', headers=headers)
     print(res.status_code)
     print(res.json())
@@ -16,7 +16,7 @@ def healthcheck(ar):
 
 def resetsessions(ar):
     #print(ar)
-    headers = {'x-access-token' : ar.apikey}
+    headers = {'x-observatory-auth' : ar.apikey}
     res = requests.post('http://pluganddrive.ddns.net:8765/evcharge/api/admin/resetsessions', headers=headers)
     print(res.status_code)
     print(res.json())
@@ -25,7 +25,7 @@ def resetsessions(ar):
 
 def usermod(ar):
     #print(ar)
-    headers = {'x-access-token' : ar.apikey}
+    headers = {'x-observatory-auth' : ar.apikey}
     res = requests.post('http://pluganddrive.ddns.net:8765/evcharge/api/admin/usermod/' + ar.username + '/' + ar.passw, headers=headers)
     print(res.status_code)
     print(res.json())
@@ -33,7 +33,7 @@ def usermod(ar):
 
 def users(ar):
     #print(ar)
-    headers = {'x-access-token' : ar.apikey}
+    headers = {'x-observatory-auth' : ar.apikey}
     res = requests.get('http://pluganddrive.ddns.net:8765/evcharge/api/admin/users/' + ar.username, headers=headers)
     print(res.status_code)
     print(res.json())
@@ -41,7 +41,7 @@ def users(ar):
 
 def sessionsupd(ar):
     #print(ar)
-    headers = {'x-access-token' : ar.apikey}
+    headers = {'x-observatory-auth' : ar.apikey}
     files = {'file': open(ar.source, 'rb')}
     res = requests.post('http://pluganddrive.ddns.net:8765/evcharge/api/admin/system/sessionsupd', headers=headers, files=files)
     print(res)

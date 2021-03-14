@@ -42,7 +42,7 @@ describe('Login and test SessionsPer{EV,Point,Provider,Station}', () => {
       it('it should get sessions per electric vehicle id, dateto and datefrom', (done) => {
         chai.request(server)
             .get('/evcharge/api/SessionsPerEV/1/20190101/20200101')
-            .set('x-access-token', token)
+            .set('x-observatory-auth', token)
             .end((err, res) => {
                   res.should.have.status(200);
 
@@ -57,7 +57,7 @@ describe('Login and test SessionsPer{EV,Point,Provider,Station}', () => {
       it('it should get sessions per charging point id, dateto and datefrom', (done) => {
         chai.request(server)
             .get('/evcharge/api/SessionsPerEV/1/20190101/20200101')
-            .set('x-access-token', token)
+            .set('x-observatory-auth', token)
             .end((err, res) => {
                   res.should.have.status(200);
 
@@ -72,7 +72,7 @@ describe('Login and test SessionsPer{EV,Point,Provider,Station}', () => {
       it('it should get sessions per station id, dateto and datefrom', (done) => {
         chai.request(server)
             .get('/evcharge/api/SessionsPerEV/1/20190101/20200101')
-            .set('x-access-token', token)
+            .set('x-observatory-auth', token)
             .end((err, res) => {
                   res.should.have.status(200);
 
@@ -87,7 +87,7 @@ describe('Login and test SessionsPer{EV,Point,Provider,Station}', () => {
       it('it should get sessions per provider id, dateto and datefrom', (done) => {
         chai.request(server)
             .get('/evcharge/api/SessionsPerEV/1/20190101/20200101')
-            .set('x-access-token', token)
+            .set('x-observatory-auth', token)
             .end((err, res) => {
                   res.should.have.status(200);
 
@@ -101,7 +101,7 @@ describe('Login and test SessionsPer{EV,Point,Provider,Station}', () => {
       it("it should return http code 200", (done) => {
         chai.request(server)
             .post('/evcharge/api/logout')
-            .set('x-access-token', token)
+            .set('x-observatory-auth', token)
             .end((err, res) => {
                   res.should.have.status(200);
                   //res.body.should.be.a('array');
