@@ -1,7 +1,7 @@
 var bcrypt = require("bcryptjs"),
     Sequelize = require("sequelize");
 const { user } = require(".");
-//--------------------------shops---------------------------------    
+//--------------------------shops---------------------------------
 /*
 var adminObj =  [
     {
@@ -338,7 +338,7 @@ var vehicleObj = [
 		designer_id: 5,
 		owner_id: 5
 
-	}	
+	}
 ]
 var stationObj = [
 	{
@@ -346,28 +346,28 @@ var stationObj = [
 		company_name: 'Shell',
 		phone_number: '2109375817',
 		st_moderator_id: 1,
-		provider_id: 1 
+		provider_id: 1
 	},
 	{
 		location: 'Thessaloniki',
 		company_name: 'Shell',
 		phone_number: '2109765817',
 		st_moderator_id: 2,
-		provider_id: 2  
+		provider_id: 2
 	},
 	{
 		location: 'Larisa',
 		company_name: 'EKO',
 		phone_number: '2105915817',
 		st_moderator_id: 3,
-		provider_id: 3  
+		provider_id: 3
 	},
 	{
 		location: 'Thessaloniki',
 		company_name: 'BP',
 		phone_number: '2109765527',
 		st_moderator_id: 4,
-		provider_id: 4  
+		provider_id: 4
 	},
 	{
 		location: 'Athina',
@@ -390,7 +390,7 @@ var sessionObj = [
 	{
 		started_on: '2021-02-25 19:30:40',
 		finished_on: '2021-02-25 19:40:40',
-		energy_deliverd: 30, 
+		energy_deliverd: 30,
 		protocol: 'AC',
 		payment_method: 'CASH',
 		bonus_points_energy: 100,
@@ -403,7 +403,7 @@ var sessionObj = [
 	{
 		started_on: '2021-02-20 19:30:40',
 		finished_on: '2021-02-20 19:40:40',
-		energy_deliverd: 40, 
+		energy_deliverd: 40,
 		protocol: 'AC',
 		payment_method: 'CASH',
 		bonus_points_energy: 120,
@@ -416,7 +416,7 @@ var sessionObj = [
 	{
 		started_on: '2021-01-25 19:30:40',
 		finished_on: '2021-01-25 19:40:40',
-		energy_deliverd: 50, 
+		energy_deliverd: 50,
 		protocol: 'DC',
 		payment_method: 'CASH',
 		bonus_points_energy: 70,
@@ -429,7 +429,7 @@ var sessionObj = [
 	{
 		started_on: '2021-01-22 12:31:40',
 		finished_on: '2021-01-22 12:47:50',
-		energy_deliverd: 36, 
+		energy_deliverd: 36,
 		protocol: 'DC',
 		payment_method: 'CREDIT_CARD',
 		bonus_points_energy: 90,
@@ -442,7 +442,7 @@ var sessionObj = [
 	{
 		started_on: '2021-01-07 09:10:40',
 		finished_on: '2021-01-07 09:23:33',
-		energy_deliverd: 60, 
+		energy_deliverd: 60,
 		protocol: 'AC',
 		payment_method: 'CREDIT_CARD',
 		bonus_points_energy: 40,
@@ -455,7 +455,7 @@ var sessionObj = [
 	{
 		started_on: '2020-12-25 12:31:40',
 		finished_on: '2020-12-25 12:49:50',
-		energy_deliverd: 54, 
+		energy_deliverd: 54,
 		protocol: 'DC',
 		payment_method: 'CREDIT_CARD',
 		bonus_points_energy: 100,
@@ -468,7 +468,7 @@ var sessionObj = [
 	{
 		started_on: '2020-12-10 13:31:40',
 		finished_on: '2020-12-10 13:49:50',
-		energy_deliverd: 60, 
+		energy_deliverd: 60,
 		protocol: 'AC',
 		payment_method: 'CREDIT_CARD',
 		bonus_points_energy: 40,
@@ -481,7 +481,7 @@ var sessionObj = [
 	{
 		started_on: '2020-11-22 08:31:40',
 		finished_on: '2020-11-22 08:49:50',
-		energy_deliverd: 70, 
+		energy_deliverd: 70,
 		protocol: 'AC',
 		payment_method: 'CREDIT_CARD',
 		bonus_points_energy: 100,
@@ -494,7 +494,7 @@ var sessionObj = [
 	{
 		started_on: '2020-12-10 13:31:40',
 		finished_on: '2020-12-10 13:49:50',
-		energy_deliverd: 70, 
+		energy_deliverd: 70,
 		protocol: 'AC',
 		payment_method: 'CASH',
 		bonus_points_energy: 40,
@@ -507,7 +507,7 @@ var sessionObj = [
 	{
 		started_on: '2020-10-22 10:31:40',
 		finished_on: '2020-10-22 10:49:50',
-		energy_deliverd: 70, 
+		energy_deliverd: 70,
 		protocol: 'AC',
 		payment_method: 'CREDIT_CARD',
 		bonus_points_energy: 100,
@@ -520,7 +520,7 @@ var sessionObj = [
 	{
 		started_on: '2020-12-10 13:31:40',
 		finished_on: '2020-12-10 13:49:50',
-		energy_deliverd: 70, 
+		energy_deliverd: 70,
 		protocol: 'AC',
 		payment_method: 'CREDIT_CARD',
 		bonus_points_energy: 45,
@@ -537,7 +537,7 @@ var programObj = [
         kwh_price: 2.032,
         program_name: 'STANDARD',
         bonus_per_kwh: 0.5,
-        station_id: 1 
+        station_id: 1
     },
     {
         kwh_price: 1.862,
@@ -561,7 +561,7 @@ var programObj = [
         kwh_price: 2.403,
         program_name: 'STANDARD',
         bonus_per_kwh: 0.6,
-        station_id: 3 
+        station_id: 3
     },
     {
         kwh_price: 2.031,
@@ -597,7 +597,7 @@ var programObj = [
         kwh_price: 2.542,
         program_name: 'STANDARD',
         bonus_per_kwh: 0.7,
-        station_id: 6 
+        station_id: 6
     },
     {
         kwh_price: 2.121,
@@ -672,5 +672,5 @@ module.exports = {
 	points: pointObj,
  	programs: programObj,
 	providers: providerObj,
-	users: userObj	 
+	users: userObj
 }

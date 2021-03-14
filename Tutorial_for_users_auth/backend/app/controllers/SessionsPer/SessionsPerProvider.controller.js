@@ -25,7 +25,7 @@ function datetime_from_int(x, from_flag) {
   const day = temp[6] + temp[7];
   var date = year + '-' + month + '-' + day;
   if (from_flag) {
-    date += ' 00:00:01';
+    date += ' 01:00:01';
   }
   else {
     date += ' 23:59:59';
@@ -72,6 +72,7 @@ exports.SessionsPerProvider = (req, res) => {
                 started_on: { [Op.between]: [start_date, end_date] }
               },
               attributes: [[sequelize.col('station->energy_provider.provider_id'), 'ProviderID'], [sequelize.col('station->energy_provider.provider_name'), 'ProviderName'], ['station_id', 'StationID'], ['session_id', 'SessionID'], ['vehicle_id', 'VehicleID'], ['started_on', 'StartedOn'], ['finished_on', 'FinishedOn'], ['energy_deliverd', 'EnergyDelivered'], [sequelize.col('charging_program.program_name'), 'PricePolicyRef'], [sequelize.col('charging_program.kwh_price'), 'CostPerKWh'], ['total_cost', 'TotalCost']],
+              order: sequelize.literal('StartedOn ASC'),
               raw: true,
               include: [
                 {

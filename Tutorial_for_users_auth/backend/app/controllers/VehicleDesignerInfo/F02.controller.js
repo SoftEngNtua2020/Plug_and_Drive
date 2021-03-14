@@ -29,6 +29,7 @@ exports.F02 = (req, res) => {
          where: {
            started_on: { [Op.between]: [start_date, end_date] }
          },
+         order: sequelize.literal('started_on ASC'),
          raw: true,
          include: {
            model: db.vehicle,

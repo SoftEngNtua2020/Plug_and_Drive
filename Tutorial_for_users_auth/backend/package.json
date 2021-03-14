@@ -32,6 +32,6 @@
     "nodemon": "^2.0.7",
     "react-router-dom": "^5.2.0",
     "semver": "^7.3.4",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.5.0"
   }
 }

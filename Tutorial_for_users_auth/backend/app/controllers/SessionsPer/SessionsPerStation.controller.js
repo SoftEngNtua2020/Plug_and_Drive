@@ -25,7 +25,7 @@ function datetime_from_int(x, from_flag) {
   const day = temp[6] + temp[7];
   var date = year + '-' + month + '-' + day;
   if (from_flag) {
-    date += ' 00:00:01';
+    date += ' 01:00:01';
   }
   else {
     date += ' 23:59:59';
