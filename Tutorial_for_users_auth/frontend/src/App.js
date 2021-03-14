@@ -146,7 +146,7 @@ class App extends Component {
             <div className="navbar-nav ml-auto">
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                  <b>Select action</b>
+                  <b>Vehicle statistics</b>
                 </a>
                 <div class="dropdown-menu" id="dropdown-menu">
                   <a class="dropdown-item" href="/energyConsumptionType">🔋 Energy consumption per type</a>
