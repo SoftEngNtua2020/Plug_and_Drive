@@ -34,7 +34,7 @@ export default class Events extends Component {
         data[i][0] = this.state.content[i].session_id;
         data[i][1] = this.state.content[i].started_on;
         data[i][2] = this.state.content[i].finished_on;
-        data[i][3] = this.state.content[i].energy_delivered;
+        data[i][3] = this.state.content[i].energy_deliverd;
         data[i][4] = this.state.content[i].point_id;
         data[i][5] = this.state.content[i].protocol;
         data[i][6] = this.state.content[i].payment_method;
