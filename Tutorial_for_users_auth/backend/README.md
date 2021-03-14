@@ -5,7 +5,7 @@
 
 ### Login & Logout
    - Login <br/>
-     Πραγματοποιεί το login των χρηστών
+     Πραγματοποιεί το login των χρηστών.
       ```json
       Type: POST,
       URl: http://localhost:8765/evcharge/api/login,
@@ -28,7 +28,7 @@
          }
       ```
    - Logout <br/>
-     Πραγματοποιεί το logοut των χρηστών
+     Πραγματοποιεί το logοut των χρηστών.
       ```json
          Type: POST,
          URl: http://localhost:8765/evcharge/api/logout,
@@ -37,8 +37,8 @@
                      },
          Reply: 200
          ```
-   - Sign Up
-     Πραγματοποιεί το signup των χρηστών
+   - Sign Up <br/>
+     Πραγματοποιεί το signup των χρηστών.
       ```json
       Type: POST,
          URl: http://localhost:8765/evcharge/api/signup,
@@ -57,7 +57,8 @@
       ```
 
 ### Admin Endpoints
-   1.
+   1. <br/>
+      Πραγματοποιεί προσθήκη νέου χρήστη ή αλλαγή password εάν ο χρήστης υπάρχει ήδη.
       ```json
          Type: POST,
          URL: http://localhost:8765/evcharge/api/admin/usermod/:username/:password,
@@ -68,7 +69,8 @@
             "message": "Created User Successfully"
             }
          ```
-   2.
+   2. <br/>
+      Εμφανίζει τα στοιχεία του αντίστοιχου χρήστη.
       ```json
       Type: GET,
       URL: http://localhost:8765/evcharge/api/admin/users/:username,
@@ -82,7 +84,8 @@
          "user_id": 18
          }
       ```
-   3.
+   3. <br/>
+      Πραγματοποιεί το ανέβασμα αρχείου CSV με δεδομένα γεγονότων φόρτισης και την προσθήκη τους στη βάση δεδομένων.
       ```json
       Type: POST,
       URL: http://localhost:8765/evcharge/api/admin/system/sessionsupd,
