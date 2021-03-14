@@ -2,10 +2,10 @@ import requests
 import json
 def signup(username, password, email, role):
     #url = 'https://localhost:8765/evcharge/api/login'
-    url = 'http://localhost:8080/api/auth/signup'
+    url = 'https://localhost:8080/api/auth/signup'
     info = {'username': username, 'password': password, 'email' : email, 'roles' : [role]}
     headers = {'Content-Type' : 'application/json'}
-    res = requests.post(url, data=info, headers=headers)
+    res = requests.post(url, data=info, headers=headers, verify=False)
     print(res.status_code)
     print(res)
     return True

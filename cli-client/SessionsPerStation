@@ -8,12 +8,12 @@ from prettytable import from_csv
 from prettytable import DEFAULT
 
 def sessions_per_station(ar):
-    url = 'http://pluganddrive.ddns.net:8765/evcharge/api/SessionsPerStation/' + ar.station + '/' + str(ar.datefrom) + '/' + str(ar.dateto)
+    url = 'https://pluganddrive.ddns.net:8765/evcharge/api/SessionsPerStation/' + ar.station + '/' + str(ar.datefrom) + '/' + str(ar.dateto)
     if (ar.format == 'csv'):
         url = url + '?format=csv'
     #print(url)
     headers = {'x-observatory-auth' : ar.apikey}
-    res = requests.get(url, headers=headers)
+    res = requests.get(url, headers=headers, verify=False)
     print(res.status_code)
     if (ar.format == 'json' and res.status_code == 200):
         print(json.dumps(res.json(), indent=4, sort_keys=False))
