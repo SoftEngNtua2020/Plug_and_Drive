@@ -57,8 +57,8 @@
       ```
 
 ### Admin Endpoints
-   1. 
-      Πραγματοποιεί προσθήκη νέου χρήστη ή αλλαγή password εάν ο χρήστης υπάρχει ήδη.
+   1. <br/>
+      Πραγματοποιεί προσθήκη νέου χρήστη ή αλλαγή password εάν ο χρήστης υπάρχει ήδη. <br/>
       ```json
          Type: POST,
          URL: http://localhost:8765/evcharge/api/admin/usermod/:username/:password,
