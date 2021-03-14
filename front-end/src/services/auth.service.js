@@ -108,7 +108,15 @@ class AuthService {
     headers: authHeader()
     });
   }
-
+  
+  getCarsCharges(start_datetime, end_datetime){
+    return axios({method: 'post', url: API_URL + 'getVehiclesChargingAtTime',  data: {
+      "start_datetime": start_datetime,
+      "end_datetime": end_datetime
+    },
+    headers: authHeader()
+    });
+  }
   getEventData(startedDate, finishedDate){
     return axios({method: 'post', url: API_URL + 'getChargingEventsByDesigner',  data: {
       "start_date": startedDate,

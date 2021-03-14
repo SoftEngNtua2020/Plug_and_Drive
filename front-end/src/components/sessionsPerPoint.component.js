@@ -81,7 +81,8 @@ export default class StationSessionsPoints extends Component {
               error.response.data.message) ||
             error.message ||
             error.toString();
-
+            if (resMessage == "Request failed with status code 402") resMessage = "There are no available sessions";
+            if (resMessage == "Anauthorized") resMessage = "Please retry with a valid ID";
           this.setState({
             successful: false,
             message: resMessage

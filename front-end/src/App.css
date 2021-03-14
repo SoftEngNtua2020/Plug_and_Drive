@@ -278,3 +278,17 @@ td{
   position:relative;
 
 }
+
+#CarsChargesTable{
+  background-color: white;
+  padding: auto;
+  margin: auto;
+  opacity: 0.9;
+  position:relative;
+
+}
+
+#carsCharges-table-data {
+  font-family: serif;
+  color:black;
+}

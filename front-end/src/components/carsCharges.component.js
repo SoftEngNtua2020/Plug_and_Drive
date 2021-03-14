@@ -19,20 +19,31 @@ export default class EnergyConsumbedByEVType extends Component {
   constructor(props) {
     super(props);
     this.handleEnergy = this.handleEnergy.bind(this);
-    this.onChangeDatetime = this.onChangeDatetime.bind(this);
+    this.onChangeStartDatetime = this.onChangeStartDatetime.bind(this);
+    this.onChangeEndDatetime = this.onChangeEndDatetime.bind(this);
+    //this.onChangeDatetime = this.onChangeDatetime.bind(this);
 
     this.state = {
-      datetime: "",
+      start_datetime: "",
+      end_datetime: "",
       content: [],
+      message: "",
       successful: false
     };
   }
 
-  onChangeDatetime(e) {
+  onChangeStartDatetime(e) {
     this.setState({
-      start_date: e.target.value
+      start_datetime: e.target.value
     });
   }
+
+  onChangeEndDatetime(e) {
+    this.setState({
+      end_datetime: e.target.value
+    });
+  }
+
 
   handleEnergy(e) {
     e.preventDefault();
@@ -44,7 +55,7 @@ export default class EnergyConsumbedByEVType extends Component {
     this.form.validateAll();
 
     if (this.checkBtn.context._errors.length === 0) {
-      AuthService.getCarsCharges(this.state.datetime).then(
+      AuthService.getCarsCharges(this.state.start_datetime, this.state.end_datetime).then(
         response => {
           this.setState({
             content: response.data,
@@ -52,16 +63,19 @@ export default class EnergyConsumbedByEVType extends Component {
           });
         },
         error => {
-          const resMessage =
+          var resMessage =
             (error.response &&
               error.response.data &&
               error.response.data.message) ||
             error.message ||
             error.toString();
 
+          if (resMessage == "Request failed with status code 402") resMessage = "There are no available sessions";
+          if (resMessage == "Anauthorized") resMessage = "Please retry with a valid ID";
           this.setState({
             successful: false,
-            content: []
+            content: [],
+            message: resMessage
           });
         }
       );
@@ -79,12 +93,12 @@ export default class EnergyConsumbedByEVType extends Component {
       data[i][4] = this.state.content[i].ReleaseYear;
       data[i][5] = this.state.content[i].UsableBatterySize;
       data[i][6] = this.state.content[i].AverageConsumption;
-      data[i][7] = this.state.content[i].VehicleBrand;
+      data[i][7] = this.state.content[i].CurrentBatteryCharge;
     }
     return (
-      <div>
-        <table>
-          <thead id="energy-table-data">
+      <div id="table-responsive">
+        <table id="CarsChargesTable">
+          <thead id="carsCharges-table-data">
             <td><h3><b>Vehicle ID</b></h3></td>
             <td><h3><b>Vehicle Brand</b></h3></td>
             <td><h3><b>Vehicle Type</b></h3></td>
@@ -94,14 +108,14 @@ export default class EnergyConsumbedByEVType extends Component {
             <td><h3><b>Average Consumption</b></h3></td>
             <td><h3><b>Current Battery Charge</b></h3></td>
           </thead>
-          <tbody id="energy-table-data">
+          <tbody id="carsCharges-table-data">
             {data.slice(0, data.length).map((item, index) => {
               return (
                 <tr>
                   <td><h5>{item[0]}</h5></td>
-                  <td><h5>{item[1]} kWh</h5></td>
+                  <td><h5>{item[1]}</h5></td>
                   <td><h5>{item[2]}</h5></td>
-                  <td><h5>{item[3]} kWh</h5></td>
+                  <td><h5>{item[3]}</h5></td>
                   <td><h5>{item[4]}</h5></td>
                   <td><h5>{item[5]} kWh</h5></td>
                   <td><h5>{item[6]}</h5></td>
@@ -116,66 +130,71 @@ export default class EnergyConsumbedByEVType extends Component {
   }
 
   render() {
-    return (
-      <div className="col-md-12">
-        <div className="card card-container">
-          <img
-            src="https://i.pinimg.com/originals/15/c0/d0/15c0d074605e69e381d24dbc20ba25b3.png"
-            alt="profile-img"
-            className="profile-img-card-car"
-          />
-
-          <Form
-            onSubmit={this.handleEnergy}
-            ref={c => {
-              this.form = c;
-            }}
-          >
-            {!this.state.successful && (
+    if(!this.state.successful) {
+      return (
+        <div className="col-md-12">
+          <div className="card card-container" id="form">
+            <img
+              src="https://i.pinimg.com/originals/15/c0/d0/15c0d074605e69e381d24dbc20ba25b3.png"
+              alt="profile-img"
+              className="profile-img-card-car"></img>
+            <Form
+              onSubmit={this.handleEnergy}
+              ref={c => {
+                this.form = c;
+              }}>
               <div>
                 <div className="form-group">
-                  <label htmlFor="startDate">Start Date</label>
+                  <label htmlFor="startDate">Start Date Time</label>
                   <Input
                     type="datetime-local"
                     className="form-control"
-                    name="Datetime"
-                    value={this.state.datetime}
-                    onChange={this.onChangeDatetime}
+                    name="startDate"
+                    value={this.state.start_datetime}
+                    onChange={this.onChangeStartDatetime}
                     validations={[required]}
                   />
                 </div>
-
+                <div className="form-group">
+                  <label htmlFor="endDate">End Date Time</label>
+                  <Input
+                    type="datetime-local"
+                    className="form-control"
+                    name="endDate"
+                    value={this.state.end_datetime}
+                    onChange={this.onChangeEndDatetime}
+                    validations={[required]}
+                  />
+                </div>
                 <div className="form-group">
                   <button className="btn btn-primary btn-block">Submit</button>
                 </div>
               </div>
-            )}
-
-            {this.state.successful && (
-              <div className="form-group">
-                <div id="response"
-                  className={
-                    this.state.successful
-                      ? "alert alert-success"
-                      : "alert alert-danger"
-                  }
-                  role="alert"
-                >
-                  <header className="energy" id="energy">
-                    {this.table()}
-                  </header>
-                </div>
-              </div>
-            )}
-            <CheckButton
-              style={{ display: "none" }}
-              ref={c => {
-                this.checkBtn = c;
-              }}
-            />
-          </Form>
+              {this.state.message}
+              <CheckButton
+                style={{ display: "none" }}
+                ref={c => {
+                  this.checkBtn = c;
+                }}/>
+            </Form>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
+    else {
+      return(
+        <div>
+          <div>
+          <div className="welcome">
+          <h2> Vehicle Sessions Per Period </h2>
+          </div>
+            <header className="jumbotron" id="events">
+              <h1>{this.table()}</h1>
+            </header>
+          </div>
+        </div>
+      )
+    }
   }
+
 }

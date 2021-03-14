@@ -131,9 +131,10 @@ class App extends Component {
                   <a class="dropdown-item" href="/eventData">📋 Charging history </a>
                   <a class="dropdown-item" href="/costPerPeriod">📅 Total cost per time period </a>
                   <a class="dropdown-item" href="/chargesAndPayments">📈 Cumulative cost history </a>
-                  <div class="dropdown-divider"> </div>
-                  <a class="dropdown-item" href="/login" onClick={this.logOut}>🏴󠁡󠁺󠁢󠁥󠁹󠁿 Logout</a>
                 </div>
+              </li>
+              <li className="nav-item" id="logout">
+                <a className="nav-link" href={"/login"} onClick={this.logOut}>🏴󠁡󠁺󠁢󠁥󠁹󠁿 Logout</a>
               </li>
               <li className="nav-item" id="username">
                 <Link to={"/profile"} className="nav-link">
@@ -152,9 +153,10 @@ class App extends Component {
                   <a class="dropdown-item" href="/energyConsumptionType">🔋 Energy consumption per type</a>
                   <a class="dropdown-item" href="/energyConsumptionId">🛣️ Energy consumption per vehicle </a>
                   <a class="dropdown-item" href="/chargingEvents">📋 All Charging Events</a>
-                  <div class="dropdown-divider"> </div>
-                  <a class="dropdown-item" href="/login" onClick={this.logOut}>🏴 Logout</a>
                 </div>
+              </li>
+              <li className="nav-item" id="logout">
+                <a className="nav-link" href={"/login"} onClick={this.logOut}>🏴󠁡󠁺󠁢󠁥󠁹󠁿 Logout</a>
               </li>
               <li className="nav-item" id="username">
                 <Link to={"/profile"} className="nav-link">
@@ -182,13 +184,15 @@ class App extends Component {
                 <div class="dropdown-menu" id="dropdown-menu">
                   <a class="dropdown-item" href="/sessionsPerPoint"> 📋 Sessions per charging point</a>
                   <a class="dropdown-item" href="/sessionsPerStation"> 🚉 Sessions per station </a>
-                  <div class="dropdown-divider"> </div>
-                  <a class="dropdown-item" href="/login" onClick={this.logOut}>🏴󠁡󠁺󠁢󠁥󠁹󠁿 Logout</a>
+                  <a class="dropdown-item" href="/carsCharges"> 📅 Vehicle sessions per period</a>
                 </div>
+              </li>
+              <li className="nav-item" id="logout">
+                <a className="nav-link" href={"/login"} onClick={this.logOut}>🏴󠁡󠁺󠁢󠁥󠁹󠁿 Logout</a>
               </li>
               <li className="nav-item" id="username">
                 <Link to={"/profile"} className="nav-link">
-                  {currentUser.username}
+                  {"🧑‍🦱 " + currentUser.username}
                 </Link>
               </li>
             </div>
@@ -203,7 +207,7 @@ class App extends Component {
 
             </div>
           )}
-          
+
         </nav>
         <div className="container mt-3">
           <Switch>
@@ -239,7 +243,7 @@ class App extends Component {
           </Switch>
         </div>
         <div id="footer">
-          Copyright &copy; Plug & Drive 2021 
+          Copyright &copy; Plug & Drive 2021
         </div>
       </div>
     );
