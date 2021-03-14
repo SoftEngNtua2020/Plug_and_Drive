@@ -14,7 +14,7 @@
     "rest",
     "api"
   ],
-  "author": "bezkoder",
+  "author": "TL20-72",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
