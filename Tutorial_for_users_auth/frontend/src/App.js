@@ -116,10 +116,10 @@ class App extends Component {
                   <b>Charge</b>
                 </a>
                 <div class="dropdown-menu" id="dropdown-menu">
-                  <a class="dropdown-item" href="/carData">🏎️ View your Car's Data </a>
+                  <a class="dropdown-item" href="/carData">🏎️ View vehicle data </a>
                   <a class="dropdown-item" href="/costPerStation">💰 Estimate cost per station </a>
-                  <a class="dropdown-item" href="/startCharge">⛽ Start Charging </a>
-                  <a class="dropdown-item" href="/bonusPoints">✨ Check your Bonus </a>
+                  <a class="dropdown-item" href="/startCharge">⛽ Start charging </a>
+                  <a class="dropdown-item" href="/bonusPoints">✨ Check bonus points </a>
                 </div>
               </li>
               <li class="nav-item dropdown">
@@ -127,10 +127,10 @@ class App extends Component {
                   <b>Payments</b>
                 </a>
                 <div class="dropdown-menu" id="dropdown-menu">
-                  <a class="dropdown-item" href="/paymentTimes">🧾 View total payments </a>
-                  <a class="dropdown-item" href="/eventData">📋 View all charging events </a>
-                  <a class="dropdown-item" href="/costPerPeriod">📅 Spent per time period </a>
-                  <a class="dropdown-item" href="/chargesAndPayments">📈 View cumulative payments </a>
+                  <a class="dropdown-item" href="/paymentTimes">🧾 Total payments </a>
+                  <a class="dropdown-item" href="/eventData">📋 Charging history </a>
+                  <a class="dropdown-item" href="/costPerPeriod">📅 Total cost per time period </a>
+                  <a class="dropdown-item" href="/chargesAndPayments">📈 Cumulative cost history </a>
                   <div class="dropdown-divider"> </div>
                   <a class="dropdown-item" href="/login" onClick={this.logOut}>🏴󠁡󠁺󠁢󠁥󠁹󠁿 Logout</a>
                 </div>
@@ -150,7 +150,7 @@ class App extends Component {
                 </a>
                 <div class="dropdown-menu" id="dropdown-menu">
                   <a class="dropdown-item" href="/energyConsumptionType">🔋 Energy consumption per type</a>
-                  <a class="dropdown-item" href="/energyConsumptionId">🛣️ Energy consumption per car,kmh</a>
+                  <a class="dropdown-item" href="/energyConsumptionId">🛣️ Energy consumption per vehicle </a>
                   <a class="dropdown-item" href="/chargingEvents">📋 All Charging Events</a>
                   <div class="dropdown-divider"> </div>
                   <a class="dropdown-item" href="/login" onClick={this.logOut}>🏴 Logout</a>
@@ -170,9 +170,9 @@ class App extends Component {
                   <b>Manage Station</b>
                 </a>
                 <div class="dropdown-menu" id="dropdown-menu">
-                  <a class="dropdown-item" href="/stationDataView"> 🏭 View your Stations Data</a>
-                  <a class="dropdown-item" href="/stationDataChange"> 🔛 Manage your Stations</a>
-                  <a class="dropdown-item" href="/stationProgramChange"> 💰 Manage your Programs</a>
+                  <a class="dropdown-item" href="/stationDataView"> 🏭 View stations data</a>
+                  <a class="dropdown-item" href="/stationDataChange"> 🔛 Manage stations</a>
+                  <a class="dropdown-item" href="/stationProgramChange"> 💰 Manage programs</a>
                 </div>
               </li>
               <li class="nav-item dropdown">
@@ -180,8 +180,8 @@ class App extends Component {
                   <b>Data Analysis</b>
                 </a>
                 <div class="dropdown-menu" id="dropdown-menu">
-                  <a class="dropdown-item" href="/sessionsPerPoint"> 📋 See the sessions per Point</a>
-                  <a class="dropdown-item" href="/sessionsPerStation"> 🚉 See the sessions per Station</a>
+                  <a class="dropdown-item" href="/sessionsPerPoint"> 📋 Sessions per charging point</a>
+                  <a class="dropdown-item" href="/sessionsPerStation"> 🚉 Sessions per station </a>
                   <div class="dropdown-divider"> </div>
                   <a class="dropdown-item" href="/login" onClick={this.logOut}>🏴󠁡󠁺󠁢󠁥󠁹󠁿 Logout</a>
                 </div>
