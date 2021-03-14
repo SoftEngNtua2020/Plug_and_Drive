@@ -4,7 +4,7 @@
 ## Okeanos URL: http://pluganddrive.ddns.net:8765/evcharge/api
 
 ### Login & Logout
-   - Login
+   - Login <br/>
      Πραγματοποιεί το login των χρηστών
       ```json
       Type: POST,
@@ -27,7 +27,7 @@
          "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTYxNDk2NTc1NSwiZXhwIjoxNjE1MDUyMTU1fQ.tLyuwEf6ZuXugH0nikqoSqK7z_RcjydoGkYGbnKX5Dw"
          }
       ```
-   - Logout
+   - Logout <br/>
      Πραγματοποιεί το logοut των χρηστών
       ```json
          Type: POST,
