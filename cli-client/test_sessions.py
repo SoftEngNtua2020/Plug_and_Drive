@@ -6,9 +6,7 @@ from pathlib import Path
 datefrom = "20190204"
 dateto = "20200204"
 
-home = str(Path.home())
-with open(home + '/softeng20bAPI.token', 'r') as file:
-	data = file.read().replace('\n', '')
+
 
 
 def capture(command):
@@ -18,6 +16,18 @@ def capture(command):
 	)
 	out,err = proc.communicate()
 	return out, err, proc.returncode
+
+def test_valid_login():
+	home = str(Path.home())
+	command = ["./login", "--username", "Chucho", "--passw", "password1"]
+	out, err, exitcode = capture(command)
+	assert os.path.exists(home + '/softeng20bAPI.token')
+	assert exitcode == 0
+	assert b"200" in out
+
+home = str(Path.home())
+file =  open(home + '/softeng20bAPI.token', 'r')
+data = file.read().replace('\n', '')
 
 def test_sessionsperevJS():
 	command = ["./SessionsPerEv", "--format", "json", "--datefrom", datefrom , "--dateto", dateto ,"--apikey", data, "--ev", "2"]
