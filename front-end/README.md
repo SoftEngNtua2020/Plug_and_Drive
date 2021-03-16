@@ -1,4 +1,4 @@
-# Fronted
+# Front-end
 
 ## Contents
 - User-friendly User Interface
@@ -47,4 +47,4 @@ Then the react web-app should open on your browser
 
 MIT
 
-**Free Software, Hell Yeah!**
+

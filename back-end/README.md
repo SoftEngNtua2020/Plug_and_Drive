@@ -3,12 +3,12 @@
 
 ![NodeJS](https://img.shields.io/badge/nodeJS-v7.3+-blue.svg)
 ![Express](https://img.shields.io/badge/express-v4.17.1+-red.svg)
-![Sequelize](https://img.shields.io/badge/express-v6.5+-green.svg)
+![Sequelize](https://img.shields.io/badge/sequelize-v6.5+-green.svg)
 ![mysql](https://img.shields.io/badge/mysql-v2.2.5+-blue.svg)
 ## Overview
 
 - Restfull Api Application, for [Plug&Drive] website. 
-- Api URL: [http://pluganddrive.ddns.net:8765]
+- Api URL: [https://pluganddrive.ddns.net:8765]
 - All the API Endpoints are described [app/README.md]
 
 ## NodeJS Packages
@@ -56,8 +56,6 @@ It can be found in folder [data]
 
 MIT
 
-**Free Software, Hell Yeah!**
 
 
-
-   [Plug&Drive]: http://pluganddrive.ddns.net
+   [Plug&Drive]: https://pluganddrive.ddns.net
