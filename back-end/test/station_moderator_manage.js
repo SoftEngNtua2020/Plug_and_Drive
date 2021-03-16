@@ -50,16 +50,12 @@ describe('Use case: Station Moderator manage', () => {
       it('it should modify (or create it if it does not exist) the station with the given data', (done) => {
         const Body = {
            "station":{
-              "station_id":201,
+              "station_id":203,
               "location":"Aboudabi",
               "company_name":"IKEA",
-              "phone_number":"2100000000",
+              "phone_number":"2100000001",
               "st_moderator_id":4,
               "provider_id":1
-              },
-           "point":{
-              "point_id": 201,
-              "station_id":201
               }
         }
         chai.request(server)

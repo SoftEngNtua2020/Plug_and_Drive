@@ -33,7 +33,7 @@ MIT
 
 
 
-   [Plug&Drive]: http://pluganddrive.ddns.net
+   [Plug&Drive]: http://localhost
 
 
 
