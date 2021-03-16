@@ -8,7 +8,7 @@ import os
 
 def logout(ar):
     home = str(Path.home())
-    url = 'https://pluganddrive.ddns.net:8765/evcharge/api/logout'
+    url = 'https://localhost:8765/evcharge/api/logout'
     headers = {'x-observatory-auth' : ar.apikey}
     res = requests.post(url, headers=headers, verify=False)
     print(res.status_code)

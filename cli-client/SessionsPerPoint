@@ -8,7 +8,7 @@ from prettytable import from_csv
 from prettytable import DEFAULT
 
 def sessions_per_point(ar):
-    url = 'https://pluganddrive.ddns.net:8765/evcharge/api/SessionsPerPoint/' + ar.point + '/' + str(ar.datefrom) + '/' + str(ar.dateto)
+    url = 'https://localhost:8765/evcharge/api/SessionsPerPoint/' + ar.point + '/' + str(ar.datefrom) + '/' + str(ar.dateto)
     if (ar.format == 'csv'):
         url = url + '?format=csv'
     #print(url)

@@ -16,7 +16,7 @@ export default class Home extends Component {
   }
 
   componentDidMount() {          //pairnei mia apanthsh apo backend (thn vazei sto state.content kai thn emfanizei sto render()).
-    axios.get("https://pluganddrive.ddns.net:8765/evcharge/api/getTotalBonus", { headers: authHeader() }).then(     //return axios.get(API_URL + 'getBonusPoints'); sto user.service.js
+    axios.get("https://localhost:8765/evcharge/api/getTotalBonus", { headers: authHeader() }).then(     //return axios.get(API_URL + 'getBonusPoints'); sto user.service.js
       response => {
         this.setState({
           content: response.data
