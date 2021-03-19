@@ -10,7 +10,13 @@ This project was conducted for the course of Software Engineering at the 2020-20
 The goal of the project was to develop an application that electric vehicle owners could use to charge their electrical vehicles with ease and track their charging session history, as well as enable other stakeholders such as charging station administrators and electrical vehicle manufacturers to access useful statistical analysis.
 
 **Demo** 
-[Plug&Drive](http://pluganddrive.ddns.net)
+Website: [Plug&Drive](http://pluganddrive.ddns.net)
+Users: 
+   ```json
+      "Owner": {"username":"Rusty","password":"password128"}
+      "Designer": {"username":"Stormie","password":"password52"}
+      "StationAdmin": {"username":"Vivianne","password":"password175"}
+   ```
 
 **Technical Details**
 
