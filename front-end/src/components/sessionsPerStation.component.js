@@ -5,7 +5,7 @@ import CheckButton from "react-validation/build/button";
 import authHeader from '../services/auth-header';
 import axios from 'axios';
 
-const URL = "https://pluganddrive.ddns.net:8765/evcharge/api/SessionsPerStation/"
+const URL = "http://pluganddrive.ddns.net:8765/evcharge/api/SessionsPerStation/"
 
 const required = value => {
   if (!value) {

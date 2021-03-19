@@ -9,7 +9,7 @@ from prettytable import DEFAULT
 
 
 def sessions_per_ev(ar):
-    url = 'https://pluganddrive.ddns.net:8765/evcharge/api/SessionsPerEV/' + ar.ev + '/' + str(ar.datefrom).replace("-","") + '/' + str(ar.dateto).replace("-","")
+    url = 'http://pluganddrive.ddns.net:8765/evcharge/api/SessionsPerEV/' + ar.ev + '/' + str(ar.datefrom).replace("-","") + '/' + str(ar.dateto).replace("-","")
     if (ar.format == 'csv'):
         url = url + '?format=csv'
     #print(url)

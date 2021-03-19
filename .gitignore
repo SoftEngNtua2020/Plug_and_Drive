@@ -3,6 +3,7 @@
 /.pnp
 .pnp.js
 /package-lock.json
+back-end/app/config/
 # testing
 /coverage
 

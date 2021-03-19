@@ -8,7 +8,7 @@ from pathlib import Path
 def healthcheck(ar):
     #print(ar)
     headers = {'x-observatory-auth' : ar.apikey}
-    res = requests.get('https://pluganddrive.ddns.net:8765/evcharge/api/admin/healthcheck', headers=headers, verify=False)
+    res = requests.get('http://pluganddrive.ddns.net:8765/evcharge/api/admin/healthcheck', headers=headers, verify=False)
     print(res.status_code)
     print(res.json())
     return True
@@ -17,7 +17,7 @@ def healthcheck(ar):
 def resetsessions(ar):
     #print(ar)
     headers = {'x-observatory-auth' : ar.apikey}
-    res = requests.post('https://pluganddrive.ddns.net:8765/evcharge/api/admin/resetsessions', headers=headers, verify=False)
+    res = requests.post('http://pluganddrive.ddns.net:8765/evcharge/api/admin/resetsessions', headers=headers, verify=False)
     print(res.status_code)
     print(res.json())
     return True
@@ -26,7 +26,7 @@ def resetsessions(ar):
 def usermod(ar):
     #print(ar)
     headers = {'x-observatory-auth' : ar.apikey}
-    res = requests.post('https://pluganddrive.ddns.net:8765/evcharge/api/admin/usermod/' + ar.username + '/' + ar.passw, headers=headers, verify=False)
+    res = requests.post('http://pluganddrive.ddns.net:8765/evcharge/api/admin/usermod/' + ar.username + '/' + ar.passw, headers=headers, verify=False)
     print(res.status_code)
     print(res.json())
     return True
@@ -34,7 +34,7 @@ def usermod(ar):
 def users(ar):
     #print(ar)
     headers = {'x-observatory-auth' : ar.apikey}
-    res = requests.get('https://pluganddrive.ddns.net:8765/evcharge/api/admin/users/' + ar.username, headers=headers, verify=False)
+    res = requests.get('http://pluganddrive.ddns.net:8765/evcharge/api/admin/users/' + ar.username, headers=headers, verify=False)
     print(res.status_code)
     print(res.json())
     return True
@@ -43,7 +43,7 @@ def sessionsupd(ar):
     #print(ar)
     headers = {'x-observatory-auth' : ar.apikey}
     files = {'file': open(ar.source, 'rb')}
-    res = requests.post('https://pluganddrive.ddns.net:8765/evcharge/api/admin/system/sessionsupd', headers=headers, files=files, verify=False)
+    res = requests.post('http://pluganddrive.ddns.net:8765/evcharge/api/admin/system/sessionsupd', headers=headers, files=files, verify=False)
     print(res)
     print(res.status_code)
     print(res.json())

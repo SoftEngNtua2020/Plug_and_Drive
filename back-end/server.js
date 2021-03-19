@@ -79,13 +79,18 @@ require('./app/routes/parkingAdmin/getStationData.routes')(app);
 // set port, listen for requests
 const PORT = process.env.PORT || 8765;
 
+// Activate Following lines for https usage
+/*
 https.createServer({
   key: fs.readFileSync('.cert/key.pem'),
   cert: fs.readFileSync('.cert/cert.pem')
 }, app).listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
-
+*/
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+});
 
 // Sync to DB
 const db = require("./app/models");

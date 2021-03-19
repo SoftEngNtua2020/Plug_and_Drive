@@ -8,7 +8,7 @@
 ## Overview
 
 - Restfull Api Application, for [Plug&Drive] website. 
-- Api URL: [https://pluganddrive.ddns.net:8765]
+- Api URL: [http://pluganddrive.ddns.net:8765]
 - All the API Endpoints are described [app/README.md]
 
 ## NodeJS Packages
@@ -58,4 +58,4 @@ MIT
 
 
 
-   [Plug&Drive]: https://pluganddrive.ddns.net
+   [Plug&Drive]: http://pluganddrive.ddns.net

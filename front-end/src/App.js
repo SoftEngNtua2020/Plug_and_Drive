@@ -69,22 +69,7 @@ class App extends Component {
     AuthService.logout();
   }
 
-  /*
-  {currentUser && (
-    <li className="nav-item">
-      <Link to={"/user"} className="nav-link">
-        User
-      </Link>
-    </li>
-  )}
-
-  <li className="nav-item">
-    <Link to={"/register"} className="nav-link">
-      Sign Up
-    </Link>
-  </li>
-  */
-
+// " USE next line for https instead of start": "HTTPS=true SSL_CRT_FILE=./.cert/cert.pem SSL_KEY_FILE=./.cert/key.pem react-scripts start",
   render() {
     const { currentUser, showModeratorBoard, showAdminBoard , showOwnerBoard, showDesignerBoard, showStationsBoard} = this.state;
 

@@ -5,7 +5,7 @@ import json
 
 def healthcheck(ar):
 	headers = {'x-observatory-auth' : ar.apikey}
-	res = requests.get('https://pluganddrive.ddns.net:8765/evcharge/api/admin/healthcheck', headers=headers, verify=False)
+	res = requests.get('http://pluganddrive.ddns.net:8765/evcharge/api/admin/healthcheck', headers=headers, verify=False)
 	print(res.status_code)
 	print(res.json())
 	return True
