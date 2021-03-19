@@ -21,8 +21,7 @@ For a quick installation
 
 1. Change the credentials for your database at the beginning of each file.
 
-2.  
-   ```bash
+2.   ```bash
       $ python3 addusers.py
       $ python3 addStations.py
       $ python3 addVehicles.py
