@@ -1,7 +1,7 @@
 # Front-end
 
 ## Contents
-- User-friendly User Interface
+- User-friendly Interface
 - Frontend functional testing (responsiveness with backend API's)
 
 ## React packages/modules:
@@ -16,32 +16,9 @@
 ## Installation:
 
 ```sh
-npm install react​ ​ --save
-```
-```sh
-npm install react-router-dom​ ​ --save
-```
-```sh
-npm install axios​ ​ --save
-```
-```sh
-npm install bootstrap​ --save
-```
-```sh
-npx create-react-app react-crud​
-```
-
-## Run the environment:
-while server is running: 
-
-```sh
-cd ../frontend/react_crud
-```
-```sh
+npm install
 npm start
 ```
-Then the react web-app should open on your browser
-
 
 ## License
 
