@@ -11,7 +11,6 @@ back-end/app/config/
 /build
 
 # misc
-.DS_Store
 .env.local
 .env.development.local
 .env.test.local
@@ -20,8 +19,8 @@ back-end/app/config/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-.DS_Store
+**/._*
+**/.DS_Store
 __pycache__/
 *.py[cod]
 *$py.class
