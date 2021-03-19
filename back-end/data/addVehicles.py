@@ -4,9 +4,9 @@ import numpy as np
 import pandas as pd
 import mysql.connector
 mydb = mysql.connector.connect(
-    host = "snf-17690.ok-kno.grnetcloud.net",
+    host = "******",
     user = "PnG",
-    passwd = "alexander",
+    passwd = "******",
     database = "test6"
 )
 mycursor = mydb.cursor()

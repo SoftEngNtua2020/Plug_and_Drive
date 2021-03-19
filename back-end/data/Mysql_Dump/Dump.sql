@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.23, for Win64 (x86_64)
 --
--- Host: snf-17690.ok-kno.grnetcloud.net    Database: test6
+-- Host: ******    Database: test6
 -- ------------------------------------------------------
 -- Server version	5.7.33-0ubuntu0.16.04.1
 

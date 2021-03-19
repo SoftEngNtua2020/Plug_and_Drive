@@ -8,7 +8,7 @@
 ## Overview
 
 - Restfull Api Application, for [Plug&Drive] website. 
-- Api URL: [http://pluganddrive.ddns.net:8765]
+- Api URL: [http://pluganddrive.ddns.net:8765](http://pluganddrive.ddns.net:8765)
 - All the API Endpoints are described [app/README.md]
 
 ## NodeJS Packages
@@ -46,7 +46,7 @@ For a quick installation
 $ npm install
 $ node server.js
 ```
-(The first time running the server uncomment the lines 98-101 in server.js file)
+(The first time running the server uncomment the [lines 98-101 in server.js] file)
 
 ## Data
 We randomly generated data to test the usage of the server. 
@@ -59,3 +59,6 @@ MIT
 
 
    [Plug&Drive]: http://pluganddrive.ddns.net
+   [app/README.md]: https://github.com/SoftEngNtua2020/Plug_and_Drive/blob/master/back-end/app/README.md
+   [data]: https://github.com/SoftEngNtua2020/Plug_and_Drive/tree/master/back-end/data
+   [lines 98-101 in server.js]: https://github.com/SoftEngNtua2020/Plug_and_Drive/blob/master/back-end/server.js#L101-L104
